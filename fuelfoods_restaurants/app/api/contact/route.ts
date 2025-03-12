@@ -6,6 +6,8 @@ const createTransporter = async () => {
   // Try Gmail first if credentials are available
   if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
     try {
+      console.log('Attempting to create Gmail transporter with user:', process.env.GMAIL_USER);
+      
       const gmailTransporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -28,10 +30,13 @@ const createTransporter = async () => {
       console.error('Error creating Gmail transporter:', gmailError);
       console.log('Falling back to Ethereal Email...');
     }
+  } else {
+    console.log('Gmail credentials not found in environment variables');
   }
   
   // Fallback to Ethereal Email for testing
   try {
+    console.log('Creating Ethereal Email test account...');
     const testAccount = await nodemailer.createTestAccount();
     
     // Log the test account credentials
@@ -50,7 +55,8 @@ const createTransporter = async () => {
           pass: testAccount.pass,
         },
       }),
-      isEthereal: true
+      isEthereal: true,
+      testAccount
     };
   } catch (error) {
     console.error('Error creating Ethereal Email transporter:', error);
@@ -60,11 +66,16 @@ const createTransporter = async () => {
 
 export async function POST(request: Request) {
   try {
+    console.log('Received contact form submission');
+    
     const body = await request.json();
     const { name, email, phone, message, formType, restaurant } = body;
 
+    console.log('Form data received:', { name, email, formType });
+
     // Validate the required fields
     if (!name || !email || !message) {
+      console.log('Missing required fields');
       return NextResponse.json(
         { error: 'Name, email, and message are required' },
         { status: 400 }
@@ -93,8 +104,10 @@ export async function POST(request: Request) {
       replyTo: email, // Set reply-to as the sender's email
     };
 
+    console.log('Creating email transporter...');
+    
     // Create transporter
-    const { transporter, isEthereal } = await createTransporter();
+    const { transporter, isEthereal, testAccount } = await createTransporter() as any;
     if (!transporter) {
       console.log('Email transporter not configured. Email would be sent to info@fuelfoods.store:');
       console.log(emailContent);
@@ -109,10 +122,13 @@ export async function POST(request: Request) {
 
     // Send email using Nodemailer
     try {
+      console.log('Sending email with transporter...');
       const info = await transporter.sendMail(mailOptions);
+      console.log('Email sent successfully with message ID:', info.messageId);
       
       // If using Ethereal Email, provide the preview URL
-      if (info.messageId && isEthereal) {
+      if (isEthereal) {
+        // Get the preview URL
         const previewURL = nodemailer.getTestMessageUrl(info);
         console.log('Message sent: %s', info.messageId);
         console.log('Preview URL: %s', previewURL);
@@ -121,7 +137,8 @@ export async function POST(request: Request) {
           success: true,
           previewURL: previewURL,
           messageId: info.messageId,
-          isTest: true
+          isTest: true,
+          provider: 'ethereal'
         });
       }
       
