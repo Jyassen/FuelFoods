@@ -130,7 +130,7 @@ export default function Showcase() {
           <h3 className="text-2xl font-serif font-bold mb-6 text-[#FF5722]">
             Edible Flowers
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {flowers.map((flower) => (
               <div
                 key={flower.name}
@@ -138,8 +138,8 @@ export default function Showcase() {
               >
                 <div className="
                   aspect-square
-                  mb-3
-                  p-4
+                  mb-2 md:mb-3
+                  p-2 md:p-4
                   flex
                   items-center
                   justify-center
@@ -158,14 +158,15 @@ export default function Showcase() {
                       alt={flower.name}
                       fill
                       className="object-contain"
+                      sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, 250px"
                       priority
                     />
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-white mb-1">
+                <h3 className="text-base md:text-lg font-medium text-white mb-1">
                   {flower.name}
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-xs md:text-sm text-gray-400 line-clamp-2">
                   {flower.description}
                 </p>
               </div>
@@ -178,7 +179,7 @@ export default function Showcase() {
           <h3 className="text-2xl font-serif font-bold mb-6 text-[#4CAF50]">
             Microgreens
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {microgreens.map((microgreen) => (
               <div
                 key={microgreen.name}
@@ -186,8 +187,8 @@ export default function Showcase() {
               >
                 <div className="
                   aspect-square
-                  mb-3
-                  p-4
+                  mb-2 md:mb-3
+                  p-2 md:p-4
                   flex
                   items-center
                   justify-center
@@ -206,14 +207,15 @@ export default function Showcase() {
                       alt={microgreen.name}
                       fill
                       className="object-contain"
+                      sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, 250px"
                       priority
                     />
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-white mb-1">
+                <h3 className="text-base md:text-lg font-medium text-white mb-1">
                   {microgreen.name}
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-xs md:text-sm text-gray-400 line-clamp-2">
                   {microgreen.description}
                 </p>
               </div>
@@ -222,8 +224,8 @@ export default function Showcase() {
         </div>
 
         {/* Quick Order Section */}
-        <div className="mt-12 bg-gray-900 rounded-2xl p-8 text-center">
-          <h3 className="text-[#FF5722] text-3xl font-bold mb-8 leading-tight">
+        <div className="mt-12 bg-gray-900 rounded-2xl p-6 md:p-8 text-center">
+          <h3 className="text-[#FF5722] text-2xl md:text-3xl font-bold mb-6 md:mb-8 leading-tight">
             Express your culinary creativity<br />
             and get started today!
           </h3>
