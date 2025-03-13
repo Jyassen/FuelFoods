@@ -66,6 +66,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({
@@ -76,9 +81,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${poppins.variable}`}>
       <body suppressHydrationWarning={true}>
-        <div className={`${inter.className} antialiased bg-black min-h-screen`}>
+        <div className={`${inter.className} antialiased bg-black min-h-screen pt-24`}>
           <Navbar />
-          {children}
+          <main className="pt-0 md:pt-0">
+            {children}
+          </main>
         </div>
       </body>
     </html>

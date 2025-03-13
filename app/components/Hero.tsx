@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 const heroImages = [
@@ -35,12 +34,34 @@ export default function Hero() {
   }, [])
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here
-    console.log(formData)
-    setIsModalOpen(false)
-    setFormData({ name: '', phone: '', email: '', message: '' })
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType: 'Hero Contact Form'
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        alert('Thank you for your message! We will get back to you soon.');
+        setIsModalOpen(false);
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        alert(`Error: ${data.error || 'Failed to send message'}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again later.');
+    }
   }
 
   // Handle form input changes
@@ -50,21 +71,21 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-[calc(100vh-7rem)] pt-8">
+    <section className="relative min-h-[calc(100vh-7rem)] pt-24 md:pt-8">
       {/* Gradient Overlay for Text Side */}
       <div className="absolute left-0 w-full md:w-1/2 h-full z-[1] bg-black/90" />
       
       <div className="container mx-auto h-full relative z-10">
-        <div className="grid md:grid-cols-2 h-full">
+        <div className="grid md:grid-cols-2 h-full gap-8 md:gap-0">
           <div className="flex flex-col justify-center px-4 md:px-8 lg:px-16 space-y-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight">
               <span className="text-[#FF5722]">Fuel</span> Your Menu with Freshness
             </h1>
             <p className="text-gray-300 text-lg md:text-xl max-w-xl">
-              Premium locally-grown microgreens and edible flowers for NYC's finest restaurants. 
+              Premium locally-grown microgreens and edible flowers for NYC&apos;s finest restaurants. 
               Elevate your dishes with sustainable, nutrient-dense ingredients.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={() => {
                   document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })
@@ -82,8 +103,8 @@ export default function Hero() {
             </div>
           </div>
           
-          <div className="relative h-full flex items-center justify-center">
-            <div className="relative w-[500px] h-[500px] max-w-full aspect-square">
+          <div className="relative flex items-center justify-center px-4 md:px-0">
+            <div className="relative w-full max-w-[350px] md:max-w-[500px] h-[350px] md:h-[500px] mx-auto">
               {heroImages.map((image, index) => (
                 <div
                   key={image.src}
@@ -96,15 +117,15 @@ export default function Hero() {
                       src={image.src}
                       alt={image.title}
                       fill
-                      className="object-cover object-center scale-[1.02]"
+                      className="object-contain md:object-cover object-center"
                       priority={index === 0}
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 90vw, 50vw"
                     />
                   </div>
                   
                   {/* Title */}
                   <div className="absolute bottom-4 left-0 right-0 text-center">
-                    <p className="font-['Poppins'] text-sm font-medium tracking-wide bg-black py-2 px-4 rounded-full inline-block text-white">
+                    <p className="font-['Poppins'] text-xs md:text-sm font-medium tracking-wide bg-black py-2 px-4 rounded-full inline-block text-white max-w-[90%] truncate">
                       {image.title}
                     </p>
                   </div>

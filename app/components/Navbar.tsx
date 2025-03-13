@@ -5,14 +5,6 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import CatalogModal from './CatalogModal'
 
-// Brand colors from the logo
-const colors = {
-  primary: '#4CAF50',    // Green from the circle and leaves
-  secondary: '#FF5722',  // Orange from "Fuel"
-  accent: '#FFC107',     // Yellow from the lightning bolt
-  text: '#FFFFFF',       // White from "Foods"
-}
-
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCatalogOpen, setIsCatalogOpen] = useState(false)
@@ -30,12 +22,12 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav className="static bg-black/90 backdrop-blur-sm">
-      <div className="container mx-auto px-0 sm:px-0 lg:px-0">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <div className="relative w-[180px] h-[80px]">
+            <div className="relative w-[150px] h-[60px] md:w-[180px] md:h-[80px]">
               <Image
                 src="/images/brand/Logo.png"
                 alt="FuelFoods"
@@ -87,6 +79,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-[#4CAF50] focus:outline-none"
+              aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (
@@ -104,7 +97,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden fixed inset-x-0 bg-black">
+          <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto">
             <div className="py-8 flex flex-col items-center justify-center space-y-6">
               <Link
                 href="https://fuelfoods.store/about-us/"
