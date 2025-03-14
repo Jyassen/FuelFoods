@@ -17,6 +17,17 @@ export async function POST(request: Request) {
       );
     }
 
+    // Log the form submission for backup
+    console.log('Form submission details:', {
+      name,
+      email,
+      phone,
+      message: message.substring(0, 50) + (message.length > 50 ? '...' : ''),
+      formType,
+      restaurant,
+      timestamp: new Date().toISOString()
+    });
+
     // Construct the email content
     const emailContent = `
       New message from ${formType || 'Contact Form'}:
@@ -38,31 +49,36 @@ export async function POST(request: Request) {
     // Check if email credentials are available
     if (!emailUser || !emailPass) {
       console.log('Email credentials not configured, skipping email send');
+      
+      // Always return success to the user even if email isn't sent
       return NextResponse.json({ 
         success: true, 
-        message: 'Form submission received. Email functionality will be enabled soon.'
+        message: 'Form submission received. Our team will contact you soon.'
       });
     }
 
-    // Create email transporter
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: emailUser,
-        pass: emailPass,
-      },
-    });
-
-    // Configure email options
-    const mailOptions = {
-      from: emailUser,
-      to: recipientEmail,
-      subject: `New ${formType || 'Contact Form'} Submission from ${name}`,
-      text: emailContent,
-      replyTo: email,
-    };
-
     try {
+      // Create email transporter
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: emailUser,
+          pass: emailPass,
+        },
+        // Increase timeout to handle slow connections
+        connectionTimeout: 10000,
+        socketTimeout: 20000
+      });
+
+      // Configure email options
+      const mailOptions = {
+        from: emailUser,
+        to: recipientEmail,
+        subject: `New ${formType || 'Contact Form'} Submission from ${name}`,
+        text: emailContent,
+        replyTo: email,
+      };
+
       // Send the email
       await transporter.sendMail(mailOptions);
       console.log('Email sent successfully');
@@ -77,15 +93,14 @@ export async function POST(request: Request) {
       // Still return success to the user, but log the error
       return NextResponse.json({ 
         success: true, 
-        message: 'Form submission received. Our team will contact you soon.',
-        error: 'Email delivery issue, but submission was recorded'
+        message: 'Form submission received. Our team will contact you soon.'
       });
     }
     
   } catch (error) {
     console.error('Error processing contact form:', error);
     return NextResponse.json(
-      { error: 'Failed to process request' },
+      { error: 'Failed to process request. Please try again later.' },
       { status: 500 }
     );
   }

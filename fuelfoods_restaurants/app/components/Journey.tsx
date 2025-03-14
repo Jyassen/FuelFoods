@@ -47,6 +47,8 @@ export default function Journey() {
     setSubmitStatus({})
     
     try {
+      console.log('Submitting partnership form data:', formData);
+      
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -59,6 +61,7 @@ export default function Journey() {
       })
       
       const data = await response.json()
+      console.log('Partnership form response received:', data);
       
       if (response.ok) {
         setSubmitStatus({
@@ -67,6 +70,10 @@ export default function Journey() {
         })
         // Reset form after successful submission
         setFormData({ name: '', restaurant: '', email: '', message: '' })
+        // Keep success message visible for 5 seconds
+        setTimeout(() => {
+          setSubmitStatus({})
+        }, 5000)
       } else {
         setSubmitStatus({
           success: false,
@@ -128,7 +135,7 @@ export default function Journey() {
             <h3 className="text-2xl font-bold mb-6">Start working with us!</h3>
             
             {submitStatus.message && (
-              <div className={`p-4 mb-4 rounded-lg ${submitStatus.success ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200'}`}>
+              <div className={`p-4 mb-6 rounded-lg ${submitStatus.success ? 'bg-green-900/50 text-green-200 border border-green-800' : 'bg-red-900/50 text-red-200 border border-red-800'}`}>
                 {submitStatus.message}
               </div>
             )}

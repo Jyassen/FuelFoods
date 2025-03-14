@@ -26,6 +26,8 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
     setSubmitStatus({})
     
     try {
+      console.log('Submitting form data:', formData);
+      
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -38,6 +40,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
       })
       
       const data = await response.json()
+      console.log('Response received:', data);
       
       if (response.ok) {
         setSubmitStatus({
@@ -46,11 +49,11 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
         })
         // Reset form after successful submission
         setFormData({ name: '', phone: '', email: '', message: '' })
-        // Close modal after 2 seconds
+        // Close modal after 3 seconds
         setTimeout(() => {
           onClose()
           setSubmitStatus({})
-        }, 2000)
+        }, 3000)
       } else {
         setSubmitStatus({
           success: false,
@@ -77,7 +80,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
-      <div className="bg-black border border-gray-800 rounded-3xl p-8 max-w-md w-full relative animate-fade-up">
+      <div className="bg-black border border-gray-800 rounded-3xl p-8 max-w-md w-full relative">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -91,7 +94,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
         <h2 className="text-2xl font-bold mb-6">Set Up Your Order</h2>
         
         {submitStatus.message && (
-          <div className={`p-4 mb-4 rounded-lg ${submitStatus.success ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200'}`}>
+          <div className={`p-4 mb-6 rounded-lg ${submitStatus.success ? 'bg-green-900/50 text-green-200 border border-green-800' : 'bg-red-900/50 text-red-200 border border-red-800'}`}>
             {submitStatus.message}
           </div>
         )}
