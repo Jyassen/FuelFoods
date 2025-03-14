@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 
+// Define the handler for POST requests
 export async function POST(request: Request) {
   try {
     console.log('Received contact form submission');
@@ -35,6 +36,7 @@ export async function POST(request: Request) {
     });
     
   } catch (error) {
+    console.error('Error processing contact form:', error);
     return NextResponse.json(
       { error: 'Failed to process request' },
       { status: 500 }
@@ -42,5 +44,11 @@ export async function POST(request: Request) {
   }
 }
 
-// Ensure the file is recognized as a module
-export const runtime = 'edge'; // Optional: Use Edge runtime 
+// Define a GET handler to ensure the file is recognized as a proper route module
+export async function GET() {
+  return NextResponse.json({ message: 'Contact API endpoint is working' });
+}
+
+// Export configuration
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs'; 
