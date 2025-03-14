@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 const faqs = [
   {
@@ -23,6 +24,65 @@ const faqs = [
 
 export default function Journey() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [formData, setFormData] = useState({
+    name: '',
+    restaurant: '',
+    email: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    success?: boolean;
+    message?: string;
+  }>({})
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus({})
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType: 'Partnership Request Form'
+        }),
+      })
+      
+      const data = await response.json()
+      
+      if (response.ok) {
+        setSubmitStatus({
+          success: true,
+          message: data.message || 'Thank you for your message! We will get back to you soon.'
+        })
+        // Reset form after successful submission
+        setFormData({ name: '', restaurant: '', email: '', message: '' })
+      } else {
+        setSubmitStatus({
+          success: false,
+          message: data.error || 'Something went wrong. Please try again.'
+        })
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus({
+        success: false,
+        message: 'Network error. Please check your connection and try again.'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <section className="py-20 px-4 md:px-8 lg:px-16 bg-black">
@@ -64,8 +124,15 @@ export default function Journey() {
             </div>
           </div>
           
-          <form className="bg-gray-900 rounded-2xl p-8">
+          <form onSubmit={handleSubmit} className="bg-gray-900 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-6">Start working with us!</h3>
+            
+            {submitStatus.message && (
+              <div className={`p-4 mb-4 rounded-lg ${submitStatus.success ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200'}`}>
+                {submitStatus.message}
+              </div>
+            )}
+            
             <div className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -74,8 +141,13 @@ export default function Journey() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
                   placeholder="Your full name"
+                  required
+                  disabled={isSubmitting}
                 />
               </div>
               
@@ -86,8 +158,13 @@ export default function Journey() {
                 <input
                   type="text"
                   id="restaurant"
+                  name="restaurant"
+                  value={formData.restaurant}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
                   placeholder="Your restaurant name"
+                  required
+                  disabled={isSubmitting}
                 />
               </div>
               
@@ -98,8 +175,13 @@ export default function Journey() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
                   placeholder="your@restaurant.com"
+                  required
+                  disabled={isSubmitting}
                 />
               </div>
               
@@ -109,17 +191,23 @@ export default function Journey() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4}
                   className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
                   placeholder="What types of products are you interested in? What quantities do you need?"
+                  required
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
               
               <button
                 type="submit"
-                className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
               >
-                Request Partnership
+                {isSubmitting ? 'Submitting...' : 'Request Partnership'}
               </button>
             </div>
           </form>
