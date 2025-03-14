@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import useFormSubmission from '../hooks/useFormSubmission'
 
 const faqs = [
   {
@@ -23,201 +24,147 @@ const faqs = [
 ]
 
 export default function Journey() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [formData, setFormData] = useState({
-    name: '',
-    restaurant: '',
-    email: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<{
-    success?: boolean;
-    message?: string;
-  }>({})
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus({})
-    
-    try {
-      console.log('Submitting partnership form data:', formData);
-      
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          formType: 'Partnership Request Form'
-        }),
-      })
-      
-      const data = await response.json()
-      console.log('Partnership form response received:', data);
-      
-      if (response.ok) {
-        setSubmitStatus({
-          success: true,
-          message: data.message || 'Thank you for your message! We will get back to you soon.'
-        })
-        // Reset form after successful submission
-        setFormData({ name: '', restaurant: '', email: '', message: '' })
-        // Keep success message visible for 5 seconds
-        setTimeout(() => {
-          setSubmitStatus({})
-        }, 5000)
-      } else {
-        setSubmitStatus({
-          success: false,
-          message: data.error || 'Something went wrong. Please try again.'
-        })
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      setSubmitStatus({
-        success: false,
-        message: 'Network error. Please check your connection and try again.'
-      })
-    } finally {
-      setIsSubmitting(false)
+  // Use our custom form hook
+  const {
+    formData,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+    submitStatus,
+    resetForm
+  } = useFormSubmission(
+    {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+      restaurant: ''
+    },
+    {
+      formType: 'Partnership Form',
+      resetAfterSubmit: true,
+      successTimeout: 5000 // 5 seconds
     }
-  }
+  );
 
   return (
-    <section className="py-20 px-4 md:px-8 lg:px-16 bg-black">
-      <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#4CAF50]">
-              Partner with NYC&apos;s Premier Black-Owned Microgreens Supplier
-            </h2>
-            <p className="text-gray-400 mb-8">
-              Join leading restaurants in New York City who trust us for their premium
-              microgreens and edible flowers. Experience our commitment to quality,
-              sustainability, and innovation.
-            </p>
-            
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div 
-                  key={index}
-                  className="border-b border-gray-800 pb-4"
-                >
-                  <button
-                    className="w-full flex justify-between items-center text-left"
-                    onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                  >
-                    <span className="text-lg font-medium">{faq.question}</span>
-                    <span className="text-2xl">
-                      {activeIndex === index ? '−' : '+'}
-                    </span>
-                  </button>
-                  
-                  {activeIndex === index && (
-                    <p className="mt-4 text-gray-400">
-                      {faq.answer}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+    <section id="journey" className="py-20 bg-black">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Start Your <span className="text-[#4CAF50]">Partnership</span> Journey
+          </h2>
           
-          <form onSubmit={handleSubmit} className="bg-gray-900 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-6">Start working with us!</h3>
-            
-            {submitStatus.message && (
-              <div className={`p-4 mb-6 rounded-lg ${submitStatus.success ? 'bg-green-900/50 text-green-200 border border-green-800' : 'bg-red-900/50 text-red-200 border border-red-800'}`}>
-                {submitStatus.message}
-              </div>
-            )}
-            
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
-                  placeholder="Your full name"
-                  required
-                  disabled={isSubmitting}
-                />
+          <div className="bg-gray-900 rounded-xl p-6 md:p-8 shadow-xl">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="restaurant" className="block text-sm font-medium text-gray-300 mb-2">
+                    Restaurant Name
+                  </label>
+                  <input
+                    type="text"
+                    id="restaurant"
+                    name="restaurant"
+                    value={formData.restaurant}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
+                  />
+                </div>
               </div>
               
               <div>
-                <label htmlFor="restaurant" className="block text-sm font-medium mb-2">
-                  Restaurant Name
-                </label>
-                <input
-                  type="text"
-                  id="restaurant"
-                  name="restaurant"
-                  value={formData.restaurant}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
-                  placeholder="Your restaurant name"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Business Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
-                  placeholder="your@restaurant.com"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Tell us about your needs
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Message *
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
-                  placeholder="What types of products are you interested in? What quantities do you need?"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
-                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
+                  placeholder="Tell us about your restaurant and what you're looking for..."
                 ></textarea>
               </div>
               
-              <button
-                type="submit"
-                className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Submitting...' : 'Request Partnership'}
-              </button>
-            </div>
-          </form>
+              {/* Status Message */}
+              {submitStatus.message && (
+                <div 
+                  className={`p-4 rounded-lg border ${
+                    submitStatus.success 
+                      ? 'bg-green-900/50 text-green-200 border-green-800' 
+                      : 'bg-red-900/50 text-red-200 border-red-800'
+                  }`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+              
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-[#45a049] transition-colors ${
+                    isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                  }`}
+                >
+                  {isSubmitting ? 'Sending...' : 'Start Partnership'}
+                </button>
+              </div>
+            </form>
+          </div>
+          
+          <div className="mt-12 text-center text-gray-400">
+            <p>
+              Join the growing community of restaurants that trust FuelFoods for their premium microgreens and edible flowers.
+            </p>
+          </div>
         </div>
       </div>
     </section>
