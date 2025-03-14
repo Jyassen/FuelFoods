@@ -40,4 +40,7 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-} 
+}
+
+// Ensure the file is recognized as a module
+export const runtime = 'edge'; // Optional: Use Edge runtime 
