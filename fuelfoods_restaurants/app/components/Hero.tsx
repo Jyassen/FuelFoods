@@ -28,7 +28,7 @@ export default function Hero() {
     {
       formType: 'Hero Form',
       resetAfterSubmit: true,
-      successTimeout: 5000 // 5 seconds
+      successTimeout: 8000 // 8 seconds to ensure user sees the message
     }
   );
 
@@ -76,6 +76,25 @@ export default function Hero() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isFormVisible]);
+
+  // Close form after successful submission with delay
+  useEffect(() => {
+    if (submitStatus.success && isFormVisible) {
+      console.log('Hero form submitted successfully, will close form after delay');
+      const timer = setTimeout(() => {
+        setIsFormVisible(false);
+        resetForm();
+      }, 5000); // 5 seconds to show success message before closing
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus.success, isFormVisible, resetForm]);
+
+  // Handle form submission with explicit prevention of page refresh
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Hero: Submitting form');
+    handleSubmit(e);
+  };
 
   return (
     <section className="relative h-[90vh]">
@@ -154,14 +173,14 @@ export default function Hero() {
                 </button>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={onSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="hero-name" className="block text-sm font-medium text-gray-700">
                     Name *
                   </label>
                   <input
                     type="text"
-                    id="name"
+                    id="hero-name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -171,12 +190,12 @@ export default function Hero() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="hero-email" className="block text-sm font-medium text-gray-700">
                     Email *
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    id="hero-email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -186,12 +205,12 @@ export default function Hero() {
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="hero-phone" className="block text-sm font-medium text-gray-700">
                     Phone
                   </label>
                   <input
                     type="tel"
-                    id="phone"
+                    id="hero-phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
@@ -200,12 +219,12 @@ export default function Hero() {
                 </div>
                 
                 <div>
-                  <label htmlFor="restaurant" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="hero-restaurant" className="block text-sm font-medium text-gray-700">
                     Restaurant Name
                   </label>
                   <input
                     type="text"
-                    id="restaurant"
+                    id="hero-restaurant"
                     name="restaurant"
                     value={formData.restaurant}
                     onChange={handleChange}
@@ -214,11 +233,11 @@ export default function Hero() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="hero-message" className="block text-sm font-medium text-gray-700">
                     Message *
                   </label>
                   <textarea
-                    id="message"
+                    id="hero-message"
                     name="message"
                     rows={4}
                     value={formData.message}
@@ -228,16 +247,17 @@ export default function Hero() {
                   />
                 </div>
                 
-                {/* Status Message */}
+                {/* Status Message - Made more prominent */}
                 {submitStatus.message && (
                   <div 
-                    className={`p-3 rounded-md border ${
+                    className={`p-4 rounded-md border ${
                       submitStatus.success 
-                        ? 'bg-green-50 border-green-500 text-green-700' 
-                        : 'bg-red-50 border-red-500 text-red-700'
+                        ? 'bg-green-100 border-green-500 text-green-700' 
+                        : 'bg-red-100 border-red-500 text-red-700'
                     }`}
                   >
-                    {submitStatus.message}
+                    <p className="font-medium">{submitStatus.success ? 'Success!' : 'Error'}</p>
+                    <p>{submitStatus.message}</p>
                   </div>
                 )}
                 

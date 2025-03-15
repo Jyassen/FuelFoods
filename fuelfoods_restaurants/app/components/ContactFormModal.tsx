@@ -28,17 +28,18 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
     {
       formType: 'Contact Modal',
       resetAfterSubmit: true,
-      successTimeout: 5000 // 5 seconds
+      successTimeout: 8000 // 8 seconds to ensure user sees the message
     }
   );
 
-  // Close modal after successful submission
+  // Close modal after successful submission with delay
   useEffect(() => {
     if (submitStatus.success) {
+      console.log('Form submitted successfully, will close modal after delay');
       const timer = setTimeout(() => {
         onClose();
         resetForm();
-      }, 3000); // 3 seconds to show success message before closing
+      }, 5000); // 5 seconds to show success message before closing
       return () => clearTimeout(timer);
     }
   }, [submitStatus.success, onClose, resetForm]);
@@ -63,6 +64,13 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen, onClose]);
 
+  // Handle form submission with explicit prevention of page refresh
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('ContactFormModal: Submitting form');
+    handleSubmit(e);
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -81,7 +89,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
             </button>
           </div>
           
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={onSubmit} className="space-y-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                 Name *
@@ -155,16 +163,17 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
               />
             </div>
             
-            {/* Status Message */}
+            {/* Status Message - Made more prominent */}
             {submitStatus.message && (
               <div 
-                className={`p-3 rounded-md border ${
+                className={`p-4 rounded-md border ${
                   submitStatus.success 
-                    ? 'bg-green-50 border-green-500 text-green-700' 
-                    : 'bg-red-50 border-red-500 text-red-700'
+                    ? 'bg-green-100 border-green-500 text-green-700' 
+                    : 'bg-red-100 border-red-500 text-red-700'
                 }`}
               >
-                {submitStatus.message}
+                <p className="font-medium">{submitStatus.success ? 'Success!' : 'Error'}</p>
+                <p>{submitStatus.message}</p>
               </div>
             )}
             

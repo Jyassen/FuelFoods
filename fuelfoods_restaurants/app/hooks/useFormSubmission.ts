@@ -35,6 +35,11 @@ export default function useFormSubmission(
 
   const resetForm = () => {
     setFormData(initialData);
+    // Don't clear status message here to ensure it remains visible
+  };
+
+  const clearStatus = () => {
+    setSubmitStatus({});
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -77,7 +82,8 @@ export default function useFormSubmission(
         });
         
         if (options.resetAfterSubmit) {
-          resetForm();
+          // Reset form data but keep the success message visible
+          setFormData(initialData);
         }
         
         // Clear success message after timeout if specified
@@ -109,6 +115,7 @@ export default function useFormSubmission(
     handleSubmit,
     isSubmitting,
     submitStatus,
-    resetForm
+    resetForm,
+    clearStatus
   };
 } 

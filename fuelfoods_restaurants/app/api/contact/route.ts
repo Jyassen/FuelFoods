@@ -23,6 +23,8 @@ function logSubmission(data: any) {
         timestamp: new Date().toISOString()
       }, null, 2)
     );
+    
+    console.log(`Submission saved to file for ${email}`);
   } catch (error) {
     console.error('Failed to save submission to file:', error);
     // Continue execution even if file saving fails
@@ -75,6 +77,8 @@ export async function POST(request: Request) {
     const emailPass = process.env.GMAIL_APP_PASSWORD;
     const recipientEmail = process.env.RECIPIENT_EMAIL || emailUser;
 
+    console.log(`Email configuration: User=${emailUser}, Recipient=${recipientEmail}, Password configured=${!!emailPass}`);
+
     // Check if email credentials are available
     if (!emailUser || !emailPass) {
       console.warn('Email credentials not configured, skipping email send');
@@ -104,6 +108,8 @@ export async function POST(request: Request) {
         text: emailContent,
         replyTo: email,
       };
+
+      console.log(`Attempting to send email to ${recipientEmail}`);
 
       // Send email with timeout handling
       const emailResult = await Promise.race([

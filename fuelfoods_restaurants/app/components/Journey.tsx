@@ -43,9 +43,24 @@ export default function Journey() {
     {
       formType: 'Partnership Form',
       resetAfterSubmit: true,
-      successTimeout: 5000 // 5 seconds
+      successTimeout: 8000 // 8 seconds to ensure user sees the message
     }
   );
+
+  // Handle form submission with explicit prevention of page refresh
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Journey: Submitting form');
+    handleSubmit(e);
+    
+    // Scroll to the form to ensure the user sees the status message
+    if (e.target) {
+      const form = e.target as HTMLFormElement;
+      setTimeout(() => {
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+  };
 
   return (
     <section id="journey" className="py-20 bg-black">
@@ -56,15 +71,15 @@ export default function Journey() {
           </h2>
           
           <div className="bg-gray-900 rounded-xl p-6 md:p-8 shadow-xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={onSubmit} className="space-y-6" id="partnership-form">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="journey-name" className="block text-sm font-medium text-gray-300 mb-2">
                     Name *
                   </label>
                   <input
                     type="text"
-                    id="name"
+                    id="journey-name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -74,12 +89,12 @@ export default function Journey() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="journey-email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email *
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    id="journey-email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -89,12 +104,12 @@ export default function Journey() {
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="journey-phone" className="block text-sm font-medium text-gray-300 mb-2">
                     Phone
                   </label>
                   <input
                     type="tel"
-                    id="phone"
+                    id="journey-phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
@@ -103,12 +118,12 @@ export default function Journey() {
                 </div>
                 
                 <div>
-                  <label htmlFor="restaurant" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="journey-restaurant" className="block text-sm font-medium text-gray-300 mb-2">
                     Restaurant Name
                   </label>
                   <input
                     type="text"
-                    id="restaurant"
+                    id="journey-restaurant"
                     name="restaurant"
                     value={formData.restaurant}
                     onChange={handleChange}
@@ -118,11 +133,11 @@ export default function Journey() {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="journey-message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message *
                 </label>
                 <textarea
-                  id="message"
+                  id="journey-message"
                   name="message"
                   rows={4}
                   value={formData.message}
@@ -133,7 +148,7 @@ export default function Journey() {
                 ></textarea>
               </div>
               
-              {/* Status Message */}
+              {/* Status Message - Made more prominent */}
               {submitStatus.message && (
                 <div 
                   className={`p-4 rounded-lg border ${
@@ -142,7 +157,8 @@ export default function Journey() {
                       : 'bg-red-900/50 text-red-200 border-red-800'
                   }`}
                 >
-                  {submitStatus.message}
+                  <p className="font-medium">{submitStatus.success ? 'Success!' : 'Error'}</p>
+                  <p>{submitStatus.message}</p>
                 </div>
               )}
               
