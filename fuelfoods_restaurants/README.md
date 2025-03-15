@@ -1,6 +1,30 @@
 # FuelFoods Restaurant Website
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A modern, responsive website for FuelFoods, showcasing premium microgreens and edible flowers for restaurants and professional kitchens.
+
+## Features
+
+- Mobile-friendly design with responsive navigation
+- Contact forms with email notification system
+- Product catalog display
+- Professional kitchen features showcase
+- Partnership journey section
+
+## Technical Details
+
+- Built with Next.js 15
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Nodemailer for email functionality
+- Deployed on Vercel
+
+## Contact
+
+For more information, contact info@fuelfoods.store
+
+## Deployment
+
+The site is deployed at [FuelFoods Culinary](https://fuelfoods-culinaryfinal-g3u89t4g8-jiyassen-gmailcoms-projects.vercel.app/)
 
 ## Getting Started
 

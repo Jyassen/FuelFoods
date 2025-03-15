@@ -55,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FuelFoods - Elevate Your Culinary Experience",
-    description: "Experience exceptional dining with FuelFoods. Fresh ingredients, expert chefs, and unforgettable flavors.",
-    images: ["./twitter-image.jpg"],
+    title: "FuelFoods - Premium Microgreens for Restaurants",
+    description: "Premium microgreens and edible flowers for restaurants and professional kitchens. Locally grown, pesticide-free, and delivered fresh.",
+    images: ["/images/brand/Logo.png"],
     creator: "@fuelfoods",
   },
   robots: {
