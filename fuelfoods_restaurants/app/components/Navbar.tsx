@@ -3,10 +3,22 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FaBars, FaTimes } from 'react-icons/fa'
 import ContactFormModal from './ContactFormModal'
 import SafeImage from './SafeImage'
 import CatalogModal from './CatalogModal'
+
+// Custom SVG icons to replace react-icons
+const MenuIcon = () => (
+  <svg className="h-6 w-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+    <path d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg className="h-6 w-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+    <path d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -120,11 +132,7 @@ export default function Navbar() {
               className="text-white focus:outline-none"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {isMenuOpen ? (
-                <FaTimes className="h-6 w-6" />
-              ) : (
-                <FaBars className="h-6 w-6" />
-              )}
+              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </div>
         </div>
