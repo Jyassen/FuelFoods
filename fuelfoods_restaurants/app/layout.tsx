@@ -24,29 +24,34 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: {
-    template: "%s | FuelFoods",
-    default: "FuelFoods - Elevate Your Culinary Experience",
-  },
-  description: "Experience exceptional dining with FuelFoods. Fresh ingredients, expert chefs, and unforgettable flavors.",
+  title: 'FuelFoods - Premium Microgreens for Restaurants',
+  description: 'Premium microgreens and edible flowers for restaurants and professional kitchens. Locally grown, pesticide-free, and delivered fresh.',
   keywords: ["restaurant", "fine dining", "culinary experience", "gourmet food", "chef-prepared meals"],
   authors: [{ name: "FuelFoods" }],
   creator: "FuelFoods",
+  icons: {
+    icon: [
+      { url: '/images/brand/Logo.png' },
+      { url: '/images/brand/Logo.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/brand/Logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/brand/Logo.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/brand/Logo.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/images/brand/Logo.png',
+    apple: '/images/brand/Logo.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/images/brand/Logo.png',
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "./",
     siteName: "FuelFoods",
-    title: "FuelFoods - Elevate Your Culinary Experience",
-    description: "Experience exceptional dining with FuelFoods. Fresh ingredients, expert chefs, and unforgettable flavors.",
-    images: [
-      {
-        url: "./og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "FuelFoods Culinary Experience",
-      },
-    ],
+    title: 'FuelFoods - Premium Microgreens for Restaurants',
+    description: 'Premium microgreens and edible flowers for restaurants and professional kitchens. Locally grown, pesticide-free, and delivered fresh.',
+    images: ['/images/brand/Logo.png'],
   },
   twitter: {
     card: "summary_large_image",
@@ -80,6 +85,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${poppins.variable}`}>
+      <head>
+        <link rel="icon" href="/images/brand/Logo.png" />
+        <link rel="apple-touch-icon" href="/images/brand/Logo.png" />
+        <link rel="shortcut icon" href="/images/brand/Logo.png" />
+      </head>
       <body suppressHydrationWarning={true}>
         <div className={`${inter.className} antialiased bg-black min-h-screen pt-24`}>
           <Navbar />

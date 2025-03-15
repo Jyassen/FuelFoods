@@ -5,13 +5,12 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-black">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          {/* Logo and Description */}
-          <div>
+    <footer className="bg-black text-white py-12 border-t border-gray-800">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div className="mb-6 md:mb-0">
             <Link href="/" className="inline-block">
-              <div className="relative w-[120px] h-[50px]">
+              <div className="relative w-[150px] h-[60px]">
                 <Image
                   src="/images/brand/Logo.png"
                   alt="FuelFoods"
@@ -20,14 +19,11 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-sm text-gray-400 mt-2">
-              NYC's Premier Black-Owned<br />Microgreens Supplier
-            </p>
-            <p className="text-gray-400 text-sm">
-              We&apos;re committed to sustainable farming practices and supporting local communities.
+            <p className="text-gray-400 mt-2 max-w-md">
+              Premium microgreens and edible flowers for restaurants and professional kitchens.
             </p>
           </div>
-
+          
           {/* Navigation */}
           <div>
             <h3 className="text-xl font-bold mb-4">Navigation</h3>
@@ -97,12 +93,9 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
-        {/* Copyright */}
-        <div className="mt-8 pt-4 border-t border-gray-800">
-          <p className="text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} FuelFoods. All rights reserved.
-          </p>
+        
+        <div className="text-center text-gray-500 text-sm mt-8">
+          <p>&copy; {new Date().getFullYear()} FuelFoods. All rights reserved.</p>
         </div>
       </div>
     </footer>
