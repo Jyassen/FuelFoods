@@ -11,8 +11,8 @@ export default function Features() {
   return (
     <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-black">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-4">
-          Designed for Professional Kitchens
+        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-4 text-white relative z-10">
+          <span className="text-white">Designed for</span> Professional Kitchens
         </h2>
         <p className="text-gray-400 text-center max-w-2xl mx-auto mb-20">
           We understand what matters most to chefs: consistent quality, reliable supply,
@@ -38,7 +38,7 @@ export default function Features() {
             <div className="text-[#4CAF50] mb-6 flex justify-center">
               <IconDollar className="w-16 h-16" />
             </div>
-            <h3 className="text-3xl font-bold mb-6 text-center">Cost-Effective Pricing</h3>
+            <h3 className="text-3xl font-bold mb-6 text-center text-white">Cost-Effective Pricing</h3>
             <p className="text-gray-400 text-xl leading-relaxed text-center">
               Enjoy the freshest ingredients delivered fresh to your kitchen and priced fairly 
               so you can focus on what matters most, creating top notch culinary experiences.

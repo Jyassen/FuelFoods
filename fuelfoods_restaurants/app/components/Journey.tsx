@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import useFormSubmission from '../hooks/useFormSubmission'
 
@@ -24,6 +24,8 @@ const faqs = [
 ]
 
 export default function Journey() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  
   // Use our custom form hook
   const {
     formData,
@@ -43,23 +45,37 @@ export default function Journey() {
     {
       formType: 'Partnership Form',
       resetAfterSubmit: true,
-      successTimeout: 8000 // 8 seconds to ensure user sees the message
+      successTimeout: 10000 // 10 seconds to ensure user sees the message
     }
   );
+
+  // Effect to scroll to form and status message after submission
+  useEffect(() => {
+    if (submitStatus.message) {
+      const formElement = document.getElementById('partnership-form');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      
+      // Set form as submitted to keep status message visible
+      if (submitStatus.success) {
+        setFormSubmitted(true);
+        
+        // Reset form submitted state after timeout
+        const timer = setTimeout(() => {
+          setFormSubmitted(false);
+        }, 10000);
+        
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [submitStatus]);
 
   // Handle form submission with explicit prevention of page refresh
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Journey: Submitting form');
     handleSubmit(e);
-    
-    // Scroll to the form to ensure the user sees the status message
-    if (e.target) {
-      const form = e.target as HTMLFormElement;
-      setTimeout(() => {
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
-    }
   };
 
   return (
@@ -148,7 +164,7 @@ export default function Journey() {
                 ></textarea>
               </div>
               
-              {/* Status Message - Made more prominent */}
+              {/* Status Message - Made more prominent and always visible when there's a message */}
               {submitStatus.message && (
                 <div 
                   className={`p-4 rounded-lg border ${

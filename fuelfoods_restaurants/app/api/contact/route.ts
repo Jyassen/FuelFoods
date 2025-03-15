@@ -35,7 +35,8 @@ function logSubmission(data: any) {
 function createEmailContent(data: any) {
   const { name, email, phone, message, formType, restaurant } = data;
   
-  let content = `Name: ${name}\n`;
+  let content = `New Lead Received from FuelFoods Culinary\n\n`;
+  content += `Name: ${name}\n`;
   content += `Email: ${email}\n`;
   
   if (phone) content += `Phone: ${phone}\n`;
@@ -72,16 +73,18 @@ export async function POST(request: Request) {
     // Create email content
     const emailContent = createEmailContent(body);
 
+    // Hardcoded recipient email
+    const recipientEmail = 'info@fuelfoods.store';
+    
     // Get email configuration
-    const emailUser = process.env.GMAIL_USER;
+    const emailUser = process.env.GMAIL_USER || 'info@fuelfoods.store';
     const emailPass = process.env.GMAIL_APP_PASSWORD;
-    const recipientEmail = process.env.RECIPIENT_EMAIL || emailUser;
 
     console.log(`Email configuration: User=${emailUser}, Recipient=${recipientEmail}, Password configured=${!!emailPass}`);
 
     // Check if email credentials are available
-    if (!emailUser || !emailPass) {
-      console.warn('Email credentials not configured, skipping email send');
+    if (!emailPass) {
+      console.warn('Email password not configured, skipping email send');
       return NextResponse.json({ 
         success: true, 
         message: 'Form submission received. Our team will contact you soon.'

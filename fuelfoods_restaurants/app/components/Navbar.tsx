@@ -53,6 +53,18 @@ export default function Navbar() {
     return () => document.removeEventListener('click', handleClickOutside)
   }, [isMenuOpen])
 
+  // Add effect to prevent body scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
@@ -64,6 +76,7 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+    console.log("Mobile menu toggled:", !isMenuOpen) // Debug log
   }
 
   const closeMobileMenu = () => {
@@ -137,69 +150,69 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <div
-          ref={menuRef}
-          className={`md:hidden absolute w-full bg-black shadow-lg transition-all duration-300 ease-in-out ${
-            isMenuOpen ? 'max-h-screen opacity-100 visible' : 'max-h-0 opacity-0 invisible overflow-hidden'
-          }`}
-        >
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link 
-              href="https://fuelfoods.store/about-us/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
-              onClick={closeMobileMenu}
-            >
-              About Us
-            </Link>
-            <Link 
-              href="https://fuelfoods.store/products/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
-              onClick={closeMobileMenu}
-            >
-              Products
-            </Link>
-            <Link 
-              href="https://fuelfoods.store/microgreens-packs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
-              onClick={closeMobileMenu}
-            >
-              Microgreens Packs
-            </Link>
-            <Link 
-              href="https://fuelfoods.store/contact-us/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
-              onClick={closeMobileMenu}
-            >
-              Contact Us
-            </Link>
-            <button
-              onClick={() => {
-                setIsCatalogOpen(true)
-                setIsMenuOpen(false)
-              }}
-              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2"
-            >
-              Catalog
-            </button>
-            
-            <div className="mt-8">
-              <h2 className="text-xl text-gray-400 mb-4">Contact</h2>
-              <p className="text-white mb-2">New York City</p>
-              <a href="mailto:info@fuelfoods.store" className="text-[#4CAF50] hover:underline">
-                info@fuelfoods.store
-              </a>
+        {/* Mobile Menu - Fixed positioning and improved visibility */}
+        {isMenuOpen && (
+          <div
+            ref={menuRef}
+            className="md:hidden fixed top-[72px] left-0 right-0 bottom-0 bg-black z-50 overflow-y-auto"
+          >
+            <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+              <Link 
+                href="https://fuelfoods.store/about-us/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-3 border-b border-gray-800"
+                onClick={closeMobileMenu}
+              >
+                About Us
+              </Link>
+              <Link 
+                href="https://fuelfoods.store/products/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-3 border-b border-gray-800"
+                onClick={closeMobileMenu}
+              >
+                Products
+              </Link>
+              <Link 
+                href="https://fuelfoods.store/microgreens-packs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-3 border-b border-gray-800"
+                onClick={closeMobileMenu}
+              >
+                Microgreens Packs
+              </Link>
+              <Link 
+                href="https://fuelfoods.store/contact-us/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-3 border-b border-gray-800"
+                onClick={closeMobileMenu}
+              >
+                Contact Us
+              </Link>
+              <button
+                onClick={() => {
+                  setIsCatalogOpen(true)
+                  setIsMenuOpen(false)
+                }}
+                className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-3"
+              >
+                Catalog
+              </button>
+              
+              <div className="mt-8">
+                <h2 className="text-xl text-gray-400 mb-4">Contact</h2>
+                <p className="text-white mb-2">New York City</p>
+                <a href="mailto:info@fuelfoods.store" className="text-[#4CAF50] hover:underline">
+                  info@fuelfoods.store
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </nav>
 
       {/* Contact Form Modal */}
