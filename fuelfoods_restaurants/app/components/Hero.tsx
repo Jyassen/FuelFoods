@@ -78,7 +78,7 @@ export default function Hero() {
   }, [isFormVisible]);
 
   return (
-    <section className="relative h-screen">
+    <section className="relative h-[90vh]">
       {/* Hero Background */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
@@ -121,6 +121,20 @@ export default function Hero() {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Carousel Indicators - Reduced bottom padding */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === currentSlide ? 'bg-white w-4' : 'bg-white/50'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Contact Form Overlay */}

@@ -133,50 +133,71 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        className={`md:hidden absolute top-24 left-0 right-0 bg-black/95 shadow-lg transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'block max-h-screen py-4' : 'max-h-0 overflow-hidden py-0'
-        }`}
-      >
-        <div className="container mx-auto px-4 flex flex-col space-y-4">
-          <Link 
-            href="https://fuelfoods.store/about-us/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            About Us
-          </Link>
-          <Link 
-            href="https://fuelfoods.store/products/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Products
-          </Link>
-          <Link 
-            href="https://fuelfoods.store/contact-us/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contact
-          </Link>
-          <button
-            onClick={() => {
-              setIsCatalogOpen(true);
-              setIsMenuOpen(false);
-            }}
-            className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2"
-          >
-            Catalog
-          </button>
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto">
+          <div className="py-8 px-4 flex flex-col space-y-6">
+            <h2 className="text-xl text-gray-400 mb-2">Navigation</h2>
+            
+            <Link 
+              href="https://fuelfoods.store/about-us/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About Us
+            </Link>
+            
+            <Link 
+              href="https://fuelfoods.store/products/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Products
+            </Link>
+            
+            <Link 
+              href="https://fuelfoods.store/microgreens-packs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Microgreens Packs
+            </Link>
+            
+            <Link 
+              href="https://fuelfoods.store/contact-us/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2 border-b border-gray-800"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
+            
+            <button
+              onClick={() => {
+                setIsCatalogOpen(true);
+                setIsMenuOpen(false);
+              }}
+              className="block text-lg text-white hover:text-[#4CAF50] transition-colors py-2"
+            >
+              Catalog
+            </button>
+            
+            <div className="mt-8">
+              <h2 className="text-xl text-gray-400 mb-4">Contact</h2>
+              <p className="text-white mb-2">New York City</p>
+              <a href="mailto:info@fuelfoods.store" className="text-[#4CAF50] hover:underline">
+                info@fuelfoods.store
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Catalog Modal */}
       <CatalogModal isOpen={isCatalogOpen} onClose={() => setIsCatalogOpen(false)} />
