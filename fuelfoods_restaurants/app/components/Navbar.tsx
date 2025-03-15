@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import ContactFormModal from './ContactFormModal'
 import SafeImage from './SafeImage'
 import CatalogModal from './CatalogModal'
@@ -26,7 +26,7 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const router = useRouter()
+  const pathname = usePathname()
   const menuRef = useRef<HTMLDivElement>(null)
 
   // Check if we're on mobile on mount and when window resizes
