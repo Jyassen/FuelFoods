@@ -96,46 +96,98 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - SOLID BLACK BACKGROUND */}
+      {/* Mobile Menu - NEW APPROACH WITH SOLID BLACK */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-24 bg-black z-[100]" style={{ backgroundColor: '#000000' }}>
-          <div className="flex flex-col w-full">
-            <Link
-              href="https://fuelfoods.store/about-us/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50] border-b border-gray-800"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link
-              href="/images/catalog/FuelFoods Catalog 2025.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50] border-b border-gray-800"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Catalog
-            </Link>
-            <Link
-              href="https://fuelfoods.store/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50] border-b border-gray-800"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Microgreens Packs
-            </Link>
-            <Link
-              href="https://fuelfoods.store/contact-us/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50]"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact Us
-            </Link>
+        <div 
+          className="md:hidden fixed inset-0 top-24 z-[100]"
+          style={{
+            position: 'fixed',
+            top: '96px', // 24rem = 96px
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: '#000000',
+            zIndex: 100
+          }}
+        >
+          <div style={{ backgroundColor: '#000000', width: '100%', height: '100%' }}>
+            <div style={{ backgroundColor: '#000000', width: '100%' }}>
+              <Link
+                href="https://fuelfoods.store/about-us/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '24px 0',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: 'white',
+                  backgroundColor: '#000000',
+                  borderBottom: '1px solid #333'
+                }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link
+                href="/images/catalog/FuelFoods Catalog 2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '24px 0',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: 'white',
+                  backgroundColor: '#000000',
+                  borderBottom: '1px solid #333'
+                }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Catalog
+              </Link>
+              <Link
+                href="https://fuelfoods.store/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '24px 0',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: 'white',
+                  backgroundColor: '#000000',
+                  borderBottom: '1px solid #333'
+                }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Microgreens Packs
+              </Link>
+              <Link
+                href="https://fuelfoods.store/contact-us/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '24px 0',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: 'white',
+                  backgroundColor: '#000000'
+                }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       )}
