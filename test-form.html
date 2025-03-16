@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FuelFoods Contact Form Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>FuelFoods Contact Form Test</h1>
+  
+  <form id="contactForm">
+    <div class="form-group">
+      <label for="formType">Form Type</label>
+      <select id="formType" name="formType" required>
+        <option value="Hero Contact Form">Hero Contact Form</option>
+        <option value="Contact Form Modal">Contact Form Modal</option>
+        <option value="Partnership Request Form">Partnership Request Form</option>
+        <option value="Test Form">Test Form</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone">
+    </div>
+    
+    <div class="form-group" id="restaurantGroup">
+      <label for="restaurant">Restaurant Name</label>
+      <input type="text" id="restaurant" name="restaurant">
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    
+    <button type="submit">Submit Form</button>
+  </form>
+  
+  <div id="resultSuccess" class="result success hidden">
+    Form submitted successfully! Check your email for confirmation.
+  </div>
+  
+  <div id="resultError" class="result error hidden">
+    Error submitting form: <span id="errorMessage"></span>
+  </div>
+  
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Hide result messages
+      document.getElementById('resultSuccess').classList.add('hidden');
+      document.getElementById('resultError').classList.add('hidden');
+      
+      // Get form data
+      const formData = {
+        formType: document.getElementById('formType').value,
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value || '',
+        restaurant: document.getElementById('restaurant').value || '',
+        message: document.getElementById('message').value
+      };
+      
+      try {
+        // Send form data to API
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          // Show success message
+          document.getElementById('resultSuccess').classList.remove('hidden');
+          
+          // Reset form
+          this.reset();
+        } else {
+          // Show error message
+          document.getElementById('errorMessage').textContent = data.error || 'Unknown error';
+          document.getElementById('resultError').classList.remove('hidden');
+        }
+      } catch (error) {
+        // Show error message
+        document.getElementById('errorMessage').textContent = 'Failed to connect to the server. Please try again later.';
+        document.getElementById('resultError').classList.remove('hidden');
+        console.error('Error submitting form:', error);
+      }
+    });
+    
+    // Show/hide restaurant field based on form type
+    document.getElementById('formType').addEventListener('change', function() {
+      const restaurantGroup = document.getElementById('restaurantGroup');
+      if (this.value === 'Partnership Request Form') {
+        restaurantGroup.style.display = 'block';
+      } else {
+        restaurantGroup.style.display = 'none';
+      }
+    });
+    
+    // Initial state
+    if (document.getElementById('formType').value !== 'Partnership Request Form') {
+      document.getElementById('restaurantGroup').style.display = 'none';
+    }
+  </script>
+</body>
+</html> 
