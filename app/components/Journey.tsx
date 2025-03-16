@@ -31,6 +31,7 @@ export default function Journey() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target
@@ -40,29 +41,48 @@ export default function Journey() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(null)
     
-    // Simulate form submission
     try {
-      // In a real app, you would send this data to your API
-      console.log('Form submitted:', formData)
+      // Send data to the API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: '', // Not collected in this form but API might expect it
+          message: `Restaurant: ${formData.restaurant}\n\n${formData.message}`,
+          formType: 'Partnership Request'
+        }),
+      });
       
-      // Show confirmation message
-      setShowConfirmation(true)
+      const data = await response.json();
       
-      // Reset form
-      setFormData({
-        name: '',
-        restaurant: '',
-        email: '',
-        message: ''
-      })
-      
-      // Hide confirmation after 5 seconds
-      setTimeout(() => {
-        setShowConfirmation(false)
-      }, 5000)
+      if (response.ok) {
+        // Show confirmation message
+        setShowConfirmation(true)
+        
+        // Reset form
+        setFormData({
+          name: '',
+          restaurant: '',
+          email: '',
+          message: ''
+        })
+        
+        // Hide confirmation after 5 seconds
+        setTimeout(() => {
+          setShowConfirmation(false)
+        }, 5000)
+      } else {
+        setSubmitError(data.error || 'Failed to submit form. Please try again.');
+      }
     } catch (error) {
       console.error('Error submitting form:', error)
+      setSubmitError('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false)
     }
@@ -114,6 +134,13 @@ export default function Journey() {
               onSubmit={handleSubmit}
             >
               <h3 className="text-2xl font-bold mb-6">Start working with us!</h3>
+              
+              {submitError && (
+                <div className="mb-4 p-3 bg-red-900/50 border border-red-500 rounded-lg text-white">
+                  {submitError}
+                </div>
+              )}
+              
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">

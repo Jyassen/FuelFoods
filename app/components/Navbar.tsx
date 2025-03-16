@@ -98,43 +98,52 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-24 bg-black/95 z-40 overflow-y-auto animate-fade-down">
-          <div className="py-8 flex flex-col items-center justify-center space-y-8">
+        <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto">
+          <div className="flex flex-col w-full">
             <Link
               href="https://fuelfoods.store/about-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              About Us
+              About
             </Link>
             <Link
               href="/images/catalog/FuelFoods Catalog 2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              className="block w-full text-center py-4 text-xl font-medium text-white bg-[#FF5722] hover:bg-[#e64a19] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              Catalog
+              Drinks
             </Link>
             <Link
               href="https://fuelfoods.store/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              Microgreens Packs
+              Shop
+            </Link>
+            <Link
+              href="https://fuelfoods.store/blog/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50] border-b border-gray-800"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              News
             </Link>
             <Link
               href="https://fuelfoods.store/contact-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mx-auto px-8 py-4 text-xl font-medium rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
+              className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50]"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact Us
+              Contact
             </Link>
           </div>
         </div>
