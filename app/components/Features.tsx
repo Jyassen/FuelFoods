@@ -2,6 +2,7 @@
 
 import { IconClock, IconDollar, IconChefHat } from './Icons'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import CatalogModal from './CatalogModal'
 
@@ -102,15 +103,18 @@ export default function Features() {
         {/* Pricing Preview */}
         <div className="mt-20 text-center">
           <p className="text-[#FF5722] font-medium mb-4">Take advantage of Free Shipping on bulk orders</p>
-          <button 
-            onClick={() => setIsCatalogOpen(true)}
-            className="bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-black hover:border-2 hover:border-white transition-all"
+          <Link 
+            href="/images/catalog/FuelFoods Catalog 2025.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-black hover:border-2 hover:border-white transition-all"
           >
             View Pricing
-          </button>
+          </Link>
         </div>
       </div>
 
+      {/* Keep the CatalogModal for other parts of the site that might use it */}
       <CatalogModal 
         isOpen={isCatalogOpen}
         onClose={() => setIsCatalogOpen(false)}

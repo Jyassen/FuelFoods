@@ -48,12 +48,14 @@ export default function Navbar() {
             >
               About Us
             </Link>
-            <button
-              onClick={() => setIsCatalogOpen(true)}
+            <Link
+              href="/images/catalog/FuelFoods Catalog 2025.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-base text-white hover:text-[#4CAF50] transition-colors"
             >
               Catalog
-            </button>
+            </Link>
             <Link 
               href="https://fuelfoods.store/"
               target="_blank"
@@ -107,15 +109,15 @@ export default function Navbar() {
             >
               About Us
             </Link>
-            <button
+            <Link
+              href="/images/catalog/FuelFoods Catalog 2025.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block w-full text-center px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
-              onClick={() => {
-                setIsMenuOpen(false);
-                setIsCatalogOpen(true);
-              }}
+              onClick={() => setIsMenuOpen(false)}
             >
               Catalog
-            </button>
+            </Link>
             <Link
               href="https://fuelfoods.store/"
               target="_blank"
@@ -138,6 +140,7 @@ export default function Navbar() {
         </div>
       )}
 
+      {/* Keep the CatalogModal for other parts of the site that might use it */}
       <CatalogModal 
         isOpen={isCatalogOpen}
         onClose={() => setIsCatalogOpen(false)}
