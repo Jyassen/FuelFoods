@@ -98,7 +98,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto">
+        <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto animate-fade-down">
           <div className="flex flex-col w-full">
             <Link
               href="https://fuelfoods.store/about-us/"
@@ -107,16 +107,16 @@ export default function Navbar() {
               className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              About Us
             </Link>
             <Link
               href="/images/catalog/FuelFoods Catalog 2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center py-4 text-xl font-medium text-white bg-[#FF5722] hover:bg-[#e64a19] border-b border-gray-800"
+              className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              Drinks
+              Catalog
             </Link>
             <Link
               href="https://fuelfoods.store/"
@@ -125,16 +125,7 @@ export default function Navbar() {
               className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              Shop
-            </Link>
-            <Link
-              href="https://fuelfoods.store/blog/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50] border-b border-gray-800"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              News
+              Microgreens Packs
             </Link>
             <Link
               href="https://fuelfoods.store/contact-us/"
@@ -143,7 +134,7 @@ export default function Navbar() {
               className="block w-full text-center py-4 text-xl font-medium text-white hover:bg-[#4CAF50]"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              Contact Us
             </Link>
           </div>
         </div>
