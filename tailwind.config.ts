@@ -36,6 +36,7 @@ const config: Config = {
       animation: {
         'fade-in': 'fade-in 0.5s ease-out',
         'fade-up': 'fade-up 0.5s ease-out',
+        'fade-down': 'fade-down 0.3s ease-out',
       },
       keyframes: {
         'fade-in': {
@@ -44,6 +45,14 @@ const config: Config = {
         },
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeDown: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },

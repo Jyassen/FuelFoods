@@ -9,9 +9,9 @@ export default function Features() {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false)
 
   return (
-    <section className="relative py-20 px-4 md:px-8 lg:px-16 bg-black">
+    <section className="relative pt-32 md:pt-20 px-4 md:px-8 lg:px-16 bg-black">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-4">
+        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-4 mt-16 md:mt-0">
           Designed for Professional Kitchens
         </h2>
         <p className="text-gray-400 text-center max-w-2xl mx-auto mb-20">

@@ -77,6 +77,8 @@ export default function Navbar() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-white focus:outline-none"
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,19 +96,19 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto">
-          <div className="py-8 flex flex-col items-center justify-center space-y-6">
+        <div className="md:hidden fixed inset-0 top-24 bg-black/95 z-40 overflow-y-auto animate-fade-down">
+          <div className="py-8 flex flex-col items-center justify-center space-y-8">
             <Link
               href="https://fuelfoods.store/about-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              className="block w-full text-center px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
             </Link>
             <button
-              className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              className="block w-full text-center px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
               onClick={() => {
                 setIsMenuOpen(false);
                 setIsCatalogOpen(true);
@@ -118,7 +120,7 @@ export default function Navbar() {
               href="https://fuelfoods.store/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              className="block w-full text-center px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Microgreens Packs
@@ -127,7 +129,7 @@ export default function Navbar() {
               href="https://fuelfoods.store/contact-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 text-xl font-medium rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
+              className="mx-auto px-8 py-4 text-xl font-medium rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact Us
