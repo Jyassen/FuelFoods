@@ -82,7 +82,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <a 
-              href="https://instagram.com/fuelfoodsnyc"
+              href="https://instagram.com/fuelxfoods"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-[#4CAF50] transition-colors"
