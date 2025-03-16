@@ -48,14 +48,12 @@ export default function Navbar() {
             >
               About Us
             </Link>
-            <Link 
-              href="/images/catalog/FuelFoods Catalog 2025.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsCatalogOpen(true)}
               className="text-base text-white hover:text-[#4CAF50] transition-colors"
             >
               Catalog
-            </Link>
+            </button>
             <Link 
               href="https://fuelfoods.store/"
               target="_blank"
@@ -68,77 +66,75 @@ export default function Navbar() {
               href="https://fuelfoods.store/contact-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base px-6 py-3 rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
+              className="px-6 py-2 rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
             >
               Contact Us
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden pr-4">
+          <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-[#4CAF50] focus:outline-none"
-              aria-expanded={isMenuOpen}
+              className="text-white focus:outline-none"
             >
-              <span className="sr-only">Open main menu</span>
-              {!isMenuOpen ? (
-                <svg className="block h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              {isMenuOpen ? (
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="block h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto">
-            <div className="py-8 flex flex-col items-center justify-center space-y-6">
-              <Link
-                href="https://fuelfoods.store/about-us/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About Us
-              </Link>
-              <Link
-                href="/images/catalog/FuelFoods Catalog 2025.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Catalog
-              </Link>
-              <Link
-                href="https://fuelfoods.store/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Microgreens Packs
-              </Link>
-              <Link
-                href="https://fuelfoods.store/contact-us/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 text-xl font-medium rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-24 bg-black z-40 overflow-y-auto">
+          <div className="py-8 flex flex-col items-center justify-center space-y-6">
+            <Link
+              href="https://fuelfoods.store/about-us/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About Us
+            </Link>
+            <button
+              className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsCatalogOpen(true);
+              }}
+            >
+              Catalog
+            </button>
+            <Link
+              href="https://fuelfoods.store/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-6 py-4 text-xl font-medium text-white hover:text-[#4CAF50] transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Microgreens Packs
+            </Link>
+            <Link
+              href="https://fuelfoods.store/contact-us/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 text-xl font-medium rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      )}
 
       <CatalogModal 
         isOpen={isCatalogOpen}

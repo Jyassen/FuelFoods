@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import useFormSubmission from '../hooks/useFormSubmission'
 
 interface ContactFormModalProps {
   isOpen: boolean
@@ -8,25 +9,35 @@ interface ContactFormModalProps {
 }
 
 export default function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: '',
     phone: '',
     email: '',
     message: ''
-  })
+  };
+  
+  const {
+    formData,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+    submitStatus,
+    resetForm
+  } = useFormSubmission(initialFormData, {
+    formType: 'Contact Form',
+    resetAfterSubmit: true
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission logic here
-    console.log(formData)
-    onClose()
-    setFormData({ name: '', phone: '', email: '', message: '' })
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
+  const onSubmit = async (e: React.FormEvent) => {
+    await handleSubmit(e);
+    
+    if (submitStatus.success) {
+      setTimeout(() => {
+        onClose();
+        resetForm();
+      }, 2000);
+    }
+  };
 
   if (!isOpen) return null
 
@@ -43,8 +54,17 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
           </svg>
         </button>
 
-        <h2 className="text-2xl font-bold mb-6">Set Up Your Order</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <h2 className="text-2xl font-bold mb-6">Contact Us</h2>
+        
+        {submitStatus.message && (
+          <div className={`mb-4 p-3 rounded-lg text-white ${
+            submitStatus.success ? 'bg-green-900/50 border border-green-500' : 'bg-red-900/50 border border-red-500'
+          }`}>
+            {submitStatus.message}
+          </div>
+        )}
+        
+        <form onSubmit={onSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
               Name
@@ -54,7 +74,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
               id="name"
               name="name"
               value={formData.name}
-              onChange={handleInputChange}
+              onChange={handleChange}
               className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
               required
             />
@@ -69,7 +89,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
               id="phone"
               name="phone"
               value={formData.phone}
-              onChange={handleInputChange}
+              onChange={handleChange}
               className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
               required
             />
@@ -84,7 +104,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
               id="email"
               name="email"
               value={formData.email}
-              onChange={handleInputChange}
+              onChange={handleChange}
               className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
               required
             />
@@ -98,7 +118,7 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
               id="message"
               name="message"
               value={formData.message}
-              onChange={handleInputChange}
+              onChange={handleChange}
               rows={4}
               className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
               required
@@ -107,9 +127,10 @@ export default function ContactFormModal({ isOpen, onClose }: ContactFormModalPr
 
           <button
             type="submit"
-            className="w-full bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-[#45a049] transition-colors"
+            disabled={isSubmitting}
+            className="w-full bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-[#45a049] transition-colors disabled:bg-gray-600 disabled:cursor-not-allowed"
           >
-            Submit Request
+            {isSubmitting ? 'Submitting...' : 'Submit Request'}
           </button>
         </form>
       </div>

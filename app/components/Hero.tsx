@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import ContactFormModal from './ContactFormModal'
 
 const heroImages = [
   { src: '/images/hero/heroscroller1.png', title: 'Micro Marigolds' },
@@ -15,12 +16,6 @@ const heroImages = [
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  })
 
   // Auto-advance the carousel
   useEffect(() => {
@@ -32,43 +27,6 @@ export default function Hero() {
 
     return () => clearInterval(timer)
   }, [])
-
-  // Handle form submission
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          formType: 'Hero Contact Form'
-        }),
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        alert('Thank you for your message! We will get back to you soon.');
-        setIsModalOpen(false);
-        setFormData({ name: '', phone: '', email: '', message: '' });
-      } else {
-        alert(`Error: ${data.error || 'Failed to send message'}`);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Failed to send message. Please try again later.');
-    }
-  }
-
-  // Handle form input changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
 
   return (
     <section className="relative min-h-[calc(100vh-7rem)] pt-24 md:pt-8">
@@ -152,92 +110,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
-          <div className="bg-black border border-gray-800 rounded-3xl p-8 max-w-md w-full relative animate-fade-up">
-            {/* Close button */}
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white"
-            >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <h2 className="text-2xl font-bold mb-6">Request a Call</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 text-white focus:outline-none focus:border-[#4CAF50] transition-colors"
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-[#45a049] transition-colors"
-              >
-                Submit Request
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+      {/* Use the ContactFormModal component instead of inline modal */}
+      <ContactFormModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   )
 } 
