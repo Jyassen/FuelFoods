@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
 
 const faqs = [
   {
@@ -32,6 +32,12 @@ export default function Journey() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
+  
+  // For debugging
+  useEffect(() => {
+    // Log environment variables (this will only show in development)
+    console.log('Environment check - NODE_ENV:', process.env.NODE_ENV);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target
@@ -44,6 +50,8 @@ export default function Journey() {
     setSubmitError(null)
     
     try {
+      console.log('Submitting partnership form...');
+      
       // Send data to the API endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -54,12 +62,15 @@ export default function Journey() {
           name: formData.name,
           email: formData.email,
           phone: '', // Not collected in this form but API might expect it
-          message: `Restaurant: ${formData.restaurant}\n\n${formData.message}`,
-          formType: 'Partnership Request'
+          message: `Restaurant: ${formData.restaurant}\n\nMessage: ${formData.message}`,
+          formType: 'Partnership Request Form',
+          restaurant: formData.restaurant // Adding this explicitly
         }),
       });
       
+      console.log('Response status:', response.status);
       const data = await response.json();
+      console.log('Response data:', data);
       
       if (response.ok) {
         // Show confirmation message

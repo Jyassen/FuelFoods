@@ -8,9 +8,17 @@ export async function POST(request: Request) {
     
     const body = await request.json();
     const { name, email, phone, message, formType, restaurant } = body;
+    
+    console.log('Form submission details:', { 
+      formType, 
+      name, 
+      email, 
+      restaurant: restaurant || 'Not provided' 
+    });
 
     // Validate the required fields
     if (!name || !email || !message) {
+      console.log('Validation failed: Missing required fields');
       return NextResponse.json(
         { error: 'Name, email, and message are required' },
         { status: 400 }
@@ -29,11 +37,19 @@ export async function POST(request: Request) {
       Message:
       ${message}
     `;
+    
+    console.log('Email content prepared');
 
     // Get email configuration from environment variables
     const emailUser = process.env.GMAIL_USER;
     const emailPass = process.env.GMAIL_APP_PASSWORD;
-    const recipientEmail = process.env.RECIPIENT_EMAIL || emailUser;
+    const recipientEmail = 'info@fuelfoods.store'; // Hardcoded recipient email
+    
+    console.log('Email configuration:', { 
+      emailUser: emailUser ? 'Set' : 'Not set', 
+      emailPass: emailPass ? 'Set' : 'Not set',
+      recipientEmail
+    });
 
     // Check if email credentials are available
     if (!emailUser || !emailPass) {
@@ -61,6 +77,8 @@ export async function POST(request: Request) {
       text: emailContent,
       replyTo: email,
     };
+    
+    console.log('Sending email to:', recipientEmail);
 
     try {
       // Send the email
