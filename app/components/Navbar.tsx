@@ -96,17 +96,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - Fully opaque with enhanced visibility */}
+      {/* Mobile Menu - SOLID BLACK BACKGROUND */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-24 bg-black z-[100] shadow-xl">
+        <div className="md:hidden fixed inset-0 top-24 bg-black z-[100]" style={{ backgroundColor: '#000000' }}>
           <div className="flex flex-col w-full">
             <Link
               href="https://fuelfoods.store/about-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-semibold text-white shadow-sm hover:bg-[#4CAF50] border-b border-gray-800 tracking-wide"
+              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
-              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
             >
               About Us
             </Link>
@@ -114,9 +113,8 @@ export default function Navbar() {
               href="/images/catalog/FuelFoods Catalog 2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-semibold text-white shadow-sm hover:bg-[#4CAF50] border-b border-gray-800 tracking-wide"
+              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
-              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
             >
               Catalog
             </Link>
@@ -124,9 +122,8 @@ export default function Navbar() {
               href="https://fuelfoods.store/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-semibold text-white shadow-sm hover:bg-[#4CAF50] border-b border-gray-800 tracking-wide"
+              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50] border-b border-gray-800"
               onClick={() => setIsMenuOpen(false)}
-              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
             >
               Microgreens Packs
             </Link>
@@ -134,9 +131,8 @@ export default function Navbar() {
               href="https://fuelfoods.store/contact-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center py-6 text-xl font-semibold text-white shadow-sm hover:bg-[#4CAF50] tracking-wide"
+              className="block w-full text-center py-6 text-xl font-bold text-white hover:bg-[#4CAF50]"
               onClick={() => setIsMenuOpen(false)}
-              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
             >
               Contact Us
             </Link>
