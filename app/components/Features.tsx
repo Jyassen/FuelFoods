@@ -10,12 +10,12 @@ export default function Features() {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false)
 
   return (
-    <section className="relative pt-32 md:pt-20 px-4 md:px-8 lg:px-16 bg-black">
+    <section className="cpg-section bg-white">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-4 mt-16 md:mt-0">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 mt-16 md:mt-0" style={{ color: 'var(--fuel-green-primary)' }}>
           Designed for Professional Kitchens
         </h2>
-        <p className="text-gray-400 text-center max-w-2xl mx-auto mb-20">
+        <p className="text-xl text-center max-w-3xl mx-auto mb-20" style={{ color: 'var(--fuel-text-secondary)' }}>
           We understand what matters most to chefs: consistent quality, reliable supply,
           and cost-effective solutions that enhance your menu offerings.
         </p>
@@ -23,7 +23,7 @@ export default function Features() {
         {/* Cost-Effective Pricing Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center mb-32">
           <div className="w-full md:w-1/2">
-            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-[#111111]">
+            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-gray-100">
               <Image
                 src="/images/chefs/chef in kitchen.png"
                 alt="Chef in Kitchen"
@@ -32,15 +32,14 @@ export default function Features() {
                 style={{ objectPosition: '50% 35%' }}
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
             </div>
           </div>
           <div className="w-full md:w-1/2 max-w-xl">
-            <div className="text-[#4CAF50] mb-6 flex justify-center">
+            <div className="mb-6 flex justify-center" style={{ color: 'var(--fuel-green-medium)' }}>
               <IconDollar className="w-16 h-16" />
             </div>
-            <h3 className="text-3xl font-bold mb-6 text-center">Cost-Effective Pricing</h3>
-            <p className="text-gray-400 text-xl leading-relaxed text-center">
+            <h3 className="text-3xl font-bold mb-6 text-center" style={{ color: 'var(--fuel-text-primary)' }}>Cost-Effective Pricing</h3>
+            <p className="text-xl leading-relaxed text-center" style={{ color: 'var(--fuel-text-secondary)' }}>
               Enjoy the freshest ingredients delivered fresh to your kitchen and priced fairly 
               so you can focus on what matters most, creating top notch culinary experiences.
             </p>
@@ -50,7 +49,7 @@ export default function Features() {
         {/* 24-Hour Freshness Section */}
         <div className="flex flex-col md:flex-row-reverse gap-12 items-center mb-32">
           <div className="w-full md:w-1/2">
-            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-[#111111]">
+            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-gray-100">
               <Image
                 src="/images/products/micros in soil.png"
                 alt="Fresh Microgreens"
@@ -59,15 +58,14 @@ export default function Features() {
                 style={{ objectPosition: '50% 45%' }}
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/50" />
             </div>
           </div>
           <div className="w-full md:w-1/2 max-w-xl">
-            <div className="text-[#4CAF50] mb-6 flex justify-center">
+            <div className="mb-6 flex justify-center" style={{ color: 'var(--fuel-green-medium)' }}>
               <IconClock className="w-16 h-16" />
             </div>
-            <h3 className="text-3xl font-bold mb-6 text-center">24-Hour Freshness Guarantee</h3>
-            <p className="text-gray-400 text-xl leading-relaxed text-center">
+            <h3 className="text-3xl font-bold mb-6 text-center" style={{ color: 'var(--fuel-text-primary)' }}>24-Hour Freshness Guarantee</h3>
+            <p className="text-xl leading-relaxed text-center" style={{ color: 'var(--fuel-text-secondary)' }}>
               Harvested fresh and delivered within hours. Our microgreens stay fresh 
               for 7-10 days when properly stored, reducing waste and maximizing value.
             </p>
@@ -77,7 +75,7 @@ export default function Features() {
         {/* Extensive Variety Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center mb-32">
           <div className="w-full md:w-1/2">
-            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-[#111111]">
+            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-gray-100">
               <Image
                 src="/images/products/salty finger meal.png"
                 alt="Salty Fingers Culinary Creation"
@@ -85,15 +83,14 @@ export default function Features() {
                 className="object-cover hover:scale-105 transition-transform duration-500"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/50" />
             </div>
           </div>
           <div className="w-full md:w-1/2 max-w-xl">
-            <div className="text-[#4CAF50] mb-6 flex justify-center">
+            <div className="mb-6 flex justify-center" style={{ color: 'var(--fuel-green-medium)' }}>
               <IconChefHat className="w-16 h-16" />
             </div>
-            <h3 className="text-3xl font-bold mb-6 text-center">Extensive Variety Selection</h3>
-            <p className="text-gray-400 text-xl leading-relaxed text-center">
+            <h3 className="text-3xl font-bold mb-6 text-center" style={{ color: 'var(--fuel-text-primary)' }}>Extensive Variety Selection</h3>
+            <p className="text-xl leading-relaxed text-center" style={{ color: 'var(--fuel-text-secondary)' }}>
               Over 40 varieties of microgreens and edible flowers available year-round. 
               Custom growing programs for specific menu needs.
             </p>
@@ -102,12 +99,12 @@ export default function Features() {
 
         {/* Pricing Preview */}
         <div className="mt-20 text-center">
-          <p className="text-[#FF5722] font-medium mb-4">Take advantage of Free Shipping on bulk orders</p>
+          <p className="font-semibold mb-4" style={{ color: 'var(--fuel-gold-accent)' }}>Take advantage of Free Shipping on bulk orders</p>
           <Link 
             href="/images/catalog/FuelFoods Catalog 2025.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-black hover:border-2 hover:border-white transition-all"
+            className="btn-primary"
           >
             View Pricing
           </Link>

@@ -100,14 +100,14 @@ export default function Journey() {
   }
 
   return (
-    <section className="py-20 px-4 md:px-8 lg:px-16 bg-black">
+    <section className="cpg-section bg-white">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-[#4CAF50]">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--fuel-green-primary)' }}>
               Partner with NYC's Premier Black-Owned Microgreens Supplier
             </h2>
-            <p className="text-gray-400 mb-8">
+            <p className="text-xl mb-8" style={{ color: 'var(--fuel-text-secondary)' }}>
               Join leading restaurants in New York City who trust us for their premium
               microgreens and edible flowers. Experience our commitment to quality,
               sustainability, and innovation.
@@ -117,20 +117,21 @@ export default function Journey() {
               {faqs.map((faq, index) => (
                 <div 
                   key={index}
-                  className="border-b border-gray-800 pb-4"
+                  className="border-b pb-4"
+                  style={{ borderColor: 'var(--fuel-gray-light)' }}
                 >
                   <button
                     className="w-full flex justify-between items-center text-left"
                     onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                   >
-                    <span className="text-lg font-medium">{faq.question}</span>
+                    <span className="text-lg font-semibold" style={{ color: 'var(--fuel-text-primary)' }}>{faq.question}</span>
                     <span className="text-2xl">
                       {activeIndex === index ? '−' : '+'}
                     </span>
                   </button>
                   
                   {activeIndex === index && (
-                    <p className="mt-4 text-gray-400">
+                    <p className="mt-4" style={{ color: 'var(--fuel-text-secondary)' }}>
                       {faq.answer}
                     </p>
                   )}
@@ -141,20 +142,21 @@ export default function Journey() {
           
           <div className="relative">
             <form 
-              className="bg-gray-900 rounded-2xl p-8"
+              className="cpg-card rounded-2xl p-8"
+              style={{ backgroundColor: '#f8f9fa' }}
               onSubmit={handleSubmit}
             >
-              <h3 className="text-2xl font-bold mb-6">Start working with us!</h3>
+              <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--fuel-text-primary)' }}>Start working with us!</h3>
               
               {submitError && (
-                <div className="mb-4 p-3 bg-red-900/50 border border-red-500 rounded-lg text-white">
+                <div className="mb-4 p-3 bg-red-100 border border-red-500 rounded-lg text-red-800">
                   {submitError}
                 </div>
               )}
               
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-sm font-semibold mb-2" style={{ color: 'var(--fuel-text-primary)' }}>
                     Name
                   </label>
                   <input
@@ -162,14 +164,14 @@ export default function Journey() {
                     id="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
+                    className="w-full px-4 py-2 bg-white rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600"
                     placeholder="Your full name"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="restaurant" className="block text-sm font-medium mb-2">
+                  <label htmlFor="restaurant" className="block text-sm font-semibold mb-2" style={{ color: 'var(--fuel-text-primary)' }}>
                     Restaurant Name
                   </label>
                   <input
@@ -177,14 +179,14 @@ export default function Journey() {
                     id="restaurant"
                     value={formData.restaurant}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
+                    className="w-full px-4 py-2 bg-white rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600"
                     placeholder="Your restaurant name"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-sm font-semibold mb-2" style={{ color: 'var(--fuel-text-primary)' }}>
                     Business Email
                   </label>
                   <input
@@ -192,14 +194,14 @@ export default function Journey() {
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
+                    className="w-full px-4 py-2 bg-white rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600"
                     placeholder="your@restaurant.com"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-semibold mb-2" style={{ color: 'var(--fuel-text-primary)' }}>
                     Tell us about your needs
                   </label>
                   <textarea
@@ -207,7 +209,7 @@ export default function Journey() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 bg-black rounded-lg border border-gray-800 focus:outline-none focus:border-white"
+                    className="w-full px-4 py-2 bg-white rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600"
                     placeholder="What types of products are you interested in? What quantities do you need?"
                     required
                   ></textarea>
@@ -216,7 +218,7 @@ export default function Journey() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="btn-primary w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Submitting...' : 'Request Partnership'}
                 </button>
@@ -225,12 +227,12 @@ export default function Journey() {
 
             {/* Confirmation Message Popup */}
             {showConfirmation && (
-              <div className="absolute top-4 left-0 right-0 mx-auto w-[90%] bg-green-900 border border-green-500 text-white p-4 rounded-lg shadow-lg animate-fade-down">
+              <div className="absolute top-4 left-0 right-0 mx-auto w-[90%] bg-green-100 border border-green-500 text-green-800 p-4 rounded-lg shadow-lg animate-fade-down">
                 <div className="flex items-center justify-between">
                   <p className="font-medium">Thank you for your partnership request!</p>
                   <button 
                     onClick={() => setShowConfirmation(false)}
-                    className="text-white hover:text-green-300"
+                    className="text-green-800 hover:text-green-600"
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

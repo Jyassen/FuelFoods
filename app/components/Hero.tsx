@@ -29,17 +29,16 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[calc(100vh-7rem)] pt-24 md:pt-8">
-      {/* Gradient Overlay for Text Side */}
-      <div className="absolute left-0 w-full md:w-1/2 h-full z-[1] bg-black/90" />
+    <section className="relative min-h-[calc(100vh-4rem)] pt-20 md:pt-8 bg-white cpg-section">
+      {/* Clean white background - no overlay needed */}
       
       <div className="container mx-auto h-full relative z-10">
-        <div className="grid md:grid-cols-2 h-full gap-8 md:gap-0">
-          <div className="flex flex-col justify-center px-4 md:px-8 lg:px-16 space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight">
-              <span className="text-[#FF5722]">Fuel</span> Your Menu with Freshness
+        <div className="grid md:grid-cols-2 h-full gap-12 md:gap-16 items-center">
+          <div className="flex flex-col justify-center px-4 md:px-8 lg:px-12 space-y-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: 'var(--fuel-green-primary)' }}>
+              <span style={{ color: 'var(--fuel-green-primary)' }}>Fuel</span> Your Menu with Freshness
             </h1>
-            <p className="text-gray-300 text-lg md:text-xl max-w-xl">
+            <p className="text-xl leading-relaxed max-w-xl" style={{ color: 'var(--fuel-text-secondary)' }}>
               Premium locally-grown microgreens and edible flowers for NYC&apos;s finest restaurants. 
               Elevate your dishes with sustainable, nutrient-dense ingredients.
             </p>
@@ -48,13 +47,13 @@ export default function Hero() {
                 onClick={() => {
                   document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-black hover:border-white hover:border-2 transition-all"
+                className="btn-primary"
               >
                 View Products
               </button>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="border border-white px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors"
+                className="btn-secondary"
               >
                 Request a Call
               </button>
@@ -62,15 +61,15 @@ export default function Hero() {
           </div>
           
           <div className="relative flex items-center justify-center px-4 md:px-0">
-            <div className="relative w-full max-w-[350px] md:max-w-[500px] h-[350px] md:h-[500px] mx-auto">
+            <div className="relative w-full max-w-[400px] md:max-w-[550px] h-[400px] md:h-[550px] mx-auto cpg-card" style={{ padding: '0', border: 'none', boxShadow: '0 8px 32px rgba(45, 80, 22, 0.12)' }}>
               {heroImages.map((image, index) => (
                 <div
                   key={image.src}
                   className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    index === currentImageIndex ? 'opacity-100 pointer-events-auto z-10' : 'opacity-0 pointer-events-none z-0'
                   }`}
                 >
-                  <div className="relative w-full h-full rounded-3xl overflow-hidden bg-black">
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden" style={{ backgroundColor: '#f8f9fa' }}>
                     <Image
                       src={image.src}
                       alt={image.title}
@@ -83,22 +82,25 @@ export default function Hero() {
                   
                   {/* Title */}
                   <div className="absolute bottom-4 left-0 right-0 text-center">
-                    <p className="font-['Poppins'] text-xs md:text-sm font-medium tracking-wide bg-black py-2 px-4 rounded-full inline-block text-white max-w-[90%] truncate">
+                    <p className="text-sm font-semibold tracking-wide bg-white py-2 px-4 rounded-lg inline-block max-w-[90%] truncate" style={{ color: 'var(--fuel-text-primary)', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
                       {image.title}
                     </p>
                   </div>
 
                   {/* Navigation Dots */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
                     {heroImages.map((_, idx) => (
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        className={`w-2 h-2 rounded-full transition-all ${
+                        className={`w-3 h-3 rounded-full transition-all ${
                           idx === currentImageIndex
-                            ? 'bg-white w-4'
-                            : 'bg-white/50'
+                            ? 'w-6'
+                            : ''
                         }`}
+                        style={{
+                          backgroundColor: idx === currentImageIndex ? 'var(--fuel-green-medium)' : 'var(--fuel-gray-light)'
+                        }}
                         aria-label={`Go to slide ${idx + 1}`}
                       />
                     ))}

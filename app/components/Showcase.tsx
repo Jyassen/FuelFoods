@@ -116,18 +116,18 @@ export default function Showcase() {
   const [isContactOpen, setIsContactOpen] = useState(false)
 
   return (
-    <section id="showcase" className="py-12 px-4 md:px-8 lg:px-16 bg-black">
+    <section id="showcase" className="cpg-section bg-white">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--fuel-green-primary)' }}>
           Explore our microgreens and flowers
         </h2>
-        <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+        <p className="text-xl text-center max-w-3xl mx-auto mb-12" style={{ color: 'var(--fuel-text-secondary)' }}>
           Discover our premium selection of microgreens and edible flowers, carefully cultivated for NYC&apos;s finest establishments.
         </p>
 
         {/* Flowers Section */}
         <div className="mb-16">
-          <h3 className="text-2xl font-serif font-bold mb-6 text-[#FF5722]">
+          <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--fuel-gold-accent)' }}>
             Edible Flowers
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
@@ -163,10 +163,10 @@ export default function Showcase() {
                     />
                   </div>
                 </div>
-                <h3 className="text-base md:text-lg font-medium text-white mb-1">
+                <h3 className="text-base md:text-lg font-semibold mb-1" style={{ color: 'var(--fuel-text-primary)' }}>
                   {flower.name}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-400 line-clamp-2">
+                <p className="text-xs md:text-sm line-clamp-2" style={{ color: 'var(--fuel-text-secondary)' }}>
                   {flower.description}
                 </p>
               </div>
@@ -176,7 +176,7 @@ export default function Showcase() {
 
         {/* Microgreens Section */}
         <div>
-          <h3 className="text-2xl font-serif font-bold mb-6 text-[#4CAF50]">
+          <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--fuel-green-medium)' }}>
             Microgreens
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
@@ -212,10 +212,10 @@ export default function Showcase() {
                     />
                   </div>
                 </div>
-                <h3 className="text-base md:text-lg font-medium text-white mb-1">
+                <h3 className="text-base md:text-lg font-semibold mb-1" style={{ color: 'var(--fuel-text-primary)' }}>
                   {microgreen.name}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-400 line-clamp-2">
+                <p className="text-xs md:text-sm line-clamp-2" style={{ color: 'var(--fuel-text-secondary)' }}>
                   {microgreen.description}
                 </p>
               </div>
@@ -224,14 +224,16 @@ export default function Showcase() {
         </div>
 
         {/* Quick Order Section */}
-        <div className="mt-12 bg-gray-900 rounded-2xl p-6 md:p-8 text-center">
-          <h3 className="text-[#FF5722] text-2xl md:text-3xl font-bold mb-6 md:mb-8 leading-tight">
+        <div className="mt-12 cpg-card text-center" style={{ backgroundColor: '#f8f9fa', padding: '48px 32px' }}>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 leading-tight" style={{ color: 'var(--fuel-green-primary)' }}>
             Express your culinary creativity<br />
             and get started today!
           </h3>
           <button 
             onClick={() => setIsContactOpen(true)}
-            className="bg-[#4CAF50] text-white px-8 py-3 rounded-full font-medium hover:bg-[#45a049] transition-colors"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition-colors cursor-pointer"
+            type="button"
+            style={{ minHeight: '48px', minWidth: '150px', zIndex: 10 }}
           >
             Set Up Order
           </button>

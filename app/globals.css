@@ -5,21 +5,118 @@
 :root {
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
+  
+  /* CPG Brand Colors - Matching Live Site */
+  --fuel-green-primary: #178641; /* Exact match to CPG site */
+  --fuel-green-medium: #4ade80;
+  --fuel-green-light: #86efac;
+  --fuel-green-hover: #136834;
+  --fuel-gold-accent: #D4A574;
+  --fuel-text-primary: #1A1A1A;
+  --fuel-text-secondary: #666666;
+  --fuel-gray-light: #E5E5E5;
 }
 
 @layer base {
   body {
-    @apply bg-black text-white;
+    @apply bg-white;
+    color: var(--fuel-text-primary);
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-sans font-bold;
+    color: var(--fuel-text-primary);
+    line-height: 1.2;
+  }
+
+  h1 {
+    color: var(--fuel-green-primary);
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* CPG Button Styles - Matching Live Site */
+  .btn-primary {
+    background-color: #178641;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .btn-primary:hover {
+    background-color: #136834;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background-color: white;
+    color: #178641;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: 2px solid #178641;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .btn-secondary:hover {
+    background-color: #178641;
+    color: white;
+  }
+
+  /* CPG Card Styles */
+  .cpg-card {
+    background: white;
+    border: 1px solid var(--fuel-gray-light);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(45, 80, 22, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .cpg-card:hover {
+    box-shadow: 0 4px 16px rgba(45, 80, 22, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* CPG Section Spacing */
+  .cpg-section {
+    padding: 60px 0;
+  }
+
+  .cpg-section-tight {
+    padding: 40px 0;
+  }
+
+  /* CPG Navigation Styles */
+  .nav-link {
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--fuel-green-primary);
   }
 }
 

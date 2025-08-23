@@ -28,12 +28,12 @@ export default function Partners() {
   }
 
   return (
-    <section className="py-20 px-4 md:px-8 lg:px-16 bg-black">
+    <section className="cpg-section bg-white">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--fuel-green-primary)' }}>
           Trusted by NYC's Finest
         </h2>
-        <p className="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+        <p className="text-xl text-center max-w-3xl mx-auto mb-16" style={{ color: 'var(--fuel-text-secondary)' }}>
           Proudly supplying fresh microgreens and edible flowers to the most prestigious kitchens in New York City.
         </p>
 
@@ -44,32 +44,35 @@ export default function Partners() {
               key={partner.name}
               className="relative group"
             >
-              <div className="
-                aspect-square
-                rounded-xl 
-                bg-gray-900
-                border border-gray-800 
-                shadow-lg
-                overflow-hidden 
-                transition-all duration-500 
-                group-hover:scale-105
-                group-hover:-translate-y-2
-                group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]
-                group-hover:border-gray-700
-              ">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300" />
+              <div 
+                className="
+                  aspect-square
+                  rounded-xl 
+                  bg-white
+                  border
+                  shadow-lg
+                  overflow-hidden 
+                  transition-all duration-500 
+                  group-hover:scale-105
+                  group-hover:-translate-y-2
+                  group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]
+                  group-hover:border-gray-300
+                "
+                style={{ borderColor: 'var(--fuel-gray-light)' }}
+              >
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300" />
                 <div className="relative w-full h-full p-8">
                   {!imageErrors[partner.name] ? (
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
                       fill
-                      className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className="object-contain transition-all duration-300"
                       onError={() => handleImageError(partner.name)}
                       priority
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-600">
+                    <div className="w-full h-full flex items-center justify-center font-medium" style={{ color: 'var(--fuel-text-secondary)' }}>
                       {partner.name}
                     </div>
                   )}

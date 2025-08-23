@@ -81,7 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${poppins.variable}`}>
       <body suppressHydrationWarning={true}>
-        <div className={`${inter.className} antialiased bg-black min-h-screen pt-24`}>
+        <div className={`${inter.className} antialiased bg-white text-black min-h-screen pt-16`}>
           <Navbar />
           <main className="pt-0 md:pt-0">
             {children}

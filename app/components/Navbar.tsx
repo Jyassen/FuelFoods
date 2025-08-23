@@ -22,14 +22,14 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b" style={{ borderColor: 'var(--fuel-gray-light)' }}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <div className="relative w-[150px] h-[60px] md:w-[180px] md:h-[80px]">
+            <div className="relative w-[50px] h-[50px] md:w-[60px] md:h-[60px]">
               <Image
-                src="/images/brand/Logo.png"
+                src="/images/brand/NewLogo.png"
                 alt="FuelFoods"
                 fill
                 className="object-contain"
@@ -39,12 +39,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6 pr-8">
+          <div className="hidden md:flex items-center space-x-8">
             <Link 
               href="https://fuelfoods.store/about-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base text-white hover:text-[#4CAF50] transition-colors"
+              className="nav-link"
+              style={{ color: 'var(--fuel-text-primary)' }}
             >
               About Us
             </Link>
@@ -52,7 +53,8 @@ export default function Navbar() {
               href="/images/catalog/FuelFoods Catalog 2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base text-white hover:text-[#4CAF50] transition-colors"
+              className="nav-link"
+              style={{ color: 'var(--fuel-text-primary)' }}
             >
               Catalog
             </Link>
@@ -60,7 +62,8 @@ export default function Navbar() {
               href="https://fuelfoods.store/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-base text-white hover:text-[#4CAF50] transition-colors"
+              className="nav-link"
+              style={{ color: 'var(--fuel-text-primary)' }}
             >
               Microgreens Packs
             </Link>
@@ -68,7 +71,7 @@ export default function Navbar() {
               href="https://fuelfoods.store/contact-us/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2 rounded-full border-2 border-[#4CAF50] text-white hover:bg-[#4CAF50] transition-colors"
+              className="btn-primary"
             >
               Contact Us
             </Link>
@@ -78,7 +81,8 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white focus:outline-none"
+              className="focus:outline-none"
+            style={{ color: 'var(--fuel-text-primary)' }}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
@@ -96,22 +100,22 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - NEW APPROACH WITH SOLID BLACK */}
+      {/* Mobile Menu - NEW APPROACH WITH SOLID WHITE */}
       {isMenuOpen && (
         <div 
           className="md:hidden fixed inset-0 top-24 z-[100]"
           style={{
             position: 'fixed',
-            top: '96px', // 24rem = 96px
+            top: '64px', // h-16 = 64px
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: '#000000',
+            backgroundColor: '#ffffff',
             zIndex: 100
           }}
         >
-          <div style={{ backgroundColor: '#000000', width: '100%', height: '100%' }}>
-            <div style={{ backgroundColor: '#000000', width: '100%' }}>
+          <div style={{ backgroundColor: '#ffffff', width: '100%', height: '100%' }}>
+            <div style={{ backgroundColor: '#ffffff', width: '100%' }}>
               <Link
                 href="https://fuelfoods.store/about-us/"
                 target="_blank"
@@ -123,9 +127,9 @@ export default function Navbar() {
                   padding: '24px 0',
                   fontSize: '20px',
                   fontWeight: 'bold',
-                  color: 'white',
-                  backgroundColor: '#000000',
-                  borderBottom: '1px solid #333'
+                  color: 'black',
+                  backgroundColor: '#ffffff',
+                  borderBottom: '1px solid #e5e7eb'
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -142,9 +146,9 @@ export default function Navbar() {
                   padding: '24px 0',
                   fontSize: '20px',
                   fontWeight: 'bold',
-                  color: 'white',
-                  backgroundColor: '#000000',
-                  borderBottom: '1px solid #333'
+                  color: 'black',
+                  backgroundColor: '#ffffff',
+                  borderBottom: '1px solid #e5e7eb'
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -161,9 +165,9 @@ export default function Navbar() {
                   padding: '24px 0',
                   fontSize: '20px',
                   fontWeight: 'bold',
-                  color: 'white',
-                  backgroundColor: '#000000',
-                  borderBottom: '1px solid #333'
+                  color: 'black',
+                  backgroundColor: '#ffffff',
+                  borderBottom: '1px solid #e5e7eb'
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -181,7 +185,7 @@ export default function Navbar() {
                   fontSize: '20px',
                   fontWeight: 'bold',
                   color: 'white',
-                  backgroundColor: '#000000'
+                  backgroundColor: 'var(--fuel-green-medium)'
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >

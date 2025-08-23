@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-black">
+    <footer className="bg-white border-t cpg-section-tight" style={{ borderColor: 'var(--fuel-gray-light)' }}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           {/* Logo and Description */}
@@ -20,20 +20,21 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-sm text-gray-400 mt-2">
+            <p className="text-sm mt-2" style={{ color: 'var(--fuel-text-secondary)' }}>
               NYC's Premier Black-Owned<br />Microgreens Supplier
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Navigation</h3>
+            <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--fuel-text-primary)' }}>Navigation</h3>
             <div className="flex flex-col md:flex-row gap-4 md:gap-6">
               <Link 
                 href="https://fuelfoods.store/about-us/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#4CAF50] transition-colors"
+                className="transition-colors hover:opacity-75"
+                style={{ color: 'var(--fuel-text-secondary)' }}
               >
                 About Us
               </Link>
@@ -41,7 +42,8 @@ export default function Footer() {
                 href="/images/catalog/FuelFoods Catalog 2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#4CAF50] transition-colors"
+                className="transition-colors hover:opacity-75"
+                style={{ color: 'var(--fuel-text-secondary)' }}
               >
                 Catalog
               </Link>
@@ -49,7 +51,8 @@ export default function Footer() {
                 href="https://fuelfoods.store/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#4CAF50] transition-colors"
+                className="transition-colors hover:opacity-75"
+                style={{ color: 'var(--fuel-text-secondary)' }}
               >
                 Microgreens Packs
               </Link>
@@ -57,7 +60,8 @@ export default function Footer() {
                 href="https://fuelfoods.store/contact-us/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#4CAF50] transition-colors"
+                className="transition-colors hover:opacity-75"
+                style={{ color: 'var(--fuel-text-secondary)' }}
               >
                 Contact Us
               </Link>
@@ -66,12 +70,13 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--fuel-text-primary)' }}>Contact</h3>
             <div className="flex flex-col items-start">
-              <span className="text-gray-400">New York City</span>
+              <span style={{ color: 'var(--fuel-text-secondary)' }}>New York City</span>
               <a 
                 href="mailto:info@fuelfoods.store"
-                className="text-gray-400 hover:text-[#4CAF50] transition-colors"
+                className="transition-colors hover:opacity-75"
+                style={{ color: 'var(--fuel-green-medium)' }}
               >
                 info@fuelfoods.store
               </a>
@@ -80,12 +85,13 @@ export default function Footer() {
 
           {/* Follow Us */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Follow Us</h3>
+            <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--fuel-text-primary)' }}>Follow Us</h3>
             <a 
               href="https://instagram.com/fuelxfoods"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#4CAF50] transition-colors"
+              className="transition-colors hover:opacity-75"
+              style={{ color: 'var(--fuel-green-medium)' }}
             >
               <span className="sr-only">Instagram</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -96,8 +102,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-4 border-t border-gray-800">
-          <p className="text-center text-sm text-gray-400">
+        <div className="mt-8 pt-4 border-t border-gray-200">
+          <p className="text-center text-sm" style={{ color: 'var(--fuel-text-secondary)' }}>
             © {new Date().getFullYear()} FuelFoods. All rights reserved.
           </p>
         </div>
