@@ -34,7 +34,7 @@ export default function Navbar() {
                 fallbackSrc="/images/brand/NewLogo.png?v=4"
                 alt="FuelFoods"
                 fill
-                className="object-contain"
+                className="object-contain scale-110"
                 priority
               />
             </div>
