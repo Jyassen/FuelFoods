@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import SafeImage from './SafeImage'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import CatalogModal from './CatalogModal'
@@ -28,8 +29,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="relative w-[50px] h-[50px] md:w-[60px] md:h-[60px]">
-              <Image
-                src="/images/brand/NewLogo.png"
+              <SafeImage
+                src="/images/brand/NewLogo.png?v=2"
+                fallbackSrc="/images/brand/Logo.png?v=1"
                 alt="FuelFoods"
                 fill
                 className="object-contain"
