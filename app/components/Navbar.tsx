@@ -30,8 +30,8 @@ export default function Navbar() {
           <Link href="/" className="flex-shrink-0">
             <div className="relative w-[50px] h-[50px] md:w-[60px] md:h-[60px]">
               <SafeImage
-                src="/images/brand/NewLogo.png?v=2"
-                fallbackSrc="/images/brand/Logo.png?v=1"
+                src="/images/brand/Logo.png?v=3"
+                fallbackSrc="/images/brand/NewLogo.png?v=2"
                 alt="FuelFoods"
                 fill
                 className="object-contain"
