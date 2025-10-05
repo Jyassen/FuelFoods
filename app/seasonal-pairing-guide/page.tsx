@@ -850,7 +850,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Red-Vein Sorrel</h3>
             <div class="image-container">
-                <img src="/images/microgreens/red vein sorrel.png"
+                <img src="/images/microgreens/red%20vein%20sorrel.png"
                      alt="Red-vein sorrel leaves showing distinctive red veining against green"
                      loading="lazy">
             </div>
@@ -958,7 +958,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Calendula Petals (Marigold)</h3>
             <div class="image-container">
-                <img src="/images/microgreens/marigold petals .png"
+                <img src="/images/microgreens/marigold%20petals%20.png"
                      alt="Bright orange calendula petals showing confetti-like appearance"
                      loading="lazy">
             </div>
@@ -994,7 +994,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Nasturtium (Early Fall)</h3>
             <div class="image-container">
-                <img src="/images/microgreens/nasturtium flowers.png"
+                <img src="/images/microgreens/nasturtium%20flowers.png"
                      alt="Bold saturated nasturtium blooms with dramatic silhouette"
                      loading="lazy">
             </div>
@@ -1030,7 +1030,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Viola / Pansy</h3>
             <div class="image-container">
-                <img src="/images/microgreens/pansy mix .png"
+                <img src="/images/microgreens/pansy%20mix%20.png"
                      alt="Viola blooms showing iconic face pattern in purple and yellow"
                      loading="lazy">
             </div>
@@ -1073,7 +1073,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Micro Mustard</h3>
             <div class="image-container">
-                <img src="/images/microgreens/Mustard Green.png"
+                <img src="/images/microgreens/Mustard%20Green.png"
                      alt="Fine-textured micro mustard greens with delicate leaves"
                      loading="lazy">
             </div>
@@ -1181,7 +1181,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Pea Tendrils / Golden Pea Shoots</h3>
             <div class="image-container">
-                <img src="/images/microgreens/pea tendrils.png"
+                <img src="/images/microgreens/pea%20tendrils.png"
                      alt="Pea tendrils showing characteristic curls and vibrant green color"
                      loading="lazy">
             </div>
@@ -1217,7 +1217,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Calendula Petals (Marigold)</h3>
             <div class="image-container">
-                <img src="/images/microgreens/marigold petals .png"
+                <img src="/images/microgreens/marigold%20petals%20.png"
                      alt="Bright orange calendula petals showing confetti-like appearance"
                      loading="lazy">
             </div>
@@ -1253,7 +1253,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Viola / Pansy</h3>
             <div class="image-container">
-                <img src="/images/microgreens/pansy mix .png"
+                <img src="/images/microgreens/pansy%20mix%20.png"
                      alt="Viola blooms showing iconic face pattern in purple and yellow"
                      loading="lazy">
             </div>
@@ -1296,7 +1296,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Micro Basil</h3>
             <div class="image-container">
-                <img src="/images/microgreens/Basil Mix.png"
+                <img src="/images/microgreens/Basil%20Mix.png"
                      alt="Micro basil showing sweet aromatic leaves"
                      loading="lazy">
             </div>
@@ -1332,7 +1332,7 @@ export default function Page() {
         <div class="variety-card animate-fade-up">
             <h3>Micro Shiso (Green)</h3>
             <div class="image-container">
-                <img src="/images/microgreens/Shiso Green.png"
+                <img src="/images/microgreens/Shiso%20Green.png"
                      alt="Micro shiso green with luxe modern appearance"
                      loading="lazy">
             </div>
