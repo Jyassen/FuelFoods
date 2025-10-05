@@ -798,10 +798,244 @@
                 color: white !important;
             }
         }
+
+        /* ========================================
+           EMAIL GATE OVERLAY STYLES
+        ======================================== */
+        .email-gate-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .email-gate-overlay.hidden {
+            display: none;
+        }
+
+        .email-gate-modal {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D3D2A 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--fuel-green-primary);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .email-gate-content {
+            text-align: center;
+        }
+
+        .gate-logo {
+            width: 80px;
+            height: auto;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .email-gate-content h2 {
+            color: var(--fuel-green-primary) !important;
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-family: var(--font-heading);
+        }
+
+        .gate-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .email-gate-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .gate-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(93, 190, 98, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .gate-input:focus {
+            outline: none;
+            border-color: var(--fuel-green-primary);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(93, 190, 98, 0.1);
+        }
+
+        .gate-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .gate-unlock-btn {
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--fuel-green-primary) 0%, var(--fuel-green-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(93, 190, 98, 0.3);
+        }
+
+        .gate-unlock-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(93, 190, 98, 0.4);
+        }
+
+        .gate-unlock-btn:active {
+            transform: translateY(0);
+        }
+
+        .gate-unlock-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .gate-privacy {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .gate-success-message {
+            color: var(--fuel-green-primary);
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .gate-success-message svg {
+            color: var(--fuel-green-primary);
+        }
+
+        .gate-error-message {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            margin-top: 16px;
+            font-size: 14px;
+        }
+
+        #main-content {
+            filter: blur(0px);
+            transition: filter 0.3s ease;
+        }
+
+        #main-content.blurred {
+            filter: blur(8px);
+            pointer-events: none;
+        }
+
+        @media (max-width: 640px) {
+            .email-gate-modal {
+                padding: 40px 24px;
+            }
+
+            .email-gate-content h2 {
+                font-size: 24px;
+            }
+
+            .gate-subtitle {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Email Capture Overlay -->
+    <div id="email-gate-overlay" class="email-gate-overlay">
+        <div class="email-gate-modal">
+            <div class="email-gate-content">
+                <img src="/images/brand/Logo.png" alt="FuelFoods Culinary" class="gate-logo" />
+                <h2>Get Your Free Seasonal Pairing Guide</h2>
+                <p class="gate-subtitle">Professional microgreens & edible flowers pairings for Fall/Winter 2025</p>
+
+                <form id="email-gate-form" class="email-gate-form">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            id="gate-name"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                            class="gate-input"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            id="gate-email"
+                            name="email"
+                            placeholder="Email Address"
+                            required
+                            class="gate-input"
+                        />
+                    </div>
+                    <button type="submit" id="gate-submit-btn" class="gate-unlock-btn">
+                        <span id="gate-btn-text">Unlock Pairing Guide</span>
+                    </button>
+                    <p class="gate-privacy">We respect your privacy. No spam, ever.</p>
+                </form>
+
+                <div id="gate-success-message" class="gate-success-message" style="display: none;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <p>Success! Unlocking your guide...</p>
+                </div>
+
+                <div id="gate-error-message" class="gate-error-message" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="main-content">
         <header class="animate-fade-up">
             <div class="logo-container">
                 <img src="/images/brand/Logo.png" alt="FuelFoods Culinary - Microgreens & Flowers" />
@@ -1482,5 +1716,80 @@
         </section>
 
     </div>
+
+    <script>
+        // Email Gate Form Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('email-gate-overlay');
+            const mainContent = document.getElementById('main-content');
+            const form = document.getElementById('email-gate-form');
+            const submitBtn = document.getElementById('gate-submit-btn');
+            const btnText = document.getElementById('gate-btn-text');
+            const successMessage = document.getElementById('gate-success-message');
+            const errorMessage = document.getElementById('gate-error-message');
+
+            // Initially blur the main content
+            mainContent.classList.add('blurred');
+
+            // Handle form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('gate-name').value.trim();
+                const email = document.getElementById('gate-email').value.trim();
+
+                // Disable button
+                submitBtn.disabled = true;
+                btnText.textContent = 'Unlocking...';
+
+                try {
+                    // Send to API endpoint
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            phone: '',
+                            message: 'Requested access to Seasonal Pairing Guide - Fall/Winter 2025',
+                            formType: 'Seasonal Pairing Guide Access',
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Show success message
+                        form.style.display = 'none';
+                        successMessage.style.display = 'flex';
+
+                        // Hide overlay and show content after 1.5 seconds
+                        setTimeout(function() {
+                            overlay.classList.add('hidden');
+                            mainContent.classList.remove('blurred');
+                        }, 1500);
+                    } else {
+                        throw new Error(data.error || 'Failed to submit form');
+                    }
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    errorMessage.textContent = error.message || 'Network error. Please try again.';
+                    errorMessage.style.display = 'block';
+
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    btnText.textContent = 'Unlock Pairing Guide';
+
+                    // Hide error after 5 seconds
+                    setTimeout(function() {
+                        errorMessage.style.display = 'none';
+                    }, 5000);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
