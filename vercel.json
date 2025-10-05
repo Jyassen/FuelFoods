@@ -46,15 +46,5 @@
         }
       ]
     }
-  ],
-  "routes": [
-    {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
-    },
-    {
-      "src": "/videos/(.*)",
-      "dest": "/videos/$1"
-    }
   ]
 }
