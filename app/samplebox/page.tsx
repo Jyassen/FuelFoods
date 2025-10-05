@@ -1,0 +1,1962 @@
+import Head from 'next/head';
+
+export default function Page() {
+  return (
+    <>
+      <Head>
+        <title>Free Sample Box — FuelFoods Culinary | FuelFoods Culinary</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
+      </Head>
+
+      <style jsx global>{`
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .narrow-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .wide-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Removed for splash page */
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 80px 0 100px;
+            background: linear-gradient(to bottom, #000000 0%, #1a3a1a 50%, #2D5016 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .skip-samples-link {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            color: #FFD700;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.75) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateX(120%);
+        }
+
+        .skip-samples-link.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .skip-samples-link.pop {
+            animation: popAttention 0.6s ease forwards;
+        }
+
+        @keyframes popAttention {
+            0% { transform: translateX(0) scale(1); }
+            50% { transform: translateX(-10px) scale(1.08); }
+            100% { transform: translateX(0) scale(1); }
+        }
+
+        .skip-samples-link:hover {
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 100%);
+            border-color: rgba(255, 215, 0, 0.6);
+            transform: translateX(-5px);
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .skip-samples-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .skip-samples-link {
+                font-size: 0.8rem;
+                padding: 10px 16px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        .hero-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-video-wrapper {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            opacity: 1 !important;
+            display: block !important;
+        }
+
+        .hero-bottom-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease forwards 0.4s;
+            opacity: 0;
+        }
+
+        .hero-form-wrapper {
+            animation: fadeInRight 1s ease forwards 0.4s;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .hero-video-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            background: #000;
+            aspect-ratio: 16/9;
+            width: 100%;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+
+        .hero-form-compact {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 2px solid #e9ecef;
+            animation: fadeInRight 1s ease forwards 0.2s;
+            opacity: 0;
+        }
+
+        .hero-form-compact h3 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .hero-form-compact p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .hero-form-compact .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .hero-form-compact input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-form-compact input:focus {
+            outline: none;
+            border-color: #2E7D32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        .hero-form-compact .cta-primary {
+            width: 100%;
+            margin: 12px 0 0 0;
+            padding: 14px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 968px) {
+            .hero-form-compact .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Restaurant Partners Section */
+        .partners-section {
+            background: white;
+            padding: 50px 0;
+            border-bottom: 1px solid #e9ecef;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .partners-heading {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+        }
+
+        .partners-scroll-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            background: white;
+        }
+
+        .partners-scroll {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            animation: scroll 40s linear infinite;
+            width: fit-content;
+            padding: 10px 0;
+        }
+
+        .partners-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .partner-logo {
+            height: 100px;
+            width: auto;
+            object-fit: cover;
+            object-position: center;
+            filter: grayscale(0%);
+            opacity: 1;
+            transition: all 0.3s ease;
+            background: white;
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            border: 3px solid #f5f5f5;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            border-color: #e0e0e0;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .partners-heading {
+                font-size: 1.2rem;
+            }
+
+            .partner-logo {
+                height: 35px;
+            }
+
+            .hero-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-video-wrapper {
+                margin-bottom: 40px;
+            }
+
+            .hero-bottom-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-info-row {
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 25px;
+            }
+
+            .hero-info-item {
+                font-size: 0.9rem;
+            }
+
+            .hero-info-item svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .partner-logo {
+                height: 70px;
+                border-radius: 16px;
+                border-width: 2px;
+            }
+        }
+
+        .hero-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-header .subtitle {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .problem-agitation {
+            font-size: 1.15rem;
+            color: #d35400;
+            font-style: italic;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #FF7F2A;
+            animation: fadeInLeft 1s ease forwards 0.4s;
+            opacity: 0;
+            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.1);
+        }
+
+        .supporting-text {
+            font-size: 1.05rem;
+            color: #ffffff;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            animation: fadeInLeft 1s ease forwards 0.6s;
+            opacity: 0;
+        }
+
+        .hero-info-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+            animation: fadeInLeft 1s ease forwards 0.6s;
+            opacity: 0;
+        }
+
+        .hero-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-info-item svg {
+            width: 20px;
+            height: 20px;
+            color: #FFD700;
+            flex-shrink: 0;
+        }
+
+        /* CTA Buttons */
+        .cta-primary {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+            animation: fadeInLeft 1s ease forwards 0.8s;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(46, 125, 50, 0.4);
+        }
+
+        .cta-secondary {
+            background: white;
+            color: #2E7D32;
+            border: 2px solid #2E7D32;
+            padding: 16px 38px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: fadeInLeft 1s ease forwards 1s;
+            opacity: 0;
+        }
+
+        .cta-secondary:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .cta-primary svg,
+        .cta-secondary svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #495057;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Value Proposition Grid */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .value-item {
+            background: white;
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FF7F2A, transparent);
+            transition: left 0.5s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .value-item:hover::before {
+            left: 100%;
+        }
+
+        .value-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: #2D5016;
+            margin: 0;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .value-item h3::before {
+            content: "✓";
+            margin-right: 10px;
+            font-size: 1.4rem;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .value-item ul {
+            list-style: none;
+            padding: 30px 40px 40px 40px;
+            margin: 0;
+            background: white;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .value-item li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: #495057;
+        }
+
+        .value-item li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #FF7F2A;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            background: linear-gradient(to bottom, #000000 0%, #1a3a1a 40%, #2E7D32 100%);
+            color: white;
+            padding: 60px 0 100px;
+            position: relative;
+        }
+
+        .social-proof::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.03"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.02"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .social-proof .section-title {
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat {
+            text-align: center;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+            transition: left 0.6s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.12);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .stat:hover::before {
+            left: 100%;
+        }
+
+        .stat .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FFB74D;
+            display: block;
+        }
+
+        .stat .label {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            color: white;
+        }
+
+        .business-foundation {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .proof-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .proof-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact-info {
+            background: rgba(76, 175, 80, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .contact-info h4 {
+            color: #4CAF50;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info ul {
+            list-style: none;
+        }
+
+        .contact-info li {
+            padding: 5px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .form-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            padding: 70px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2D5016, #4CAF50, #FFD700);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #1B4332;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1B4332;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2D5016;
+            box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+            background: white;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .privacy-note {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .process-step::before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #27ae60;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .process-steps {
+            counter-reset: step;
+        }
+
+        .process-step h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        .process-includes {
+            background: #e8f5e8;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 50px 0;
+            border: 2px solid #27ae60;
+        }
+
+        .process-includes h3 {
+            color: #2c5530;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .includes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .includes-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .includes-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            background: #2c5530;
+            color: white;
+            padding: 20px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 30px;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 25px 30px;
+            display: none;
+            color: #495057;
+            line-height: 1.7;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #2c5530 0%, #1e3d23 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,215,0,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(76,175,80,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .guarantee {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            border: 2px solid #27ae60;
+        }
+
+        .guarantee h3 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3d23;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .business-info {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-links a {
+            color: #27ae60;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        .contact-links a:hover {
+            color: white;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-right-column {
+                order: -1;
+            }
+
+            .hero-form-compact {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Social Proof CTA Button */
+        .social-proof-cta {
+            padding: 14px 32px;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-proof-cta:hover,
+        .social-proof-cta:active {
+            background: #1a1a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Modal Popup */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease forwards;
+            border: 1px solid #e9ecef;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .modal-close:hover {
+            background: #f8f9fa;
+            color: #1a1a1a;
+        }
+
+        .modal-close svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .modal-content .form-group {
+            margin-bottom: 16px;
+        }
+
+        .modal-content label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a4a4a;
+            margin-bottom: 6px;
+        }
+
+        .modal-content .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .modal-content input:focus {
+            outline: none;
+            border-color: #2E7D32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        .modal-content .submit-btn {
+            width: 100%;
+            margin-top: 8px;
+            padding: 14px;
+            font-size: 1rem;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content .submit-btn:hover {
+            background: #1B5E20;
+        }
+
+        .modal-content .submit-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 640px) {
+            .modal-content {
+                padding: 40px 25px;
+            }
+
+            .modal-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .modal-content .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container, .narrow-container {
+                padding: 0 15px;
+            }
+
+            .form-container {
+                padding: 40px 25px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .value-grid,
+            .stats-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+      `}</style>
+
+      <div dangerouslySetInnerHTML={{
+        __html: `<!-- Skip Samples Link - Fixed Bottom Right -->
+    <a href="https://culinary.fuelfoods.store" target="_blank" class="skip-samples-link" id="skipSamplesLink">
+        Skip Samples Order what you want now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero loading">
+        <div class="hero-content">
+            <!-- Hero Header (Headline) -->
+            <div class="hero-header">
+                <h1>Stop Choosing Between Quality Ingredients<br>and Profit Margins</h1>
+                <p class="subtitle">30+ NYC restaurants solved this dilemma with FuelFoods microgreens and edible flowers!</p>
+            </div>
+
+            <!-- Centered Larger Video -->
+            <div class="hero-video-wrapper">
+                    <div class="hero-video-container">
+                        <video class="hero-video" autoplay loop muted playsinline id="hero-video">
+                            <source src="/videos/sample-vid-edited.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay"></div>
+                        <button id="unmute-btn" style="position: absolute; bottom: 20px; right: 20px; z-index: 10; background: rgba(0,0,0,0.7); color: white; border: 2px solid white; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <line x1="23" y1="9" x2="17" y2="15"></line>
+                                <line x1="17" y1="9" x2="23" y2="15"></line>
+                            </svg>
+                            <span>Unmute</span>
+                        </button>
+                    </div>
+            </div>
+
+            <!-- Bottom Grid: Copy on Left, Form on Right -->
+            <div class="hero-bottom-grid">
+                <div class="hero-text">
+                    <p class="problem-agitation">Tired of ingredient costs killing your margins? Or settling for mediocre greens that disappoint customers? You're facing the same choice every chef makes daily...until&nbsp;now.</p>
+                    <p class="supporting-text">Request free samples from NYC's Black-owned microgreens supplier and discover why restaurants report higher customer satisfaction AND improved food costs within their first delivery&nbsp;cycle.</p>
+                    
+                    <div class="hero-info-row">
+                        <div class="hero-info-item">
+                            <i data-lucide="star"></i>
+                            <span>Trusted by 30+ NYC Restaurants</span>
+                        </div>
+                        <div class="hero-info-item">
+                            <i data-lucide="award"></i>
+                            <span>MWBE Certified</span>
+                        </div>
+                        <div class="hero-info-item">
+                            <i data-lucide="check-circle"></i>
+                            <span>Freshness Guaranteed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-form-wrapper">
+                    <div class="hero-form-compact">
+                        <h3>Request Your Free Samples</h3>
+                        <p>Get professional samples delivered within 48&nbsp;hours</p>
+                        <form id="hero-sample-form">
+                            <div class="form-row">
+                                <input type="text" placeholder="Restaurant Name" required>
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="email" placeholder="Email Address" required>
+                                <input type="tel" placeholder="Phone Number" required>
+                            </div>
+                            <input type="text" placeholder="Restaurant Address (NYC)" required style="margin-bottom: 12px;">
+                            <button type="submit" class="cta-primary">Request Free Samples</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Partners Section -->
+    <div class="partners-section">
+        <div class="container">
+            <h2 class="partners-heading">Join These Satisfied Partners</h2>
+            <div class="partners-scroll-container">
+                <div class="partners-scroll">
+                    <!-- First set of logos -->
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Aliya.png" alt="Aliya Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Atria.png" alt="Atria Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Charm.png" alt="Charm Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Continent.png" alt="Continent Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/FishCheeks.png" alt="Fish Cheeks Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Native.png" alt="Native Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Nemesis.png" alt="Nemesis Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Prime39.png" alt="Prime 39 Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/RPB.png" alt="RPB Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Victory.png" alt="Victory Restaurant" class="partner-logo">
+                    <!-- Duplicate set for seamless loop -->
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Aliya.png" alt="Aliya Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Atria.png" alt="Atria Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Charm.png" alt="Charm Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Continent.png" alt="Continent Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/FishCheeks.png" alt="Fish Cheeks Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Native.png" alt="Native Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Nemesis.png" alt="Nemesis Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Prime39.png" alt="Prime 39 Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/RPB.png" alt="RPB Restaurant" class="partner-logo">
+                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Victory.png" alt="Victory Restaurant" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Value Proposition Section -->
+    <section class="section loading">
+        <div class="container">
+            <h2 class="section-title">Your Free Sample includes:</h2>
+            <div class="value-grid">
+                <div class="value-item">
+                    <h3>Our Most Popular Microgreen Varieties</h3>
+                    <ul>
+                        <li>Chef-selected premium microgreens</li>
+                        <li>Menu-ready portions for testing</li>
+                        <li>24-48 hour freshness guarantee</li>
+                    </ul>
+                </div>
+                <div class="value-item">
+                    <h3>Flower Selections that&nbsp;Sell</h3>
+                    <ul>
+                        <li>Eye-catching floral garnishes</li>
+                        <li>Proven customer favorites</li>
+                        <li>Seasonal items that upscale</li>
+                    </ul>
+                </div>
+                <div class="value-item">
+                    <h3>BONUS: Our Seasonal Picks & Pairing Guide</h3>
+                    <ul>
+                        <li>Professional pairing recommendations</li>
+                        <li>Seasonal menu inspiration</li>
+                        <li>Chef-tested combinations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof loading">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="/images/brand/Logo.png" alt="FuelFoods Logo" style="max-width: 80px; height: auto;">
+            </div>
+            <h2 class="section-title">A Proven Track Record of Freshness and&nbsp;Reliability</h2>
+
+            <div class="business-foundation">
+                <strong>BUSINESS FOUNDATION:</strong><br>
+                FuelFoods Industries LLC has supplied 30+ NYC restaurants with consistent quality and reliability. Our 24-48 hour harvest-to-delivery system ensures peak freshness while supporting local sourcing initiatives and community&nbsp;partnerships. <a href="https://culinary.fuelfoods.store" target="_blank" style="color: #4CAF50; text-decoration: underline; font-weight: 600;">Learn More</a>
+            </div>
+
+            <div class="proof-list">
+                <div class="proof-item">
+                    <strong>Freshness Guarantee:</strong> 24-48 hour harvest-to-delivery system
+                </div>
+                <div class="proof-item">
+                    <strong>Delivery System:</strong> Mon/Thu delivery routes with same-day options
+                </div>
+                <div class="proof-item">
+                    <strong>Shelf Life:</strong> 7-10 days when stored at 34-38°F
+                </div>
+                <div class="proof-item">
+                    <strong>Food Safety:</strong> HACCP compliance and documentation
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <button class="social-proof-cta open-modal">Request Your Free Sample</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section loading">
+        <div class="narrow-container">
+            <h2 class="section-title">Sample Program Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: Is this really completely free?</div>
+                <div class="faq-answer">A: Yes, completely free. FuelFoods covers all costs including harvest, packaging, and delivery. No credit card required, no hidden&nbsp;fees.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: How do you qualify restaurants?</div>
+                <div class="faq-answer">A: We serve NYC restaurants within our delivery zones (all boroughs). Priority given to establishments with \$20+ average tickets and genuine interest in quality&nbsp;ingredients.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: What's your actual delivery schedule?</div>
+                <div class="faq-answer">A: Standard routes Monday and Thursday. Same-day rush delivery available within certain NYC zones for established&nbsp;partners.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: Are you a local NYC business?</div>
+                <div class="faq-answer">A: Yes, MWBE certified NYC business serving all 5 boroughs. We support local sourcing initiatives and community&nbsp;partnerships.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Q: What if the samples don't work for our menu?</div>
+                <div class="faq-answer">A: No problem at all. Sample program exists specifically to determine fit before any commitment. Many restaurants find specific varieties work better than&nbsp;others.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Popup Form -->
+    <div class="modal-overlay" id="sampleModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3>Get your Samples</h3>
+            <form id="modal-sample-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modal-restaurant-name">Restaurant Name</label>
+                        <input type="text" id="modal-restaurant-name" placeholder="Restaurant Name" required name="restaurant_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-contact-name">Your Name</label>
+                        <input type="text" id="modal-contact-name" placeholder="Your Name" required name="contact_name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modal-phone">Phone Number</label>
+                        <input type="tel" id="modal-phone" placeholder="Phone Number" required name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email">Email</label>
+                        <input type="email" id="modal-email" placeholder="Email" required name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="modal-address">Restaurant Address (NYC)</label>
+                    <input type="text" id="modal-address" placeholder="Restaurant Address (NYC)" required name="address">
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="business-info">
+                <strong>FuelFoods Industries LLC</strong> | NYC | MWBE certified | Serving NYC restaurants since 2021
+            </div>
+            <div class="contact-links">
+                <a href="mailto:info@fuelfoods.store" style="color: #27ae60; text-decoration: none; margin-right: 20px;">info@fuelfoods.store</a>
+                <span style="color: #666; margin: 0 10px;">|</span>
+                <a href="https://culinary.fuelfoods.store" target="_blank" style="color: #27ae60; text-decoration: none;">culinary.fuelfoods.store</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons as soon as possible
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Skip Samples Link - Scroll and Pop Animation
+            const skipSamplesLink = document.getElementById('skipSamplesLink');
+            let hasPopped = false;
+            let popTimeout;
+
+            // Show link on scroll
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                
+                // Show after scrolling 200px
+                if (scrollPosition > 200) {
+                    skipSamplesLink.classList.add('visible');
+                    
+                    // Set timeout for pop animation if not already done
+                    if (!hasPopped && !popTimeout) {
+                        popTimeout = setTimeout(function() {
+                            skipSamplesLink.classList.add('pop');
+                            hasPopped = true;
+                            
+                            // Remove pop class after animation
+                            setTimeout(function() {
+                                skipSamplesLink.classList.remove('pop');
+                            }, 600);
+                        }, 10000); // 10 seconds after becoming visible
+                    }
+                }
+            });
+        });
+
+        // Enhanced smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced FAQ Toggle with smooth animations
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+
+                // Toggle current item with animation
+                if (!isActive) {
+                    answer.classList.add('active');
+                    this.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = '0px';
+                    setTimeout(() => {
+                        answer.classList.remove('active');
+                        this.classList.remove('active');
+                    }, 300);
+                }
+            });
+        });
+
+        // This form handler is now handled in the unified form handler below (lines 1784+)
+
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = \`notification \${type}\`;
+            notification.textContent = message;
+
+            // Add notification styles dynamically
+            notification.style.cssText = \`
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: \${type === 'success' ? '#4CAF50' : '#e74c3c'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 10000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                font-weight: 500;
+            \`;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remove after 5 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 5000);
+        }
+
+        // Enhanced loading animations with staggered effect
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        let animationDelay = 0;
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = animationDelay + 's';
+                    entry.target.style.opacity = '1';
+                    animationDelay += 0.1;
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Video controls and error handling
+        const heroVideo = document.querySelector('.hero-video');
+        if (heroVideo) {
+            heroVideo.addEventListener('error', function() {
+                console.warn('Video failed to load, showing fallback');
+                this.style.display = 'none';
+                // Could add a fallback image here
+            });
+
+            // Pause video when not in viewport for performance
+            const videoObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        heroVideo.play();
+                    } else {
+                        heroVideo.pause();
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            videoObserver.observe(heroVideo);
+        }
+
+        // Enhanced phone click tracking with analytics
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Phone call initiated:', this.href);
+                // Could send to analytics service here
+            });
+        });
+
+        // Add scroll progress indicator
+        const scrollProgress = document.createElement('div');
+        scrollProgress.style.cssText = \`
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #2D5016, #4CAF50, #FFD700);
+            z-index: 9999;
+            transition: width 0.25s ease;
+        \`;
+        document.body.appendChild(scrollProgress);
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Video Auto-play (muted by default per browser requirements)
+        // Unmute button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            const unmuteBtn = document.getElementById('unmute-btn');
+
+            if (video && unmuteBtn) {
+                // Start muted (required for autoplay)
+                video.muted = true;
+                video.volume = 0.7; // Set to 70% when unmuted
+                
+                // Ensure video plays
+                video.play().catch(error => {
+                    console.log('Autoplay failed:', error.message);
+                });
+
+                // Unmute button click handler
+                unmuteBtn.addEventListener('click', function() {
+                    if (video.muted) {
+                        video.muted = false;
+                        this.innerHTML = \`
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                            </svg>
+                            <span>Mute</span>
+                        \`;
+                        this.style.background = 'rgba(46, 125, 50, 0.9)';
+                    } else {
+                        video.muted = true;
+                        this.innerHTML = \`
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <line x1="23" y1="9" x2="17" y2="15"></line>
+                                <line x1="17" y1="9" x2="23" y2="15"></line>
+                            </svg>
+                            <span>Unmute</span>
+                        \`;
+                        this.style.background = 'rgba(0, 0, 0, 0.7)';
+                    }
+                });
+
+                // Add hover effect
+                unmuteBtn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                unmuteBtn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            }
+        });
+
+        // Modal Controls - Fixed to ensure proper event binding
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('sampleModal');
+            const modalClose = document.getElementById('modalClose');
+            const openModalBtns = document.querySelectorAll('.open-modal');
+
+            console.log('Modal Controls Initialized');
+            console.log('Modal element found:', !!modal);
+            console.log('Open modal buttons found:', openModalBtns.length);
+
+            if (!modal) {
+                console.error('Modal element not found!');
+                return;
+            }
+
+            // Attach click handlers to all "open-modal" buttons
+            openModalBtns.forEach((btn, index) => {
+                console.log('Attaching listener to button', index + 1);
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Open modal button clicked!');
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close button handler
+            if (modalClose) {
+                modalClose.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Close button clicked');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Click outside modal to close
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    console.log('Clicked outside modal - closing');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // ESC key to close
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Handle both hero and modal form submissions
+        document.addEventListener('DOMContentLoaded', function() {
+            function handleFormSubmit(formId) {
+                const form = document.getElementById(formId);
+                if (!form) {
+                    console.warn('Form not found:', formId);
+                    return;
+                }
+                
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.textContent = 'Submitting...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        console.log('Form submitted:', Object.fromEntries(formData));
+                        this.reset();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Close modal if it's the modal form
+                        if (formId === 'modal-sample-form') {
+                            const modal = document.getElementById('sampleModal');
+                            modal.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                        
+                        showNotification('Thank you! Your sample request has been submitted. We will contact you within 24 hours.', 'success');
+                    }, 1500);
+                });
+            }
+
+            handleFormSubmit('hero-sample-form');
+            handleFormSubmit('modal-sample-form');
+        });
+
+        // Initialize Lucide icons - ensure all icons are rendered
+        window.addEventListener('load', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+                console.log('Lucide icons initialized on window load');
+                
+                // Reinitialize after a short delay to catch any dynamically added icons
+                setTimeout(function() {
+                    lucide.createIcons();
+                    console.log('Lucide icons re-initialized');
+                }, 200);
+            } else {
+                console.error('Lucide library not loaded');
+            }
+        });
+    </script>`
+      }} />
+    </>
+  );
+}
