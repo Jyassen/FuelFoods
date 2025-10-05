@@ -21,7 +21,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm mt-2" style={{ color: 'var(--fuel-text-secondary)' }}>
-              NYC's Premier Black-Owned<br />Microgreens Supplier
+              NYC's Premier MWBE Certified<br />Microgreens Supplier
             </p>
           </div>
 

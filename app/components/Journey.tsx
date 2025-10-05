@@ -105,7 +105,7 @@ export default function Journey() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--fuel-green-primary)' }}>
-              Partner with NYC's Premier Black-Owned Microgreens Supplier
+              Partner with NYC's Premier MWBE Certified Microgreens Supplier
             </h2>
             <p className="text-xl mb-8" style={{ color: 'var(--fuel-text-secondary)' }}>
               Join leading restaurants in New York City who trust us for their premium
