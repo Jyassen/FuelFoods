@@ -1,0 +1,370 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #000000 0%, #1A1A1A 20%, #2D3D2A 50%, #3D5C3B 80%, #4A6F47 100%);
+  background-attachment: fixed;
+  color: #1A1A1A;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  line-height: 1.7;
+  padding: 48px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+  padding: 64px 24px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logoContainer {
+  margin-bottom: 24px;
+}
+
+.logoContainer img {
+  width: 180px;
+  height: auto;
+  max-width: 100%;
+}
+
+.header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  color: #5DBE62;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  color: #D4A574;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.seasonYear {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+.meta {
+  background: #E8F5E9;
+  padding: 24px;
+  border-radius: 4px;
+  border-left: 4px solid #5DBE62;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.meta strong {
+  color: #5DBE62;
+  font-weight: 700;
+}
+
+.toc {
+  background: #FFFFFF;
+  padding: 48px;
+  border-radius: 20px;
+  margin: 64px auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  max-width: 1200px;
+}
+
+.toc h3 {
+  text-align: center;
+  color: #5DBE62;
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: 32px;
+}
+
+.tocGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.tocGrid a {
+  display: block;
+  padding: 24px;
+  background: #E8F5E9;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1A1A1A;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tocGrid a:hover {
+  background: #5DBE62;
+  color: #FFFFFF;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.section {
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+.section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 4vw, 38px);
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.section h2::after {
+  content: '◆';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFC107;
+  font-size: 16px;
+}
+
+.seasonalNote {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 48px;
+  font-size: 16px;
+}
+
+.varietyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.varietyCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.varietyCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.varietyCard h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: #5DBE62;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #E8F5E9;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 200px;
+  margin: 24px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer img {
+  max-width: 85%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.varietyCard:hover .imageContainer img {
+  transform: scale(1.03);
+}
+
+.varietyInfo {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.infoLabel {
+  font-weight: 700;
+  color: #5DBE62;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.infoContent {
+  color: #1A1A1A;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.divider {
+  text-align: center;
+  margin: 64px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #5DBE62 20%, #FFC107 50%, #5DBE62 80%, transparent);
+  opacity: 0.6;
+}
+
+.divider::after {
+  content: '❦';
+  display: inline-block;
+  padding: 0 24px;
+  color: #FFC107;
+  font-size: 24px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  background: #2D3D2A;
+}
+
+.tipBox {
+  background: #FFFFFF;
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tipBox h3 {
+  color: #FFFFFF;
+  background: #2D5016;
+  margin: -48px -48px 24px;
+  padding: 32px 48px;
+  border-radius: 16px 16px 0 0;
+  font-size: 22px;
+}
+
+.tipContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tipItem {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.tipItem strong {
+  color: #5DBE62;
+  font-weight: 700;
+}
+
+.cta {
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+.ctaBox {
+  background: #FFFFFF;
+  padding: 48px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.ctaBox h3 {
+  color: #5DBE62;
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: 16px;
+}
+
+.ctaButton {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(23, 134, 65, 0.25);
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #4CAF50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(23, 134, 65, 0.35);
+}
+
+.footer {
+  text-align: center;
+  color: #FFFFFF;
+  padding: 48px 24px;
+  font-size: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+  .varietyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 48px 16px;
+  }
+
+  .toc {
+    padding: 32px 16px;
+  }
+
+  .tocGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .varietyCard {
+    padding: 24px;
+  }
+
+  .tipBox {
+    padding: 32px 16px;
+  }
+
+  .tipBox h3 {
+    margin: -32px -16px 24px;
+    padding: 24px 16px;
+  }
+
+  .ctaBox {
+    padding: 32px 16px;
+  }
+}
