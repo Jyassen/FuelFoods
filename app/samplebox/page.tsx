@@ -1418,27 +1418,27 @@ export default function Page() {
             <div class="partners-scroll-container">
                 <div class="partners-scroll">
                     <!-- First set of logos -->
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Aliya.png" alt="Aliya Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Atria.png" alt="Atria Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Charm.png" alt="Charm Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Continent.png" alt="Continent Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/FishCheeks.png" alt="Fish Cheeks Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Native.png" alt="Native Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Nemesis.png" alt="Nemesis Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Prime39.png" alt="Prime 39 Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/RPB.png" alt="RPB Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Victory.png" alt="Victory Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Aliya.png" alt="Aliya Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Atria.png" alt="Atria Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Charm.png" alt="Charm Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Continent.png" alt="Continent Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/FishCheeks.png" alt="Fish Cheeks Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Native.png" alt="Native Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Nemesis.png" alt="Nemesis Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Prime39.png" alt="Prime 39 Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/RPB.png" alt="RPB Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Victory.png" alt="Victory Restaurant" class="partner-logo">
                     <!-- Duplicate set for seamless loop -->
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Aliya.png" alt="Aliya Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Atria.png" alt="Atria Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Charm.png" alt="Charm Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Continent.png" alt="Continent Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/FishCheeks.png" alt="Fish Cheeks Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Native.png" alt="Native Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Nemesis.png" alt="Nemesis Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Prime39.png" alt="Prime 39 Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/RPB.png" alt="RPB Restaurant" class="partner-logo">
-                    <img src="../../fuelfoods_restaurants/public/images/restaurant_partners/Victory.png" alt="Victory Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Aliya.png" alt="Aliya Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Atria.png" alt="Atria Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Charm.png" alt="Charm Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Continent.png" alt="Continent Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/FishCheeks.png" alt="Fish Cheeks Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Native.png" alt="Native Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Nemesis.png" alt="Nemesis Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Prime39.png" alt="Prime 39 Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/RPB.png" alt="RPB Restaurant" class="partner-logo">
+                    <img src="/images/restaurant_partners/Victory.png" alt="Victory Restaurant" class="partner-logo">
                 </div>
             </div>
         </div>
