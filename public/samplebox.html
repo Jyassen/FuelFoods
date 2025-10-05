@@ -1,20 +1,21 @@
-'use client';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Sample Drop Program - FuelFoods Culinary | NYC's Premier MWBE Microgreens Supplier</title>
+    <meta name="description" content="Stop choosing between quality ingredients and profit margins. 30+ NYC restaurants solved this dilemma with FuelFoods' free sample program. MWBE-certified, Black-owned supplier.">
+    <meta name="keywords" content="NYC microgreens supplier, free samples restaurant, MWBE certified supplier, Black-owned business NYC, restaurant ingredients delivery, microgreens samples NYC">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
-import Head from 'next/head';
-
-export default function Page() {
-  return (
-    <>
-      <Head>
-        <title>Free Sample Box — FuelFoods Culinary | FuelFoods Culinary</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet" />
-      </Head>
-
-      <style jsx global>{`
-        
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -1326,11 +1327,10 @@ export default function Page() {
                 transform: translateY(0);
             }
         }
-    
-      `}</style>
-
-      <div dangerouslySetInnerHTML={{
-        __html: `<!-- Skip Samples Link - Fixed Bottom Right -->
+    </style>
+</head>
+<body>
+    <!-- Skip Samples Link - Fixed Bottom Right -->
     <a href="https://culinary.fuelfoods.store" target="_blank" class="skip-samples-link" id="skipSamplesLink">
         Skip Samples Order what you want now
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1523,7 +1523,7 @@ export default function Page() {
 
             <div class="faq-item">
                 <div class="faq-question">Q: How do you qualify restaurants?</div>
-                <div class="faq-answer">A: We serve NYC restaurants within our delivery zones (all boroughs). Priority given to establishments with \$20+ average tickets and genuine interest in quality&nbsp;ingredients.</div>
+                <div class="faq-answer">A: We serve NYC restaurants within our delivery zones (all boroughs). Priority given to establishments with $20+ average tickets and genuine interest in quality&nbsp;ingredients.</div>
             </div>
 
             <div class="faq-item">
@@ -1685,15 +1685,15 @@ export default function Page() {
         // Notification system
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
-            notification.className = \`notification \${type}\`;
+            notification.className = `notification ${type}`;
             notification.textContent = message;
 
             // Add notification styles dynamically
-            notification.style.cssText = \`
+            notification.style.cssText = `
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                background: \${type === 'success' ? '#4CAF50' : '#e74c3c'};
+                background: ${type === 'success' ? '#4CAF50' : '#e74c3c'};
                 color: white;
                 padding: 15px 25px;
                 border-radius: 8px;
@@ -1702,7 +1702,7 @@ export default function Page() {
                 transform: translateX(100%);
                 transition: transform 0.3s ease;
                 font-weight: 500;
-            \`;
+            `;
 
             document.body.appendChild(notification);
 
@@ -1774,7 +1774,7 @@ export default function Page() {
 
         // Add scroll progress indicator
         const scrollProgress = document.createElement('div');
-        scrollProgress.style.cssText = \`
+        scrollProgress.style.cssText = `
             position: fixed;
             top: 0;
             left: 0;
@@ -1783,7 +1783,7 @@ export default function Page() {
             background: linear-gradient(90deg, #2D5016, #4CAF50, #FFD700);
             z-index: 9999;
             transition: width 0.25s ease;
-        \`;
+        `;
         document.body.appendChild(scrollProgress);
 
         window.addEventListener('scroll', () => {
@@ -1813,24 +1813,24 @@ export default function Page() {
                 unmuteBtn.addEventListener('click', function() {
                     if (video.muted) {
                         video.muted = false;
-                        this.innerHTML = \`
+                        this.innerHTML = `
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                             </svg>
                             <span>Mute</span>
-                        \`;
+                        `;
                         this.style.background = 'rgba(46, 125, 50, 0.9)';
                     } else {
                         video.muted = true;
-                        this.innerHTML = \`
+                        this.innerHTML = `
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                 <line x1="23" y1="9" x2="17" y2="15"></line>
                                 <line x1="17" y1="9" x2="23" y2="15"></line>
                             </svg>
                             <span>Unmute</span>
-                        \`;
+                        `;
                         this.style.background = 'rgba(0, 0, 0, 0.7)';
                     }
                 });
@@ -1957,8 +1957,6 @@ export default function Page() {
                 console.error('Lucide library not loaded');
             }
         });
-    </script>`
-      }} />
-    </>
-  );
-}
+    </script>
+</body>
+</html>
