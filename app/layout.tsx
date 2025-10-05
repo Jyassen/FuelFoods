@@ -32,6 +32,16 @@ export const metadata: Metadata = {
   keywords: ["restaurant", "fine dining", "culinary experience", "gourmet food", "chef-prepared meals"],
   authors: [{ name: "FuelFoods" }],
   creator: "FuelFoods",
+  icons: {
+    icon: [
+      { url: '/icon.png', sizes: '500x500', type: 'image/png' },
+      { url: '/images/brand/Logo.png', sizes: '500x500', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '500x500', type: 'image/png' }
+    ],
+    shortcut: ['/icon.png']
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
