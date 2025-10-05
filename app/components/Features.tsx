@@ -101,7 +101,7 @@ export default function Features() {
         <div className="mt-20 text-center">
           <p className="font-semibold mb-4" style={{ color: 'var(--fuel-gold-accent)' }}>Take advantage of Free Shipping on bulk orders</p>
           <Link 
-            href="/images/catalog/FuelFoods Catalog 2025.pdf"
+            href="/images/catalog/FuelFoods Catalog 2025 NEW .pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"

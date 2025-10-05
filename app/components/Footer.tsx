@@ -39,7 +39,7 @@ export default function Footer() {
                 About Us
               </Link>
               <Link 
-                href="/images/catalog/FuelFoods Catalog 2025.pdf"
+                href="/images/catalog/FuelFoods Catalog 2025 NEW .pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:opacity-75"

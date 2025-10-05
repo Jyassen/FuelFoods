@@ -118,7 +118,7 @@ export default function DirectAdClient({ headline, subheading }: { headline?: st
         overlayClassName="bg-black/55"
         primaryCta={{ href: 'tel:13474090464', label: 'CALL JADA NOW: 347-409-0464' }}
         secondaryCta={{ href: '#partnership-form', label: 'REQUEST PARTNERSHIP ASSESSMENT' }}
-        tertiaryCta={{ href: '/images/catalog/FuelFoods Catalog 2025.pdf', label: 'GET RESTAURANT SUCCESS GUIDE', newTab: true }}
+        tertiaryCta={{ href: '/images/catalog/FuelFoods Catalog 2025 NEW .pdf', label: 'GET RESTAURANT SUCCESS GUIDE', newTab: true }}
       />
 
       <StatBar />
@@ -254,7 +254,7 @@ export default function DirectAdClient({ headline, subheading }: { headline?: st
       <Section tight>
         <div className="flex flex-wrap gap-3">
           <a href="tel:13474090464" className="btn-primary inline-flex items-center gap-2"><PhoneCall size={18} /> CALL OWNER—CALL NOW</a>
-          <a href="/images/catalog/FuelFoods Catalog 2025.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex items-center gap-2"><Download size={18} /> GET RESTAURANT SUCCESS GUIDE</a>
+          <a href="/images/catalog/FuelFoods Catalog 2025 NEW .pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex items-center gap-2"><Download size={18} /> GET RESTAURANT SUCCESS GUIDE</a>
         </div>
       </Section>
 

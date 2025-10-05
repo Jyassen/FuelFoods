@@ -21,8 +21,8 @@ export default function CatalogModal({ isOpen, onClose }: CatalogModalProps) {
 
   const handleDownload = () => {
     const link = document.createElement('a')
-    link.href = '/images/catalog/FuelFoods Catalog 2025.pdf'
-    link.download = 'FuelFoods Catalog 2025.pdf'
+    link.href = '/images/catalog/FuelFoods Catalog 2025 NEW .pdf'
+    link.download = 'FuelFoods Catalog 2025 NEW .pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -64,7 +64,7 @@ export default function CatalogModal({ isOpen, onClose }: CatalogModalProps) {
         {/* PDF Viewer */}
         <div className="w-full h-full mt-8">
           <iframe
-            src={`/images/catalog/FuelFoods Catalog 2025.pdf#toolbar=0`}
+            src={`/images/catalog/FuelFoods Catalog 2025 NEW .pdf#toolbar=0`}
             className="w-full h-full rounded-2xl"
             title="FuelFoods Catalog"
           />

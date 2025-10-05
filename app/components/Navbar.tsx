@@ -52,7 +52,7 @@ export default function Navbar() {
               About Us
             </Link>
             <Link
-              href="/images/catalog/FuelFoods Catalog 2025.pdf"
+              href="/images/catalog/FuelFoods Catalog 2025 NEW .pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-link"
@@ -138,7 +138,7 @@ export default function Navbar() {
                 About Us
               </Link>
               <Link
-                href="/images/catalog/FuelFoods Catalog 2025.pdf"
+                href="/images/catalog/FuelFoods Catalog 2025 NEW .pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
