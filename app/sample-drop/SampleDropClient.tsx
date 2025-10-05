@@ -29,7 +29,7 @@ const faqs = [
 ];
 
 export default function SampleDropClient() {
-  const [activeF AQ, setActiveFAQ] = useState<number | null>(null);
+  const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
