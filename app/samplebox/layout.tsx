@@ -3,5 +3,11 @@ export default function SampleboxLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children;
+  return (
+    <html lang="en">
+      <body style={{ margin: 0, padding: 0 }}>
+        {children}
+      </body>
+    </html>
+  );
 }
