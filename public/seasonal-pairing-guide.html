@@ -508,10 +508,10 @@
         }
 
         .substitution-card {
-            background: var(--fuel-green-light);
+            background: var(--fuel-white);
             padding: var(--space-md);
             border-radius: 12px;
-            border-left: 4px solid var(--fuel-green-primary);
+            border-left: 3px solid var(--fuel-green-primary);
         }
 
         .substitution-card h4 {
@@ -605,14 +605,14 @@
         }
 
         .cocktail-card {
-            background: var(--fuel-bg-cream);
+            background: var(--fuel-white);
             padding: var(--space-lg);
             border-radius: 12px;
-            border-top: 4px solid var(--fuel-orange-accent);
+            border-left: 3px solid var(--fuel-green-primary);
         }
 
         .cocktail-card h4 {
-            color: var(--fuel-orange-accent);
+            color: var(--fuel-green-primary);
             margin-bottom: var(--space-md);
             font-size: 20px;
         }
@@ -639,11 +639,11 @@
         }
 
         .technique-box {
-            background: linear-gradient(135deg, var(--fuel-green-light) 0%, var(--fuel-bg-cream) 100%);
+            background: var(--fuel-white);
             padding: var(--space-lg);
             border-radius: 12px;
             margin-top: var(--space-md);
-            border-left: 4px solid var(--fuel-orange-accent);
+            border-left: 3px solid var(--fuel-green-primary);
         }
 
         .technique-steps {
@@ -662,7 +662,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: var(--fuel-orange-accent);
+            color: var(--fuel-green-primary);
             font-weight: 700;
             font-size: 18px;
         }
@@ -990,12 +990,9 @@
             }
 
             .cocktail-card,
-            .substitution-card {
-                background: var(--fuel-bg-cream) !important;
-            }
-
+            .substitution-card,
             .technique-box {
-                background: linear-gradient(135deg, var(--fuel-green-light) 0%, var(--fuel-bg-cream) 100%) !important;
+                background: white !important;
             }
 
             /* Keep text colors */
@@ -2017,108 +2014,102 @@
             <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: var(--space-xl); font-size: 16px;">Complete guide for bar programs: spirit pairings, techniques, and implementation</p>
 
             <div class="cocktail-section">
-                <h3 style="margin-top: 0; color: var(--fuel-green-primary);">Spirit Category Pairings</h3>
+                <h3 style="margin-top: 0; color: var(--fuel-green-primary);">Edible Flower Applications by Spirit</h3>
+                <p style="margin-bottom: var(--space-lg); color: var(--fuel-text-secondary); font-size: 15px;">
+                    Edible flowers are the primary garnish for professional cocktail programs. Use flowers first, microgreens as supporting elements only.
+                </p>
                 <div class="cocktail-grid">
                     <div class="cocktail-card">
-                        <h4>🥃 Whiskey & Bourbon</h4>
+                        <h4>Whiskey & Bourbon</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>Calendula:</strong> Old Fashioned, Manhattan variations</li>
-                            <li><strong>Viola:</strong> Whiskey sours with egg white foam</li>
-                            <li><strong>Nasturtium:</strong> Bold, spicy rye cocktails</li>
-                            <li><strong>Micro Mustard:</strong> Savory whiskey cocktails</li>
+                            <li><strong>Viola/Pansy:</strong> Floats on egg white foam for whiskey sours, New York sours</li>
+                            <li><strong>Calendula Petals:</strong> Scattered on large ice for old fashioneds, brown spirits on the rocks</li>
+                            <li><strong>Nasturtium:</strong> Single bold bloom for rye cocktails, adds peppery visual</li>
+                            <li><strong>Orchid Petals:</strong> Premium whiskey flights, high-end presentations</li>
                         </ul>
-                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
-                            Best for: Spirit-forward, darker cocktails where floral/spicy notes complement oak & caramel
-                        </p>
                     </div>
 
                     <div class="cocktail-card">
-                        <h4>🍸 Gin & Vodka</h4>
+                        <h4>Gin & Vodka</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>Viola/Pansy:</strong> Aviation, Violet Sour, Corpse Reviver</li>
-                            <li><strong>Micro Basil:</strong> Gin & tonic, herb-forward martinis</li>
-                            <li><strong>Pea Tendrils:</strong> Spring/garden gin cocktails</li>
-                            <li><strong>Red-Vein Sorrel:</strong> Citrus-heavy gin drinks</li>
+                            <li><strong>Viola/Pansy:</strong> Aviation, Violet Sour, floats on martini foam</li>
+                            <li><strong>Orchid Petals:</strong> Martini rim, suspended in clear cocktails</li>
+                            <li><strong>Calendula:</strong> Gin & tonic, botanical-forward serves</li>
+                            <li><strong>Dianthus:</strong> Clove notes complement botanical gins</li>
                         </ul>
-                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
-                            Best for: Botanical cocktails, martini variations, light refreshing serves
-                        </p>
                     </div>
 
                     <div class="cocktail-card">
-                        <h4>🌵 Tequila & Mezcal</h4>
+                        <h4>Tequila & Mezcal</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>Nasturtium:</strong> Margaritas, Palomas (peppery kick)</li>
-                            <li><strong>Micro Cilantro:</strong> Classic margaritas, Mexican serves</li>
-                            <li><strong>Calendula:</strong> Mezcal old fashioned, smoky cocktails</li>
-                            <li><strong>Micro Amaranth:</strong> Jewel-tone tequila sours</li>
+                            <li><strong>Nasturtium:</strong> Margaritas, Palomas - peppery kick matches agave heat</li>
+                            <li><strong>Calendula Petals:</strong> Mezcal serves, complements smoke and citrus</li>
+                            <li><strong>Orchid:</strong> Premium tequila cocktails, tropical agave drinks</li>
+                            <li><strong>Viola:</strong> Tequila sours, softens bold agave profile</li>
                         </ul>
-                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
-                            Best for: Agave-forward drinks, bold flavor profiles, Instagram moments
-                        </p>
                     </div>
 
                     <div class="cocktail-card">
-                        <h4>🍹 Rum & Tropical</h4>
+                        <h4>Rum & Tropical Spirits</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>Viola:</strong> Daiquiri variations, tropical fizzes</li>
-                            <li><strong>Calendula:</strong> Tiki garnish, rum old fashioned</li>
-                            <li><strong>Micro Shiso:</strong> Asian-inspired rum cocktails</li>
-                            <li><strong>Nasturtium:</strong> Bold tiki drinks, punch bowls</li>
+                            <li><strong>Orchid Petals:</strong> Tiki drinks, Mai Tai, tropical serves (most authentic)</li>
+                            <li><strong>Viola/Pansy:</strong> Daiquiri variations, rum fizzes, floats on foam</li>
+                            <li><strong>Calendula:</strong> Spiced rum cocktails, dark & stormy variations</li>
+                            <li><strong>Nasturtium:</strong> Bold rum punches, large format serves</li>
                         </ul>
-                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
-                            Best for: Tiki presentations, tropical flavors, elaborate garnishes
-                        </p>
                     </div>
                 </div>
 
                 <div class="divider" style="margin: var(--space-xl) 0;"></div>
 
-                <h3 style="color: var(--fuel-green-primary);">Cocktail Style Applications</h3>
+                <h3 style="color: var(--fuel-green-primary);">Flower Placement by Cocktail Style</h3>
+                <p style="margin-bottom: var(--space-lg); color: var(--fuel-text-secondary); font-size: 15px;">
+                    Placement technique matters more than variety selection. Match flower structure to cocktail format.
+                </p>
                 <div class="cocktail-grid">
                     <div class="cocktail-card">
-                        <h4>🍋 Sours & Fizzes</h4>
+                        <h4>Sours & Foam Cocktails</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>Float on foam:</strong> Viola, Calendula petals</li>
-                            <li><strong>Rim garnish:</strong> Micro Daikon (Asian variations)</li>
-                            <li><strong>Express & place:</strong> Red-Vein Sorrel</li>
-                            <li><strong>Technique:</strong> Garnish AFTER foam settles (30 sec)</li>
+                            <li><strong>Primary:</strong> Viola, Pansy (face blooms toward guest, float after foam settles)</li>
+                            <li><strong>Alternative:</strong> Calendula petals (2-3 petals, scatter don't cluster)</li>
+                            <li><strong>Technique:</strong> Wait 20-30 seconds post-shake before placing flower</li>
+                            <li><strong>Common mistake:</strong> Placing too early causes flower to sink</li>
                         </ul>
                     </div>
 
                     <div class="cocktail-card">
-                        <h4>🍸 Martinis & Stirred</h4>
+                        <h4>Martinis & Clear Stirred Drinks</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>Rim placement:</strong> Single Viola, Nasturtium bloom</li>
-                            <li><strong>Suspended:</strong> Micro Basil sprig in martini</li>
-                            <li><strong>Beside olive:</strong> Micro Shiso leaf</li>
-                            <li><strong>Technique:</strong> Chill garnish, place with tweezers</li>
+                            <li><strong>Primary:</strong> Single Viola or small Orchid petal on rim</li>
+                            <li><strong>Alternative:</strong> Calendula petal on cocktail pick with garnish</li>
+                            <li><strong>Technique:</strong> Chill flower 10 minutes before service, place with dry tweezers</li>
+                            <li><strong>Avoid:</strong> Submerging flowers in liquid (wilts in 5 minutes)</li>
                         </ul>
                     </div>
 
                     <div class="cocktail-card">
-                        <h4>🧊 Old Fashioned Style</h4>
+                        <h4>Rocks Drinks & Old Fashioneds</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>On ice:</strong> Calendula petals, Viola</li>
-                            <li><strong>Express citrus over:</strong> Micro Mustard sprig</li>
-                            <li><strong>Tucked in glass:</strong> Nasturtium bloom</li>
-                            <li><strong>Technique:</strong> Place on large ice cube for elevation</li>
+                            <li><strong>Primary:</strong> Calendula petals or single Viola placed on large format ice</li>
+                            <li><strong>Alternative:</strong> Nasturtium bloom tucked between ice and glass wall</li>
+                            <li><strong>Technique:</strong> Express citrus AWAY from flower, place garnish last</li>
+                            <li><strong>Ice requirement:</strong> 2-inch cube minimum for proper flower display</li>
                         </ul>
                     </div>
 
                     <div class="cocktail-card">
-                        <h4>🥤 Highballs & Collins</h4>
+                        <h4>Tall Drinks & Tiki Serves</h4>
                         <ul class="cocktail-pairing-list">
-                            <li><strong>Tall garnish:</strong> Pea Tendril curls, Sunflower</li>
-                            <li><strong>Sprinkled:</strong> Calendula petals on ice</li>
-                            <li><strong>Clustered rim:</strong> Micro Cilantro (Mexican style)</li>
-                            <li><strong>Technique:</strong> Anchor in straw or long pick</li>
+                            <li><strong>Primary:</strong> Orchid petals (most authentic for tiki), Nasturtium</li>
+                            <li><strong>Alternative:</strong> Viola cluster (2-3 blooms) on cocktail umbrella pick</li>
+                            <li><strong>Technique:</strong> Secure to straw or tall garnish pick for stability</li>
+                            <li><strong>Crushed ice note:</strong> Use only sturdy flowers (orchid, nasturtium)</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="technique-box" style="margin-top: var(--space-xl);">
-                    <h4 style="color: var(--fuel-orange-accent); margin-top: 0;">Bar Service Techniques & Setup</h4>
+                    <h4 style="color: var(--fuel-green-primary); margin-top: 0;">Bar Service Techniques & Setup</h4>
                     <ul class="technique-steps">
                         <li><strong>Storage Station:</strong> Keep garnish containers ABOVE ice wells (not in them) – condensation kills flowers in 20 minutes</li>
                         <li><strong>Prep Timing:</strong> Pre-portion edible flowers in small cups (12-15 blooms each) at start of service; microgreens stay in clamshells until needed</li>
@@ -2134,16 +2125,16 @@
                 </div>
 
                 <div class="technique-box">
-                    <h4 style="color: var(--fuel-orange-accent); margin-top: 0;">Instagram-Ready Presentation Tips</h4>
+                    <h4 style="color: var(--fuel-green-primary); margin-top: 0;">Instagram-Ready Flower Presentation</h4>
                     <ul class="technique-steps">
-                        <li><strong>The "Money Shot" Rule:</strong> Position garnish where it's visible from a 45° overhead angle – the most common Instagram shot</li>
-                        <li><strong>Bloom Orientation:</strong> For violas/pansies, "face" the bloom toward the camera side; train bartenders to ask "which side are you shooting from?"</li>
-                        <li><strong>Color Contrast:</strong> Dark spirits + bright flowers (viola, calendula); Clear spirits + green garnish (pea tendril, basil)</li>
-                        <li><strong>Height & Dimension:</strong> Use curling garnishes (pea tendril) to add vertical interest; flat garnishes (sorrel) on foam only</li>
-                        <li><strong>Lighting Awareness:</strong> Translucent flowers (viola) look best with backlight; thick leaves (basil) need front lighting</li>
-                        <li><strong>Glassware Selection:</strong> Coupe glasses = best for flower floats; Nick & Nora = best for single bloom; Rocks glass = cluster on ice</li>
-                        <li><strong>The "Clean Rim" Technique:</strong> Wipe condensation and spills before garnishing – sloppy rim = amateur shot</li>
-                        <li><strong>Seasonal Storytelling:</strong> Tag photos with #FallCocktails, #SeasonalGarnish, #LocalSupplier (mention @fuelfoods.culinary)</li>
+                        <li><strong>Bloom Orientation:</strong> Face viola and pansy blooms toward camera at 45-degree angle; this is the most common phone photography angle</li>
+                        <li><strong>Color Contrast Strategy:</strong> Dark spirits (whiskey, rum) pair with bright flowers (viola, calendula); clear spirits (gin, vodka) need vivid blooms for visibility</li>
+                        <li><strong>Lighting for Flowers:</strong> Translucent flowers (viola, orchid) photograph best with natural or back lighting; avoid direct flash which washes out petals</li>
+                        <li><strong>Glassware Selection:</strong> Coupe glasses showcase floating flowers; Nick & Nora glasses frame single blooms; rocks glasses need large ice to elevate flowers</li>
+                        <li><strong>Clean Rim Mandate:</strong> Wipe condensation and drips before garnishing; messy glass rims ruin professional flower presentation</li>
+                        <li><strong>Placement Timing:</strong> Garnish immediately before photo/service; flowers begin wilting from cocktail temperature within 3-5 minutes</li>
+                        <li><strong>Multiple Flower Rule:</strong> Use odd numbers (1, 3, 5) for visual balance; even numbers (2, 4) look staged and unnatural</li>
+                        <li><strong>Local Story:</strong> Tag @fuelfoods.culinary in posts; mentioning MWBE supplier builds authenticity with local dining community</li>
                     </ul>
                 </div>
 
@@ -2158,8 +2149,8 @@
                         <div class="info-content">Dry, chilled ceramic or glass cups • Line with parchment • Keep lids nearby • Position between cocktail station and pass</div>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Common Mistakes</span>
-                        <div class="info-content">❌ Storing on ice = wilted in 20 min | ❌ Citrus mist contact = browning | ❌ Touching with warm hands = bruising | ❌ Over-garnishing = looks amateur</div>
+                        <span class="info-label">Common Mistakes to Avoid</span>
+                        <div class="info-content">Storing on ice (wilts in 20 min) • Direct citrus spray (causes browning) • Warm hand contact (bruises petals) • Using more than 3 blooms per drink (excessive)</div>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Quality Check</span>
@@ -2194,7 +2185,7 @@
                 
                 <div class="substitution-grid">
                     <div class="substitution-card">
-                        <h4>🌿 Red-Vein Sorrel</h4>
+                        <h4>Red-Vein Sorrel</h4>
                         <div class="substitution-option"><strong>Flavor Match:</strong> Micro Shiso Green (anise-mint nuance with citrus)</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Micro Amaranth (color contrast without acid)</div>
                         <div class="substitution-option"><strong>Function Match:</strong> Lemon zest + micro basil (recreates brightness)</div>
@@ -2202,7 +2193,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🌸 Nasturtium Flowers</h4>
+                        <h4>Nasturtium Flowers</h4>
                         <div class="substitution-option"><strong>Flavor Match:</strong> Micro Mustard (peppery heat without bloom)</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Calendula (bold color, citrus notes)</div>
                         <div class="substitution-option"><strong>Cocktail Sub:</strong> Viola + micro daikon (visual + spice)</div>
@@ -2210,7 +2201,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>💜 Viola / Pansy</h4>
+                        <h4>Viola / Pansy</h4>
                         <div class="substitution-option"><strong>Dessert Sub:</strong> Dianthus (cool-weather alternative bloom)</div>
                         <div class="substitution-option"><strong>Cocktail Sub:</strong> Calendula petals (color impact, different flavor)</div>
                         <div class="substitution-option"><strong>Visual Only:</strong> Orchid petals (neutral flavor, dramatic look)</div>
@@ -2218,7 +2209,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🟠 Calendula Petals</h4>
+                        <h4>Calendula Petals</h4>
                         <div class="substitution-option"><strong>Color Match:</strong> Micro Amaranth (magenta instead of orange)</div>
                         <div class="substitution-option"><strong>Brown Butter Dishes:</strong> Micro Mustard (earthy, no color)</div>
                         <div class="substitution-option"><strong>Cocktail Sub:</strong> Expressed orange peel + viola</div>
@@ -2226,7 +2217,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🌱 Micro Cilantro</h4>
+                        <h4>Micro Cilantro</h4>
                         <div class="substitution-option"><strong>Flavor Match:</strong> Micro Basil + lime zest (different but bright)</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Micro Dill (feathery texture, different flavor)</div>
                         <div class="substitution-option"><strong>Mexican Cuisine:</strong> Micro Arugula + lime (peppery alternative)</div>
@@ -2234,7 +2225,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🥒 Micro Daikon (Radish)</h4>
+                        <h4>Micro Daikon (Radish)</h4>
                         <div class="substitution-option"><strong>Flavor Match:</strong> Micro Mustard (similar spice, no pink stems)</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Pea Tendrils (green stems, no spice)</div>
                         <div class="substitution-option"><strong>Crudo Dishes:</strong> Red-vein Sorrel (acid instead of pepper)</div>
@@ -2242,7 +2233,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🫛 Pea Tendrils</h4>
+                        <h4>Pea Tendrils</h4>
                         <div class="substitution-option"><strong>Visual Match:</strong> Sunflower Shoots (height without curls)</div>
                         <div class="substitution-option"><strong>Flavor Match:</strong> Micro Basil (sweet, aromatic)</div>
                         <div class="substitution-option"><strong>Budget Option:</strong> Micro Arugula (1/3 the cost, different flavor)</div>
@@ -2250,7 +2241,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🌻 Sunflower Shoots</h4>
+                        <h4>Sunflower Shoots</h4>
                         <div class="substitution-option"><strong>Function Match:</strong> Pea Tendrils (less crunch, more elegance)</div>
                         <div class="substitution-option"><strong>Budget Option:</strong> Mixed baby lettuce (volume, no specialty cost)</div>
                         <div class="substitution-option"><strong>Texture Match:</strong> Shredded napa cabbage (for sandwiches)</div>
@@ -2258,7 +2249,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🍃 Micro Basil</h4>
+                        <h4>Micro Basil</h4>
                         <div class="substitution-option"><strong>Italian Dishes:</strong> Regular basil micro-chiffonade</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Micro Shiso (different flavor profile)</div>
                         <div class="substitution-option"><strong>Function Match:</strong> Micro Cilantro (for non-Italian)</div>
@@ -2266,7 +2257,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🥗 Micro Mustard</h4>
+                        <h4>Micro Mustard</h4>
                         <div class="substitution-option"><strong>Flavor Match:</strong> Micro Arugula (peppery, more common)</div>
                         <div class="substitution-option"><strong>Heat Match:</strong> Micro Daikon (spicier, pink stems)</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Micro Kale (sturdy, milder)</div>
@@ -2274,7 +2265,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>🟢 Micro Shiso Green</h4>
+                        <h4>Micro Shiso Green</h4>
                         <div class="substitution-option"><strong>Asian Dishes:</strong> Thai Basil micro leaves (similar anise notes)</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Micro Basil (different flavor entirely)</div>
                         <div class="substitution-option"><strong>Sashimi:</strong> Perilla leaves (traditional, larger format)</div>
@@ -2282,7 +2273,7 @@
                     </div>
 
                     <div class="substitution-card">
-                        <h4>💚 Micro Amaranth</h4>
+                        <h4>Micro Amaranth</h4>
                         <div class="substitution-option"><strong>Color Match:</strong> Calendula (orange vs magenta)</div>
                         <div class="substitution-option"><strong>Visual Match:</strong> Micro Red Cabbage (purple tones)</div>
                         <div class="substitution-option"><strong>Beet Dishes:</strong> Pickled beet microgreens or beet greens</div>
@@ -2290,7 +2281,7 @@
                     </div>
                 </div>
 
-                <div class="storage-box" style="margin-top: var(--space-xl); background: linear-gradient(135deg, var(--fuel-green-light) 0%, var(--fuel-bg-cream) 100%);">
+                <div class="storage-box" style="margin-top: var(--space-xl);">
                     <h4 style="color: var(--fuel-green-primary); margin-top: 0;">Strategic Substitution Principles</h4>
                     <div class="info-item">
                         <span class="info-label">Menu Planning</span>
