@@ -500,6 +500,173 @@
             font-size: 18px;
         }
 
+        .substitution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .substitution-card {
+            background: var(--fuel-green-light);
+            padding: var(--space-md);
+            border-radius: 12px;
+            border-left: 4px solid var(--fuel-green-primary);
+        }
+
+        .substitution-card h4 {
+            color: var(--fuel-green-primary);
+            margin-bottom: var(--space-sm);
+            font-size: 18px;
+        }
+
+        .substitution-option {
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .substitution-option strong {
+            color: var(--fuel-green-dark);
+        }
+
+        /* ========================================
+           PAIRING MATRIX
+        ======================================== */
+        .pairing-matrix {
+            background: var(--fuel-white);
+            padding: var(--space-xl);
+            border-radius: 20px;
+            margin: var(--space-xl) 0;
+            box-shadow: var(--shadow-elevated);
+            overflow-x: auto;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--space-md);
+            min-width: 600px;
+        }
+
+        .matrix-table th {
+            background: var(--fuel-green-primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid var(--fuel-green-dark);
+        }
+
+        .matrix-table td {
+            padding: 12px;
+            border: 1px solid var(--fuel-gray-light);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .matrix-table tr:nth-child(even) {
+            background: var(--fuel-bg-cream);
+        }
+
+        .matrix-table tr:hover {
+            background: var(--fuel-green-light);
+        }
+
+        .matrix-variety {
+            font-weight: 700;
+            color: var(--fuel-green-primary);
+        }
+
+        .matrix-icon {
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        /* ========================================
+           COCKTAIL FEATURES
+        ======================================== */
+        .cocktail-section {
+            background: var(--fuel-white);
+            padding: var(--space-xl);
+            border-radius: 20px;
+            margin: var(--space-xl) 0;
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .cocktail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .cocktail-card {
+            background: var(--fuel-bg-cream);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            border-top: 4px solid var(--fuel-orange-accent);
+        }
+
+        .cocktail-card h4 {
+            color: var(--fuel-orange-accent);
+            margin-bottom: var(--space-md);
+            font-size: 20px;
+        }
+
+        .cocktail-pairing-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cocktail-pairing-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--fuel-gray-light);
+            font-size: 14px;
+        }
+
+        .cocktail-pairing-list li:last-child {
+            border-bottom: none;
+        }
+
+        .cocktail-pairing-list strong {
+            color: var(--fuel-green-primary);
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        .technique-box {
+            background: linear-gradient(135deg, var(--fuel-green-light) 0%, var(--fuel-bg-cream) 100%);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            margin-top: var(--space-md);
+            border-left: 4px solid var(--fuel-orange-accent);
+        }
+
+        .technique-steps {
+            margin-top: var(--space-sm);
+        }
+
+        .technique-steps li {
+            margin-bottom: 8px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .technique-steps li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--fuel-orange-accent);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
         /* ========================================
            EXAMPLES BOX
         ======================================== */
@@ -670,6 +837,28 @@
             .image-container img {
                 max-width: 90%;
             }
+
+            .cocktail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .substitution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pairing-matrix,
+            .cocktail-section {
+                padding: var(--space-md);
+            }
+
+            .matrix-table {
+                font-size: 12px;
+            }
+
+            .matrix-table th,
+            .matrix-table td {
+                padding: 8px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -709,7 +898,12 @@
             .substitution-box,
             .examples-box,
             .checklist,
-            .table-of-contents {
+            .table-of-contents,
+            .pairing-matrix,
+            .cocktail-section,
+            .cocktail-card,
+            .substitution-card,
+            .technique-box {
                 break-inside: avoid;
                 page-break-inside: avoid;
             }
@@ -789,8 +983,19 @@
             .checklist,
             .table-of-contents,
             .cta-box,
+            .pairing-matrix,
+            .cocktail-section,
             header {
                 background: white !important;
+            }
+
+            .cocktail-card,
+            .substitution-card {
+                background: var(--fuel-bg-cream) !important;
+            }
+
+            .technique-box {
+                background: linear-gradient(135deg, var(--fuel-green-light) 0%, var(--fuel-bg-cream) 100%) !important;
             }
 
             /* Keep text colors */
@@ -1058,9 +1263,12 @@
             <h3>Quick Navigation</h3>
             <div class="toc-grid">
                 <a href="#quick-checklist" class="toc-link">Quick Checklist</a>
+                <a href="#pairing-matrix" class="toc-link">Visual Pairing Matrix</a>
                 <a href="#fall-varieties" class="toc-link">Fall Varieties</a>
                 <a href="#winter-varieties" class="toc-link">Winter Varieties</a>
                 <a href="#year-round" class="toc-link">Year-Round</a>
+                <a href="#cocktail-program" class="toc-link">Cocktail Program</a>
+                <a href="#substitutions" class="toc-link">Substitution Guide</a>
                 <a href="#usage-tips" class="toc-link">Usage Tips</a>
                 <a href="#next-steps" class="toc-link">Next Steps</a>
             </div>
@@ -1074,6 +1282,169 @@
                 <p>Anchor microgreens at protein edges; avoid random scatter</p>
                 <p>Shoot one before/after plate per week; post with garnish credits</p>
                 <p>Stage service cups to reduce waste; garnish last at the pass</p>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Visual Pairing Matrix -->
+        <section id="pairing-matrix" class="animate-fade-up">
+            <h2>Visual Pairing Matrix</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: var(--space-lg); font-size: 16px;">Quick reference guide for protein, preparation, and sauce compatibility</p>
+            
+            <div class="pairing-matrix">
+                <h3 style="margin-top: 0;">Protein & Preparation Pairings</h3>
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Microgreen/Flower</th>
+                            <th>Seafood</th>
+                            <th>Poultry</th>
+                            <th>Red Meat</th>
+                            <th>Vegetarian</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="matrix-variety">Red-Vein Sorrel</td>
+                            <td><span class="matrix-icon">⭐</span>Crudo, shellfish, salmon</td>
+                            <td>Light preparations only</td>
+                            <td>—</td>
+                            <td>Cream soups, soft cheese</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Amaranth</td>
+                            <td>Fatty fish (mackerel)</td>
+                            <td><span class="matrix-icon">⭐</span>Duck, quail</td>
+                            <td>Venison, lamb</td>
+                            <td>Beet dishes, goat cheese</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Cilantro</td>
+                            <td><span class="matrix-icon">⭐</span>Fried fish, ceviche</td>
+                            <td>Fried chicken, tacos</td>
+                            <td>Steak tacos, carne asada</td>
+                            <td>Black bean dishes, rice</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Mustard</td>
+                            <td>Smoked fish</td>
+                            <td>Roasted, confit</td>
+                            <td><span class="matrix-icon">⭐</span>Braises, jus-based</td>
+                            <td>Root vegetables, lentils</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Daikon</td>
+                            <td><span class="matrix-icon">⭐</span>Raw, crudo, sashimi</td>
+                            <td>Fried (katsu)</td>
+                            <td>Tartare</td>
+                            <td>Asian salads, spring rolls</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Pea Tendrils</td>
+                            <td><span class="matrix-icon">⭐</span>Delicate fish, scallops</td>
+                            <td>Light roasts</td>
+                            <td>—</td>
+                            <td>Ricotta, burrata, pastas</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Shiso</td>
+                            <td><span class="matrix-icon">⭐</span>Sashimi, crudo</td>
+                            <td>Grilled, yakitori</td>
+                            <td>Tataki, carpaccio</td>
+                            <td>Rice dishes, onigiri</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Sunflower Shoots</td>
+                            <td>Smoked salmon</td>
+                            <td><span class="matrix-icon">⭐</span>Sandwiches, salads</td>
+                            <td>Burgers, sandwiches</td>
+                            <td>Grain bowls, avocado toast</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin-top: var(--space-xl);">Sauce & Temperature Compatibility</h3>
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Microgreen/Flower</th>
+                            <th>Cream-Based</th>
+                            <th>Acidic/Vinaigrette</th>
+                            <th>Oil-Based</th>
+                            <th>Hot Plates</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="matrix-variety">Red-Vein Sorrel</td>
+                            <td><span class="matrix-icon">⭐</span>Excellent - cuts richness</td>
+                            <td>Good - doubles acid</td>
+                            <td>Good - needs brightness</td>
+                            <td>❌ Keep away from heat</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Amaranth</td>
+                            <td>Neutral - color contrast</td>
+                            <td>Good - stays vibrant</td>
+                            <td>Good - needs visual pop</td>
+                            <td>⚠️ Moderate heat OK</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Cilantro</td>
+                            <td>Good - balances dairy</td>
+                            <td><span class="matrix-icon">⭐</span>Perfect - classic combo</td>
+                            <td>Excellent - complements</td>
+                            <td>❌ Wilts quickly</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Mustard</td>
+                            <td>Good - adds complexity</td>
+                            <td>Good - spicy lift</td>
+                            <td><span class="matrix-icon">⭐</span>Excellent - jus, au poivre</td>
+                            <td>✓ Heat tolerant</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Micro Daikon</td>
+                            <td>Good - cuts fat</td>
+                            <td><span class="matrix-icon">⭐</span>Perfect - citrus-based</td>
+                            <td>Good - sesame oil</td>
+                            <td>❌ Best cold or cool</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Pea Tendrils</td>
+                            <td><span class="matrix-icon">⭐</span>Perfect - light cream</td>
+                            <td>Good - lemon-based</td>
+                            <td>Excellent - butter, olive oil</td>
+                            <td>⚠️ Light heat OK</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Viola/Pansy</td>
+                            <td><span class="matrix-icon">⭐</span>Perfect - desserts, mousse</td>
+                            <td>Good - light vinaigrettes</td>
+                            <td>Neutral</td>
+                            <td>❌ Cold plates only</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Calendula Petals</td>
+                            <td>Good - needs contrast</td>
+                            <td>Good - citrus notes</td>
+                            <td><span class="matrix-icon">⭐</span>Perfect - brown butter</td>
+                            <td>⚠️ Place after plating</td>
+                        </tr>
+                        <tr>
+                            <td class="matrix-variety">Nasturtium</td>
+                            <td>Good - spicy contrast</td>
+                            <td><span class="matrix-icon">⭐</span>Excellent - ceviche</td>
+                            <td>Good - bold flavors</td>
+                            <td>❌ Cold or room temp</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p style="margin-top: var(--space-lg); font-size: 14px; color: var(--fuel-text-secondary); text-align: center;">
+                    <strong>Legend:</strong> ⭐ = Top pairing | ✓ = Recommended | ⚠️ = Use with caution | ❌ = Avoid
+                </p>
             </div>
         </section>
 
@@ -1640,6 +2011,313 @@
 
         <div class="divider"></div>
 
+        <!-- Cocktail Program Section -->
+        <section id="cocktail-program" class="animate-fade-up">
+            <h2>Professional Cocktail Program Integration</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: var(--space-xl); font-size: 16px;">Complete guide for bar programs: spirit pairings, techniques, and implementation</p>
+
+            <div class="cocktail-section">
+                <h3 style="margin-top: 0; color: var(--fuel-green-primary);">Spirit Category Pairings</h3>
+                <div class="cocktail-grid">
+                    <div class="cocktail-card">
+                        <h4>🥃 Whiskey & Bourbon</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>Calendula:</strong> Old Fashioned, Manhattan variations</li>
+                            <li><strong>Viola:</strong> Whiskey sours with egg white foam</li>
+                            <li><strong>Nasturtium:</strong> Bold, spicy rye cocktails</li>
+                            <li><strong>Micro Mustard:</strong> Savory whiskey cocktails</li>
+                        </ul>
+                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
+                            Best for: Spirit-forward, darker cocktails where floral/spicy notes complement oak & caramel
+                        </p>
+                    </div>
+
+                    <div class="cocktail-card">
+                        <h4>🍸 Gin & Vodka</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>Viola/Pansy:</strong> Aviation, Violet Sour, Corpse Reviver</li>
+                            <li><strong>Micro Basil:</strong> Gin & tonic, herb-forward martinis</li>
+                            <li><strong>Pea Tendrils:</strong> Spring/garden gin cocktails</li>
+                            <li><strong>Red-Vein Sorrel:</strong> Citrus-heavy gin drinks</li>
+                        </ul>
+                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
+                            Best for: Botanical cocktails, martini variations, light refreshing serves
+                        </p>
+                    </div>
+
+                    <div class="cocktail-card">
+                        <h4>🌵 Tequila & Mezcal</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>Nasturtium:</strong> Margaritas, Palomas (peppery kick)</li>
+                            <li><strong>Micro Cilantro:</strong> Classic margaritas, Mexican serves</li>
+                            <li><strong>Calendula:</strong> Mezcal old fashioned, smoky cocktails</li>
+                            <li><strong>Micro Amaranth:</strong> Jewel-tone tequila sours</li>
+                        </ul>
+                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
+                            Best for: Agave-forward drinks, bold flavor profiles, Instagram moments
+                        </p>
+                    </div>
+
+                    <div class="cocktail-card">
+                        <h4>🍹 Rum & Tropical</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>Viola:</strong> Daiquiri variations, tropical fizzes</li>
+                            <li><strong>Calendula:</strong> Tiki garnish, rum old fashioned</li>
+                            <li><strong>Micro Shiso:</strong> Asian-inspired rum cocktails</li>
+                            <li><strong>Nasturtium:</strong> Bold tiki drinks, punch bowls</li>
+                        </ul>
+                        <p style="margin-top: 12px; font-size: 13px; color: var(--fuel-text-secondary); font-style: italic;">
+                            Best for: Tiki presentations, tropical flavors, elaborate garnishes
+                        </p>
+                    </div>
+                </div>
+
+                <div class="divider" style="margin: var(--space-xl) 0;"></div>
+
+                <h3 style="color: var(--fuel-green-primary);">Cocktail Style Applications</h3>
+                <div class="cocktail-grid">
+                    <div class="cocktail-card">
+                        <h4>🍋 Sours & Fizzes</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>Float on foam:</strong> Viola, Calendula petals</li>
+                            <li><strong>Rim garnish:</strong> Micro Daikon (Asian variations)</li>
+                            <li><strong>Express & place:</strong> Red-Vein Sorrel</li>
+                            <li><strong>Technique:</strong> Garnish AFTER foam settles (30 sec)</li>
+                        </ul>
+                    </div>
+
+                    <div class="cocktail-card">
+                        <h4>🍸 Martinis & Stirred</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>Rim placement:</strong> Single Viola, Nasturtium bloom</li>
+                            <li><strong>Suspended:</strong> Micro Basil sprig in martini</li>
+                            <li><strong>Beside olive:</strong> Micro Shiso leaf</li>
+                            <li><strong>Technique:</strong> Chill garnish, place with tweezers</li>
+                        </ul>
+                    </div>
+
+                    <div class="cocktail-card">
+                        <h4>🧊 Old Fashioned Style</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>On ice:</strong> Calendula petals, Viola</li>
+                            <li><strong>Express citrus over:</strong> Micro Mustard sprig</li>
+                            <li><strong>Tucked in glass:</strong> Nasturtium bloom</li>
+                            <li><strong>Technique:</strong> Place on large ice cube for elevation</li>
+                        </ul>
+                    </div>
+
+                    <div class="cocktail-card">
+                        <h4>🥤 Highballs & Collins</h4>
+                        <ul class="cocktail-pairing-list">
+                            <li><strong>Tall garnish:</strong> Pea Tendril curls, Sunflower</li>
+                            <li><strong>Sprinkled:</strong> Calendula petals on ice</li>
+                            <li><strong>Clustered rim:</strong> Micro Cilantro (Mexican style)</li>
+                            <li><strong>Technique:</strong> Anchor in straw or long pick</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="technique-box" style="margin-top: var(--space-xl);">
+                    <h4 style="color: var(--fuel-orange-accent); margin-top: 0;">Bar Service Techniques & Setup</h4>
+                    <ul class="technique-steps">
+                        <li><strong>Storage Station:</strong> Keep garnish containers ABOVE ice wells (not in them) – condensation kills flowers in 20 minutes</li>
+                        <li><strong>Prep Timing:</strong> Pre-portion edible flowers in small cups (12-15 blooms each) at start of service; microgreens stay in clamshells until needed</li>
+                        <li><strong>Handling Protocol:</strong> Use dry, chilled tweezers or small tongs – bartenders should avoid touching with warm hands</li>
+                        <li><strong>Placement Timing:</strong> For foam cocktails, wait 20-30 seconds after shake; for ice drinks, place garnish immediately before serving</li>
+                        <li><strong>Photography Angle:</strong> Face blooms toward guest/camera at 45° angle; use phone light to check visibility before serving</li>
+                        <li><strong>Citrus Spray Shield:</strong> Express citrus AWAY from delicate garnishes (viola, calendula) or garnish after expression</li>
+                        <li><strong>Ice Compatibility:</strong> Large format ice (2" cubes) = best for flower placement; crushed ice = microgreens only; pebble ice = avoid flowers</li>
+                        <li><strong>Speed Service:</strong> During rush, use only 2-3 varieties that bartenders are confident with; introduce complexity during quieter shifts</li>
+                        <li><strong>Waste Prevention:</strong> Track which cocktails move fastest and pre-garnish those ONLY; garnish slower movers to order</li>
+                        <li><strong>Training Efficiency:</strong> Create laminated "cheat sheet" showing each cocktail's garnish placement with photo reference</li>
+                    </ul>
+                </div>
+
+                <div class="technique-box">
+                    <h4 style="color: var(--fuel-orange-accent); margin-top: 0;">Instagram-Ready Presentation Tips</h4>
+                    <ul class="technique-steps">
+                        <li><strong>The "Money Shot" Rule:</strong> Position garnish where it's visible from a 45° overhead angle – the most common Instagram shot</li>
+                        <li><strong>Bloom Orientation:</strong> For violas/pansies, "face" the bloom toward the camera side; train bartenders to ask "which side are you shooting from?"</li>
+                        <li><strong>Color Contrast:</strong> Dark spirits + bright flowers (viola, calendula); Clear spirits + green garnish (pea tendril, basil)</li>
+                        <li><strong>Height & Dimension:</strong> Use curling garnishes (pea tendril) to add vertical interest; flat garnishes (sorrel) on foam only</li>
+                        <li><strong>Lighting Awareness:</strong> Translucent flowers (viola) look best with backlight; thick leaves (basil) need front lighting</li>
+                        <li><strong>Glassware Selection:</strong> Coupe glasses = best for flower floats; Nick & Nora = best for single bloom; Rocks glass = cluster on ice</li>
+                        <li><strong>The "Clean Rim" Technique:</strong> Wipe condensation and spills before garnishing – sloppy rim = amateur shot</li>
+                        <li><strong>Seasonal Storytelling:</strong> Tag photos with #FallCocktails, #SeasonalGarnish, #LocalSupplier (mention @fuelfoods.culinary)</li>
+                    </ul>
+                </div>
+
+                <div class="storage-box" style="margin-top: var(--space-xl);">
+                    <h3 style="color: var(--fuel-green-primary); margin-top: 0;">Bar-Specific Storage & Handling</h3>
+                    <div class="info-item">
+                        <span class="info-label">Bar Storage Location</span>
+                        <div class="info-content">Refrigerated section AWAY from ice wells • Never on speed rail • Use small lidded containers • Change containers every 2 days</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Service Station Setup</span>
+                        <div class="info-content">Dry, chilled ceramic or glass cups • Line with parchment • Keep lids nearby • Position between cocktail station and pass</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Common Mistakes</span>
+                        <div class="info-content">❌ Storing on ice = wilted in 20 min | ❌ Citrus mist contact = browning | ❌ Touching with warm hands = bruising | ❌ Over-garnishing = looks amateur</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Quality Check</span>
+                        <div class="info-content">Inspect at start of each shift • Discard wilted or brown-edged items • Refresh containers mid-service if high volume • Train bartenders to reject poor quality</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Menu Pricing</span>
+                        <div class="info-content">Garnished cocktails: +$2-3 premium justified | Feature seasonal garnish in description | Photograph signature serves for social proof</div>
+                    </div>
+                </div>
+
+                <div class="examples-box" style="margin-top: var(--space-lg);">
+                    <h4 style="color: var(--fuel-green-primary); margin-top: 0;">Menu Description Examples</h4>
+                    <p><strong>Violet Sour:</strong> "Gin, lemon, egg white, house lavender syrup, crowned with edible viola bloom"</p>
+                    <p><strong>Autumn Old Fashioned:</strong> "Bourbon, maple, bitters, garnished with calendula from Queens' own FuelFoods"</p>
+                    <p><strong>Garden Martini:</strong> "Vodka, dry vermouth, micro basil from our local MWBE supplier"</p>
+                    <p><strong>Mezcal Bloom:</strong> "Mezcal, grapefruit, agave, lime, nasturtium flower (peppery kick)"</p>
+                    <p style="margin-top: 16px; font-size: 13px; color: var(--fuel-text-secondary);"><em>Pro tip: Mentioning "edible flower" or "local supplier" in menu copy justifies premium pricing and builds story</em></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Enhanced Substitution Guide -->
+        <section id="substitutions" class="animate-fade-up">
+            <h2>Comprehensive Substitution Guide</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: var(--space-xl); font-size: 16px;">Smart alternatives when items are unavailable or need variety rotation</p>
+
+            <div class="substitution-box">
+                <p style="margin-bottom: var(--space-md); font-weight: 600; font-size: 16px; color: var(--fuel-green-primary);">When primary varieties are unavailable, use these strategic substitutions based on function:</p>
+                
+                <div class="substitution-grid">
+                    <div class="substitution-card">
+                        <h4>🌿 Red-Vein Sorrel</h4>
+                        <div class="substitution-option"><strong>Flavor Match:</strong> Micro Shiso Green (anise-mint nuance with citrus)</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Micro Amaranth (color contrast without acid)</div>
+                        <div class="substitution-option"><strong>Function Match:</strong> Lemon zest + micro basil (recreates brightness)</div>
+                        <div class="substitution-option"><strong>Budget Option:</strong> Micro Arugula (peppery, not acidic)</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🌸 Nasturtium Flowers</h4>
+                        <div class="substitution-option"><strong>Flavor Match:</strong> Micro Mustard (peppery heat without bloom)</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Calendula (bold color, citrus notes)</div>
+                        <div class="substitution-option"><strong>Cocktail Sub:</strong> Viola + micro daikon (visual + spice)</div>
+                        <div class="substitution-option"><strong>Season Note:</strong> Only available early fall; plan menu rotation</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>💜 Viola / Pansy</h4>
+                        <div class="substitution-option"><strong>Dessert Sub:</strong> Dianthus (cool-weather alternative bloom)</div>
+                        <div class="substitution-option"><strong>Cocktail Sub:</strong> Calendula petals (color impact, different flavor)</div>
+                        <div class="substitution-option"><strong>Visual Only:</strong> Orchid petals (neutral flavor, dramatic look)</div>
+                        <div class="substitution-option"><strong>Budget Option:</strong> Single calendula petal (minimalist approach)</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🟠 Calendula Petals</h4>
+                        <div class="substitution-option"><strong>Color Match:</strong> Micro Amaranth (magenta instead of orange)</div>
+                        <div class="substitution-option"><strong>Brown Butter Dishes:</strong> Micro Mustard (earthy, no color)</div>
+                        <div class="substitution-option"><strong>Cocktail Sub:</strong> Expressed orange peel + viola</div>
+                        <div class="substitution-option"><strong>Function Match:</strong> Saffron threads (luxury, color, different profile)</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🌱 Micro Cilantro</h4>
+                        <div class="substitution-option"><strong>Flavor Match:</strong> Micro Basil + lime zest (different but bright)</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Micro Dill (feathery texture, different flavor)</div>
+                        <div class="substitution-option"><strong>Mexican Cuisine:</strong> Micro Arugula + lime (peppery alternative)</div>
+                        <div class="substitution-option"><strong>Asian Dishes:</strong> Micro Shiso (authentic substitution)</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🥒 Micro Daikon (Radish)</h4>
+                        <div class="substitution-option"><strong>Flavor Match:</strong> Micro Mustard (similar spice, no pink stems)</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Pea Tendrils (green stems, no spice)</div>
+                        <div class="substitution-option"><strong>Crudo Dishes:</strong> Red-vein Sorrel (acid instead of pepper)</div>
+                        <div class="substitution-option"><strong>Function Match:</strong> Pickled ginger + micro basil</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🫛 Pea Tendrils</h4>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Sunflower Shoots (height without curls)</div>
+                        <div class="substitution-option"><strong>Flavor Match:</strong> Micro Basil (sweet, aromatic)</div>
+                        <div class="substitution-option"><strong>Budget Option:</strong> Micro Arugula (1/3 the cost, different flavor)</div>
+                        <div class="substitution-option"><strong>Pasta Dishes:</strong> Regular basil chiffonade + lemon zest</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🌻 Sunflower Shoots</h4>
+                        <div class="substitution-option"><strong>Function Match:</strong> Pea Tendrils (less crunch, more elegance)</div>
+                        <div class="substitution-option"><strong>Budget Option:</strong> Mixed baby lettuce (volume, no specialty cost)</div>
+                        <div class="substitution-option"><strong>Texture Match:</strong> Shredded napa cabbage (for sandwiches)</div>
+                        <div class="substitution-option"><strong>Grain Bowls:</strong> Arugula + shaved radish (different texture)</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🍃 Micro Basil</h4>
+                        <div class="substitution-option"><strong>Italian Dishes:</strong> Regular basil micro-chiffonade</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Micro Shiso (different flavor profile)</div>
+                        <div class="substitution-option"><strong>Function Match:</strong> Micro Cilantro (for non-Italian)</div>
+                        <div class="substitution-option"><strong>Cocktails:</strong> Basil simple syrup + micro mint</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🥗 Micro Mustard</h4>
+                        <div class="substitution-option"><strong>Flavor Match:</strong> Micro Arugula (peppery, more common)</div>
+                        <div class="substitution-option"><strong>Heat Match:</strong> Micro Daikon (spicier, pink stems)</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Micro Kale (sturdy, milder)</div>
+                        <div class="substitution-option"><strong>Budget Option:</strong> Baby arugula torn small</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>🟢 Micro Shiso Green</h4>
+                        <div class="substitution-option"><strong>Asian Dishes:</strong> Thai Basil micro leaves (similar anise notes)</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Micro Basil (different flavor entirely)</div>
+                        <div class="substitution-option"><strong>Sashimi:</strong> Perilla leaves (traditional, larger format)</div>
+                        <div class="substitution-option"><strong>Cocktails:</strong> Micro Mint + cucumber (different but fresh)</div>
+                    </div>
+
+                    <div class="substitution-card">
+                        <h4>💚 Micro Amaranth</h4>
+                        <div class="substitution-option"><strong>Color Match:</strong> Calendula (orange vs magenta)</div>
+                        <div class="substitution-option"><strong>Visual Match:</strong> Micro Red Cabbage (purple tones)</div>
+                        <div class="substitution-option"><strong>Beet Dishes:</strong> Pickled beet microgreens or beet greens</div>
+                        <div class="substitution-option"><strong>Function:</strong> Any green + edible flower for color</div>
+                    </div>
+                </div>
+
+                <div class="storage-box" style="margin-top: var(--space-xl); background: linear-gradient(135deg, var(--fuel-green-light) 0%, var(--fuel-bg-cream) 100%);">
+                    <h4 style="color: var(--fuel-green-primary); margin-top: 0;">Strategic Substitution Principles</h4>
+                    <div class="info-item">
+                        <span class="info-label">Menu Planning</span>
+                        <div class="info-content">Design dishes to work with 2-3 garnish options • Avoid single-variety dependence • Train staff on approved substitutions</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Seasonal Reality</span>
+                        <div class="info-content">Nasturtium = early fall only • Pansies = cooler weather • Some varieties have 2-3 week unavailability during transitions</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Guest Communication</span>
+                        <div class="info-content">Train servers: "Tonight we're featuring [substitute] instead of [original] for peak freshness" • Turns scarcity into quality story</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Ordering Strategy</span>
+                        <div class="info-content">Keep 3-4 varieties per delivery • Rotate based on availability • Build relationships with FuelFoods for advance notice on seasonal transitions</div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Cost Management</span>
+                        <div class="info-content">Expensive varieties (pea tendrils) = special dishes only • Affordable varieties (sunflower, mustard) = high-volume applications</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
         <!-- Usage Tips Section -->
         <h2 id="usage-tips">Usage Tips</h2>
         <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: var(--space-xl); font-size: 16px;">Professional handling, storage, and implementation guidance</p>
@@ -1667,19 +2345,6 @@
                 <div class="info-item">
                     <span class="info-label">Bar</span>
                     <div class="info-content">Keep above ice • Avoid citrus mist • Use dry, chilled pans with parchment</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Substitution Options -->
-        <section class="animate-fade-up">
-            <h3 style="color: var(--fuel-white); text-align: center;">Substitution Options</h3>
-            <div class="substitution-box">
-                <p style="margin-bottom: 12px; font-weight: 600; font-size: 15px;">When items are tight:</p>
-                <div class="substitution-list">
-                    <p><strong>Nasturtium</strong> (spicy) → micro mustard (heat) or calendula (color)</p>
-                    <p><strong>Sorrel</strong> (acid) → micro shiso green (anise-mint nuance)</p>
-                    <p><strong>Viola/pansy</strong> (bloom) → dianthus (cool-weather structure for cocktails/desserts)</p>
                 </div>
             </div>
         </section>
