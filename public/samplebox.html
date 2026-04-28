@@ -1398,15 +1398,18 @@
                         <h3>Request Your Free Samples</h3>
                         <p>Get professional samples delivered within 48&nbsp;hours</p>
                         <form id="hero-sample-form">
+                            <input type="hidden" name="access_key" value="c172ca33-10d4-4551-b643-b50ccad71c6a">
+                            <input type="hidden" name="subject" value="New Sample Box Request (Hero)">
+                            <input type="hidden" name="from_name" value="FuelFoods Sample Box">
                             <div class="form-row">
-                                <input type="text" placeholder="Restaurant Name" required>
-                                <input type="text" placeholder="Your Name" required>
+                                <input type="text" name="restaurant_name" placeholder="Restaurant Name" required>
+                                <input type="text" name="contact_name" placeholder="Your Name" required>
                             </div>
                             <div class="form-row">
-                                <input type="email" placeholder="Email Address" required>
-                                <input type="tel" placeholder="Phone Number" required>
+                                <input type="email" name="email" placeholder="Email Address" required>
+                                <input type="tel" name="phone" placeholder="Phone Number" required>
                             </div>
-                            <input type="text" placeholder="Restaurant Address (NYC)" required style="margin-bottom: 12px;">
+                            <input type="text" name="address" placeholder="Restaurant Address (NYC)" required style="margin-bottom: 12px;">
                             <button type="submit" class="cta-primary">Request Free Samples</button>
                         </form>
                     </div>
@@ -1557,6 +1560,9 @@
             </button>
             <h3>Get your Samples</h3>
             <form id="modal-sample-form">
+                <input type="hidden" name="access_key" value="c172ca33-10d4-4551-b643-b50ccad71c6a">
+                <input type="hidden" name="subject" value="New Sample Box Request (Modal)">
+                <input type="hidden" name="from_name" value="FuelFoods Sample Box">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="modal-restaurant-name">Restaurant Name</label>
@@ -1905,40 +1911,49 @@
             });
         });
 
-        // Handle both hero and modal form submissions
+        // Handle both hero and modal form submissions via Web3Forms
         document.addEventListener('DOMContentLoaded', function() {
             function handleFormSubmit(formId) {
                 const form = document.getElementById(formId);
-                if (!form) {
-                    console.warn('Form not found:', formId);
-                    return;
-                }
-                
-                form.addEventListener('submit', function(e) {
+                if (!form) return;
+
+                form.addEventListener('submit', async function(e) {
                     e.preventDefault();
-                    
-                    const formData = new FormData(this);
+
                     const submitBtn = this.querySelector('button[type="submit"]');
                     const originalText = submitBtn.textContent;
-                    
                     submitBtn.textContent = 'Submitting...';
                     submitBtn.disabled = true;
-                    
-                    setTimeout(() => {
-                        console.log('Form submitted:', Object.fromEntries(formData));
-                        this.reset();
+
+                    try {
+                        const res = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(Object.fromEntries(new FormData(this)))
+                        });
+                        const data = await res.json();
+
+                        if (data.success) {
+                            this.reset();
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+
+                            if (formId === 'modal-sample-form') {
+                                const modal = document.getElementById('sampleModal');
+                                modal.classList.remove('active');
+                                document.body.style.overflow = '';
+                            }
+
+                            showNotification('Thank you! Your sample request has been submitted. We will contact you within 24 hours.', 'success');
+                        } else {
+                            throw new Error(data.message || 'Submission failed');
+                        }
+                    } catch (err) {
+                        console.error('Form error:', err);
                         submitBtn.textContent = originalText;
                         submitBtn.disabled = false;
-                        
-                        // Close modal if it's the modal form
-                        if (formId === 'modal-sample-form') {
-                            const modal = document.getElementById('sampleModal');
-                            modal.classList.remove('active');
-                            document.body.style.overflow = '';
-                        }
-                        
-                        showNotification('Thank you! Your sample request has been submitted. We will contact you within 24 hours.', 'success');
-                    }, 1500);
+                        showNotification('Something went wrong. Please try again or email info@fuelfoods.store directly.', 'error');
+                    }
                 });
             }
 

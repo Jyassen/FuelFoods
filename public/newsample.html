@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuelFoods Culinary | Request Your Free Micro Cilantro Sample</title>
+  <meta name="description" content="Request a free micro cilantro sample from FuelFoods Culinary. Limited harvest available for NYC chefs, restaurants, bars, and culinary teams.">
+  <link rel="icon" type="image/png" sizes="500x500" href="/images/brand/Logo.png">
+  <link rel="apple-touch-icon" sizes="500x500" href="/images/brand/Logo.png">
+  <style>
+    :root {
+      --green: #2f8f2f;
+      --green-dark: #17651f;
+      --black: #050505;
+      --orange: #f26a21;
+      --yellow: #ffd400;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 3px solid rgba(47,143,47,.3);
+      top: -180px;
+      right: -180px;
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      border: 2px solid rgba(47,143,47,.15);
+      bottom: -120px;
+      left: -120px;
+    }
+
+    .form-card {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      background: #0d0d0d;
+      border: 2px solid rgba(47,143,47,.7);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.4);
+    }
+
+    .logo-text {
+      font-size: 30px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .logo-text .fuel { color: var(--orange); }
+    .logo-text .foods { color: var(--white); }
+
+    .tagline {
+      color: var(--yellow);
+      letter-spacing: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .form-card h2 {
+      font-size: 32px;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .form-card h2 span { color: var(--green); }
+
+    .form-card .note {
+      color: #d7d7d7;
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 7px;
+      color: #e7e7e7;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #333;
+      background: #fff;
+      color: #111;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 15px;
+      margin-bottom: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: var(--green);
+      color: white;
+      padding: 17px 20px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 950;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background .2s;
+    }
+
+    button:hover { background: var(--green-dark); }
+    button:disabled { background: #555; cursor: not-allowed; }
+
+    .micro-copy {
+      text-align: center;
+      color: #bdbdbd;
+      font-size: 12px;
+      margin-top: 14px;
+    }
+
+    .contact-bar {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid #2c2c2c;
+      display: grid;
+      gap: 8px;
+      color: #e9e9e9;
+      font-size: 14px;
+    }
+
+    .orange { color: var(--orange); }
+
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .error-msg {
+      text-align: center;
+      color: #ff6b6b;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .form-card { padding: 24px 18px; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="form-card">
+      <div class="logo-text"><span class="fuel">Fuel</span><span class="foods">Foods</span></div>
+      <div class="tagline">Microgreens & Flowers</div>
+
+      <h2>Request This Week's <span>Sample</span></h2>
+      <p class="note">Limited harvest available for NYC chefs, restaurants, bars, and culinary teams.</p>
+
+      <form id="sample-form">
+        <input type="hidden" name="access_key" value="c172ca33-10d4-4551-b643-b50ccad71c6a">
+        <input type="hidden" name="subject" value="New Micro Cilantro Sample Request">
+        <input type="hidden" name="from_name" value="FuelFoods Sample Funnel">
+
+        <div class="grid-2">
+          <div>
+            <label for="name">Your Name</label>
+            <input id="name" name="name" type="text" placeholder="Chef / Buyer Name" required />
+          </div>
+          <div>
+            <label for="restaurant">Restaurant / Business</label>
+            <input id="restaurant" name="restaurant" type="text" placeholder="Restaurant Name" required />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="347-000-0000" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="chef@example.com" required />
+          </div>
+        </div>
+
+        <label for="role">Your Role</label>
+        <select id="role" name="role" required>
+          <option value="">Select one</option>
+          <option>Executive Chef</option>
+          <option>Sous Chef</option>
+          <option>Owner / Operator</option>
+          <option>Purchasing Manager</option>
+          <option>Bar / Beverage Director</option>
+          <option>Other</option>
+        </select>
+
+        <label for="interest">What are you using micro cilantro for?</label>
+        <textarea id="interest" name="interest" placeholder="Tacos, tasting menu, cocktails, garnish program, weekly ordering, etc."></textarea>
+
+        <button type="submit" id="submit-btn">Claim My Free Sample</button>
+        <p class="micro-copy">We'll reach out to confirm availability and delivery details.</p>
+        <p class="error-msg" id="error-msg">Something went wrong. Please try again or email us directly.</p>
+      </form>
+
+      <div class="contact-bar">
+        <div><strong class="orange">Email:</strong> info@fuelfoods.store</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 FuelFoods Culinary</p>
+  </footer>
+
+  <script>
+    document.getElementById('sample-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submit-btn');
+      const errMsg = document.getElementById('error-msg');
+      const original = btn.textContent;
+
+      btn.textContent = 'Submitting…';
+      btn.disabled = true;
+      errMsg.style.display = 'none';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(this)))
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          window.location.href = '/confirmation';
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        console.error('Form error:', err);
+        btn.textContent = original;
+        btn.disabled = false;
+        errMsg.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
