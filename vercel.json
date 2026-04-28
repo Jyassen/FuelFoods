@@ -12,6 +12,14 @@
     {
       "source": "/samplebox",
       "destination": "/samplebox.html"
+    },
+    {
+      "source": "/newsample",
+      "destination": "/newsample.html"
+    },
+    {
+      "source": "/confirmation",
+      "destination": "/confirmation.html"
     }
   ],
   "headers": [
