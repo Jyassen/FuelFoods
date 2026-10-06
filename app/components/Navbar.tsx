@@ -61,6 +61,13 @@ export default function Navbar() {
               Catalog
             </Link>
             <Link 
+              href="/blog"
+              className="nav-link"
+              style={{ color: 'var(--fuel-text-primary)' }}
+            >
+              Blog
+            </Link>
+            <Link 
               href="https://fuelfoods.store/"
               target="_blank"
               rel="noopener noreferrer"
@@ -155,6 +162,23 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Catalog
+              </Link>
+              <Link
+                href="/blog"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '24px 0',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: 'black',
+                  backgroundColor: '#ffffff',
+                  borderBottom: '1px solid #e5e7eb'
+                }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
               </Link>
               <Link
                 href="https://fuelfoods.store/"

@@ -48,6 +48,13 @@ export default function Footer() {
                 Catalog
               </Link>
               <Link 
+                href="/blog"
+                className="transition-colors hover:opacity-75"
+                style={{ color: 'var(--fuel-text-secondary)' }}
+              >
+                Blog
+              </Link>
+              <Link 
                 href="https://fuelfoods.store/"
                 target="_blank"
                 rel="noopener noreferrer"

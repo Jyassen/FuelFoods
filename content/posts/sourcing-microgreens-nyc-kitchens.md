@@ -3,7 +3,7 @@ title: "Sourcing Microgreens for NYC Kitchens: Spec, Supply, and MWBE Partners"
 slug: "sourcing-microgreens-nyc-kitchens"
 description: "A practical sourcing guide for NYC chefs and buyers on kitchen-grade microgreen specs, local supply, MWBE partners, and how to write POs that match the plate."
 date: "2026-09-21"
-status: "draft"
+status: "publish"
 ---
 
 # Sourcing Microgreens for NYC Kitchens: Spec, Supply, and MWBE Partners

@@ -3,7 +3,7 @@ title: "Plating Microgreens for Chefs: Heat, Timing, Stations, and Yield"
 slug: "plating-microgreens-for-chefs"
 description: "Kitchen-ready plating rules for chefs: heat and timing, station mise from garde manger to bar, yield control, and walk-in handling so microgreens survive a real service."
 date: "2026-09-21"
-status: "draft"
+status: "publish"
 ---
 
 # Plating Microgreens for Chefs: Heat, Timing, Stations, and Yield

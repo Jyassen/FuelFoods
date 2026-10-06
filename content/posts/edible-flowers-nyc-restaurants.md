@@ -3,7 +3,7 @@ title: "Edible Flowers for NYC Restaurants: Flavor, Plating, and Spec Tips"
 slug: "edible-flowers-nyc-restaurants"
 description: "A chef- and buyer-facing guide to edible flowers for NYC kitchens — flavor notes, plating and finish timing, storage, allergen messaging, and how to spec culinary blooms."
 date: "2026-09-21"
-status: "draft"
+status: "publish"
 ---
 
 # Edible Flowers for NYC Restaurants: Flavor, Plating, and Spec Tips
