@@ -16,7 +16,9 @@ Custom-grow microgreens means a professional grower produces specific varieties 
 
 Too much garnish in this city is on the plate because the plate looked empty. Off-menu green isn’t a Pinterest mood. It’s a PO with lead time.
 
-Food-led kitchens — the ones that name the ingredient, not the vibe — brief flavor, height, and heat sensitivity the way they brief a seasonal fish. Edible flowers belong in that same sentence as food, not decoration. The pass doesn’t care about your mood board at 5 p.m. ticket rush; it cares whether the finish is repeatable at cover two hundred.
+Food-led kitchens — Atoboy-style naming, not vibe plating — brief flavor, height, and heat sensitivity the way they brief a seasonal fish. Edible flowers belong in that same sentence as food, not decoration (Shukette standard: blooms behave like ingredients). The pass doesn’t care about your mood board at 5 p.m. ticket rush; it cares whether the finish is repeatable at cover two hundred. Documentary kitchen energy beats AI-perfect plating language every time.
+
+**Ask who grew the garnish.** Local MWBE suppliers can answer that question with a name and a receiving window — not a mystery tray. Fuel Foods Culinary positions as an MWBE certified partner for NYC kitchens on [culinary.fuelfoods.store](https://culinary.fuelfoods.store).
 
 ## Custom grow vs standing catalog (honest)
 
@@ -48,7 +50,7 @@ Write the brief like mise — precise, not poetic.
 - **Whether edible flowers ship with micros** — blooms as food on the same card, not an afterthought garnish kit
 - **Exclusivity needs:** ask honestly; don’t assume exclusivity Fuel hasn’t confirmed in writing
 
-If you need a pairing map before you lock a custom SKU, ask culinary sales about current variety lists and any sample or pairing-guide materials they offer for R&D — start from what already grows well, then custom-lock what the menu requires.
+**Sample before you switch** from your current supplier. Taste the catalog under real pass conditions before you lock a custom SKU or rip out an incumbent PO. Ask culinary sales about current variety lists, [sample box](https://culinary.fuelfoods.store/samplebox) options, and [pairing-guide](https://culinary.fuelfoods.store/pairing-guide) materials for R&D — start from what already grows well, then custom-lock what the menu requires.
 
 **Quotable:** MWBE + 40+ varieties + custom growing — trust triad, then prove it on the pass.
 
@@ -130,4 +132,4 @@ Yes — free shipping on bulk orders as marketed on the culinary site. Confirm t
 
 ## Soft CTA
 
-Send plate job + weekly volume + target start date to **info@fuelfoods.store**. Start from the **40+** list when you can; custom-grow when menu identity requires it. MWBE partner, bulk free shipping, 24-hour freshness positioning. Spec language: [sourcing microgreens for NYC kitchens](/blog/sourcing-microgreens-nyc-kitchens). Pass rules: [plating microgreens for chefs](/blog/plating-microgreens-for-chefs). Blooms as food: [edible flowers for NYC restaurants](/blog/edible-flowers-nyc-restaurants).
+Send plate job + weekly volume + target start date to **info@fuelfoods.store**. Prefer a culinary sample / pairing pass before you switch suppliers; start from the **40+** list when you can; custom-grow when menu identity requires it. MWBE partner — ask who grew the garnish and get the answer in writing. Bulk free shipping, 24-hour freshness positioning. Spec language: [sourcing microgreens for NYC kitchens](/blog/sourcing-microgreens-nyc-kitchens). Pass rules: [plating microgreens for chefs](/blog/plating-microgreens-for-chefs). Blooms as food: [edible flowers for NYC restaurants](/blog/edible-flowers-nyc-restaurants). Sample / pairing soft links: [samplebox](https://culinary.fuelfoods.store/samplebox) · [pairing-guide](https://culinary.fuelfoods.store/pairing-guide).
