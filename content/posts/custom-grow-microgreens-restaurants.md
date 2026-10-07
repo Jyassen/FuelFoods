@@ -4,7 +4,7 @@ slug: "custom-grow-microgreens-restaurants"
 description: "When to custom-grow microgreens vs order from a 40+ variety list — lead-time thinking, grow briefs, and how Fuel Foods Culinary runs custom programs for NYC kitchens (MWBE, bulk shipping, 24h freshness)."
 excerpt: "Menu-locked microgreens: when custom grow beats the catalog — grow briefs, lead time, Fuel Foods Culinary for NYC kitchens."
 date: "2026-10-06"
-status: "draft"
+status: "publish"
 author: "Fuel Foods Team"
 category: "Culinary"
 tags: [custom grow, restaurant microgreens, NYC kitchens, MWBE, edible flowers, menu planning]
