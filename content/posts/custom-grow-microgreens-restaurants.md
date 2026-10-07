@@ -8,6 +8,8 @@ status: "draft"
 author: "Fuel Foods Team"
 category: "Culinary"
 tags: [custom grow, restaurant microgreens, NYC kitchens, MWBE, edible flowers, menu planning]
+coverImage: "/images/blog/custom-grow-cover.png"
+coverAlt: "Microgreens growing in soil trays — Fuel Foods Culinary custom-grow"
 ---
 
 # Custom-Grow Microgreens for Restaurants: When the Catalog Isn’t Enough
@@ -19,6 +21,8 @@ Too much garnish in this city is on the plate because the plate looked empty. Of
 Food-led kitchens — Atoboy-style naming, not vibe plating — brief flavor, height, and heat sensitivity the way they brief a seasonal fish. Edible flowers belong in that same sentence as food, not decoration (Shukette standard: blooms behave like ingredients). The pass doesn’t care about your mood board at 5 p.m. ticket rush; it cares whether the finish is repeatable at cover two hundred. Documentary kitchen energy beats AI-perfect plating language every time.
 
 **Ask who grew the garnish.** Local MWBE suppliers can answer that question with a name and a receiving window — not a mystery tray. Fuel Foods Culinary positions as an MWBE certified partner for NYC kitchens on [culinary.fuelfoods.store](https://culinary.fuelfoods.store).
+
+![Microgreens finishing a plated taco — restrained garnish on real food](/images/culinary/micro-tacos.png)
 
 ## Custom grow vs standing catalog (honest)
 
@@ -41,6 +45,8 @@ For PO language, specs, and supplier fit, see [sourcing microgreens for NYC kitc
 ## What to put in a grow brief (chef + buyer)
 
 Write the brief like mise — precise, not poetic.
+
+![Green shiso microgreens — ingredient-led variety close-up](/images/varieties/Shiso%20Green.png)
 
 - **Plate job:** aroma / color / height / crunch / heat sensitivity under lamps
 - **Station:** garde manger / pass / pastry / bar

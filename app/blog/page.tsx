@@ -37,6 +37,14 @@ export default function BlogIndexPage() {
                 style={{ borderColor: "var(--fuel-gray-light)" }}
               >
                 <Link href={`/blog/${post.slug}`} className="block group">
+                  {post.coverImage ? (
+                    <img
+                      src={post.coverImage}
+                      alt={post.coverAlt || post.title}
+                      className="w-full rounded-lg mb-4"
+                      style={{ maxHeight: "240px", objectFit: "cover" }}
+                    />
+                  ) : null}
                   <h2
                     className="text-2xl font-bold group-hover:opacity-80 transition-opacity"
                     style={{ color: "var(--fuel-text-primary)" }}

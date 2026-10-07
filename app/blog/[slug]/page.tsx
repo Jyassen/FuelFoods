@@ -55,6 +55,14 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.date}
           </p>
         ) : null}
+        {post.coverImage ? (
+          <img
+            src={post.coverImage}
+            alt={post.coverAlt || post.title}
+            className="w-full rounded-lg mb-8"
+            style={{ maxHeight: "500px", objectFit: "cover" }}
+          />
+        ) : null}
         <div
           className="prose prose-lg max-w-none"
           style={{ color: "var(--fuel-text-primary)" }}

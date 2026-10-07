@@ -13,6 +13,8 @@ export type BlogPostMeta = {
   description: string;
   date: string;
   status: BlogStatus;
+  coverImage?: string;
+  coverAlt?: string;
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -37,6 +39,8 @@ function readPostFile(fileName: string): BlogPost | null {
     description: String(data.description ?? ""),
     date: String(data.date ?? ""),
     status: parseStatus(data.status),
+    coverImage: data.coverImage ? String(data.coverImage) : undefined,
+    coverAlt: data.coverAlt ? String(data.coverAlt) : undefined,
     content,
   };
 }
