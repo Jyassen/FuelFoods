@@ -75,7 +75,7 @@ OPERATIONAL PROOF:
 • HACCP compliance and food safety standards
 
 BUSINESS CONTACT:
-• Owner: Jada Yassen, Co-Owner | Direct: 347-409-0464
+• Owner: Jada Yassen, Co-Owner | Direct: (888) 625-7343
 • Email: jada.yassen@gmail.com | info@fuelfoods.store
 • Location: Queens Village, NYC (serving all 5 boroughs)
 • Black-owned business supporting NYC restaurant community
@@ -158,7 +158,7 @@ BUTTON: "GET THE PROFESSIONAL PAIRING GUIDE"
 
 BUSINESS GUARANTEE: "If this guide doesn't provide actionable strategies for your operation, contact Jada directly at jada.yassen@gmail.com for personalized recommendations at no cost."
 
-DIRECT ACCESS: "Questions about specific pairing challenges or interested in partnership discussion? Call 347-409-0464 or email jada.yassen@gmail.com"
+DIRECT ACCESS: "Questions about specific pairing challenges or interested in partnership discussion? Call (888) 625-7343 or email jada.yassen@gmail.com"
 
 BUSINESS INFO: "FuelFoods Industries LLC | NYC | MWBE certified | 30+ Restaurant Partners | Since 2021"
 ```

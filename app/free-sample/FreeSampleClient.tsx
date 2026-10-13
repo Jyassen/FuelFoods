@@ -119,7 +119,7 @@ export default function FreeSampleClient({ headline, subheading }: { headline?: 
         title={headline || 'Stop Choosing Between Quality Ingredients and Profit Margins'}
         subtitle={subheading || "30+ NYC restaurants solved this dilemma with FuelFoods' free sample program—see how 40× nutrient-dense microgreens boost both quality and bottom line"}
         primaryCta={{ href: '#sample-form', label: 'REQUEST PROFESSIONAL SAMPLES' }}
-        secondaryCta={{ href: 'tel:13474090464', label: '📞 Call Jada: 347-409-0464' }}
+        secondaryCta={{ href: 'tel:+18886257343', label: '📞 Call Jada: (888) 625-7343' }}
       />
 
       <StatBar />
