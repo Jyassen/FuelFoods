@@ -80,6 +80,13 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--fuel-text-primary)' }}>Contact</h3>
             <div className="flex flex-col items-start">
               <span style={{ color: 'var(--fuel-text-secondary)' }}>New York City</span>
+              <a
+                href="tel:+18886257343"
+                className="transition-colors hover:opacity-75"
+                style={{ color: 'var(--fuel-green-medium)' }}
+              >
+                (888) 625-7343
+              </a>
               <a 
                 href="mailto:info@fuelfoods.store"
                 className="transition-colors hover:opacity-75"

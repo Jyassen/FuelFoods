@@ -116,7 +116,7 @@ export default function DirectAdClient({ headline, subheading }: { headline?: st
         subtitle={subheading || "Get Instagram-ready presentations that customers photograph AND share—while protecting your food costs through longer-lasting, premium microgreens"}
         variant="dark"
         overlayClassName="bg-black/55"
-        primaryCta={{ href: 'tel:13474090464', label: 'CALL JADA NOW: 347-409-0464' }}
+        primaryCta={{ href: 'tel:+18886257343', label: 'CALL JADA NOW: (888) 625-7343' }}
         secondaryCta={{ href: '#partnership-form', label: 'REQUEST PARTNERSHIP ASSESSMENT' }}
         tertiaryCta={{ href: '/images/catalog/FuelFoods Catalog 2025 NEW .pdf', label: 'GET RESTAURANT SUCCESS GUIDE', newTab: true }}
       />
@@ -253,13 +253,13 @@ export default function DirectAdClient({ headline, subheading }: { headline?: st
 
       <Section tight>
         <div className="flex flex-wrap gap-3">
-          <a href="tel:13474090464" className="btn-primary inline-flex items-center gap-2"><PhoneCall size={18} /> CALL OWNER—CALL NOW</a>
+          <a href="tel:+18886257343" className="btn-primary inline-flex items-center gap-2"><PhoneCall size={18} /> CALL OWNER—CALL NOW</a>
           <a href="/images/catalog/FuelFoods Catalog 2025 NEW .pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex items-center gap-2"><Download size={18} /> GET RESTAURANT SUCCESS GUIDE</a>
         </div>
       </Section>
 
       <Section id="partnership-form" title="Speak With Jada About Partnership Qualification">
-        <p className="mb-6"><strong className="inline-flex items-center gap-2"><PhoneCall size={18} /> DIRECT OWNER LINE: 347-409-0464</strong><br />
+        <p className="mb-6"><strong className="inline-flex items-center gap-2"><PhoneCall size={18} /> DIRECT OWNER LINE: (888) 625-7343</strong><br />
         <em>Speak directly with Jada about solving your quality vs. cost dilemma</em></p>
 
         {submitMessage && (
@@ -330,7 +330,7 @@ export default function DirectAdClient({ headline, subheading }: { headline?: st
 
           <div className="md:col-span-2 mt-2 flex flex-wrap gap-3">
             <button type="submit" disabled={submitting} className="btn-primary inline-flex items-center gap-2">{submitting ? 'Submitting...' : 'SPEAK WITH JADA ABOUT PARTNERSHIP'}<ArrowRight size={18} /></button>
-            <a href="tel:13474090464" className="btn-secondary inline-flex items-center gap-2"><PhoneCall size={18} /> CALL OWNER DIRECT: 347-409-0464</a>
+            <a href="tel:+18886257343" className="btn-secondary inline-flex items-center gap-2"><PhoneCall size={18} /> CALL OWNER DIRECT: (888) 625-7343</a>
           </div>
         </form>
       </Section>
